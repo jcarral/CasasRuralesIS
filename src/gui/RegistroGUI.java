@@ -19,6 +19,8 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;
@@ -139,17 +141,17 @@ public class RegistroGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				if (Vacio()==true){
 					JOptionPane.showMessageDialog(frame,
-						    "Hay algun campo vacio",
+						    "Hay algun campo incorrecto o vacio",
 						    "Error",
 						    JOptionPane.ERROR_MESSAGE);
 				}
-				else{
-					boolean P = isPropietario();	
-					
-					loginLogic.CrearUsuario(InsertarNombre.getText(),InsertarContraseña.getPassword().toString(),
-											InsertarApellido.getText(), InsertarEmail.getText(), 
-											InsertarDNI.getText(), Integer.parseInt(InsertarTelefono.getText()),P);
-				}
+//				else{
+//					boolean P = isPropietario();	
+//					
+//					loginLogic.CrearUsuario(InsertarNombre.getText(),InsertarContraseña.getPassword().toString(),
+//											InsertarApellido.getText(), InsertarEmail.getText(), 
+//											InsertarDNI.getText(), Integer.parseInt(InsertarTelefono.getText()),P);
+//				}
 			}
 		});
 	}
@@ -170,7 +172,7 @@ public class RegistroGUI extends JFrame{
 			if(InsertarApellido.getText().equals("")){
 				V=true;
 			}
-			if(InsertarEmail.getText().equals("")){
+			if(!(ValidarCorreo(InsertarEmail.getText()))){
 				V=true;
 			}
 			if(InsertarDNI.getText().equals("")){
@@ -187,6 +189,21 @@ public class RegistroGUI extends JFrame{
 			
 		}
 
+
+
+		//Funcion para validar el campo del email//
+		public boolean ValidarCorreo(String hex) {
+			
+			String Patron = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+			
+			Pattern pattern = Pattern.compile(Patron);
+			Matcher matcher = pattern.matcher(hex);
+			return matcher.matches();
+
+			
+		}
+
+		
 	public static void main(String[] args) {
 //		new RegistroGUI().setVisible(true);
 		EventQueue.invokeLater(new Runnable() {
