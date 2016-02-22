@@ -4,10 +4,7 @@ import businessLogic.ruralManagerLogic;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -177,6 +174,24 @@ public class RegistroGUI extends JFrame {
         insertarTelefono = new JTextField();
         insertarTelefono.setColumns(10);
         insertarTelefono.setBounds(327, 366, 200, 22);
+        insertarTelefono.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                try {
+                    Integer.parseInt(insertarTelefono.getText());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(frame,
+                            "Eso no es un número, mete un número",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         getContentPane().add(insertarTelefono);
 
         //Cajas de contrase�as//
