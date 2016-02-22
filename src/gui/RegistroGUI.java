@@ -2,21 +2,29 @@ package gui;
 
 import javax.swing.JFrame;
 
+import java.awt.GridLayout;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JSplitPane;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Frame;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;
+import javax.xml.bind.ParseConversionEvent;
 import javax.swing.ButtonGroup;
 
 public class RegistroGUI extends JFrame{
@@ -29,9 +37,9 @@ public class RegistroGUI extends JFrame{
 	private JTextField InsertarEmail;
 	private JTextField InsertarDNI;
 	private JTextField InsertarTelefono;
-    private JPasswordField InsertarPassword;
-
-    private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JPasswordField InsertarContraseña;
+	
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JRadioButton Usuario = null;
 	private JRadioButton Propietario = null;
 	
@@ -42,7 +50,7 @@ public class RegistroGUI extends JFrame{
 		this.setSize(671, 649);
 		getContentPane().setLayout(null);
 		
-		//Tï¿½tulo//
+		//Título//
 		JLabel lblRegistro = new JLabel("Registro");
 		lblRegistro.setFont(new Font("Segoe Print", Font.PLAIN, 65));
 		lblRegistro.setBounds(167, 11, 265, 93);
@@ -105,13 +113,13 @@ public class RegistroGUI extends JFrame{
 		InsertarTelefono.setBounds(327, 366, 200, 22);
 		getContentPane().add(InsertarTelefono);
 		
-		//Cajas de contraseï¿½as//
-
-        InsertarPassword = new JPasswordField();
-        InsertarPassword.setBounds(327, 425, 200, 20);
-        getContentPane().add(InsertarPassword);
-
-        //RadioButon//
+		//Cajas de contraseñas//
+		
+		InsertarContraseña = new JPasswordField();
+		InsertarContraseña.setBounds(327, 425, 200, 20);
+		getContentPane().add(InsertarContraseña);
+		
+		//RadioButon//
 		
 		JRadioButton rdbtnUsuario = new JRadioButton("Usuario");
 		rdbtnUsuario.setSelected(true);
@@ -124,7 +132,7 @@ public class RegistroGUI extends JFrame{
 		rdbtnPropietario.setBounds(355, 479, 114, 22);
 		getContentPane().add(rdbtnPropietario);
 		
-		//Botï¿½n//
+		//Botón//
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnRegistrar.setBounds(210, 532, 200, 50);
@@ -133,17 +141,17 @@ public class RegistroGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				if (Vacio()==true){
 					JOptionPane.showMessageDialog(frame,
-						    "Hay algun campo vacio",
+						    "Hay algun campo incorrecto o vacio",
 						    "Error",
 						    JOptionPane.ERROR_MESSAGE);
 				}
-				else{
-					boolean P = isPropietario();
-
-                    //ruralManagerLogic.CrearUsuario(InsertarNombre.getText(),InsertarPassword.getPassword().toString(),
-                    //						InsertarApellido.getText(), InsertarEmail.getText(),
-                    //						InsertarDNI.getText(), Integer.parseInt(InsertarTelefono.getText()),P);
-                }
+//				else{
+//					boolean P = isPropietario();	
+//					
+//					loginLogic.CrearUsuario(InsertarNombre.getText(),InsertarContraseña.getPassword().toString(),
+//											InsertarApellido.getText(), InsertarEmail.getText(), 
+//											InsertarDNI.getText(), Integer.parseInt(InsertarTelefono.getText()),P);
+//				}
 			}
 		});
 	}
@@ -164,7 +172,7 @@ public class RegistroGUI extends JFrame{
 			if(InsertarApellido.getText().equals("")){
 				V=true;
 			}
-			if(InsertarEmail.getText().equals("")){
+			if(!(ValidarCorreo(InsertarEmail.getText()))){
 				V=true;
 			}
 			if(InsertarDNI.getText().equals("")){
@@ -173,14 +181,29 @@ public class RegistroGUI extends JFrame{
 			if(InsertarTelefono.getText().equals("")){
 				V=true;
 			}
-        if (InsertarPassword.getPassword().equals("")) {
-            V=true;
+			if(InsertarContraseña.getPassword().equals("")){
+				V=true;
 			}
 			
 			return V;
 			
 		}
 
+
+
+		//Funcion para validar el campo del email//
+		public boolean ValidarCorreo(String hex) {
+			
+			String Patron = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+			
+			Pattern pattern = Pattern.compile(Patron);
+			Matcher matcher = pattern.matcher(hex);
+			return matcher.matches();
+
+			
+		}
+
+		
 	public static void main(String[] args) {
 //		new RegistroGUI().setVisible(true);
 		EventQueue.invokeLater(new Runnable() {
