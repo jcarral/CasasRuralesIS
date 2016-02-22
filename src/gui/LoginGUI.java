@@ -1,149 +1,178 @@
 package gui;
 
-import businessLogic.loginLogic;
+import businessLogic.ruralLogic;
+import businessLogic.ruralManagerLogic;
 
-import java.awt.EventQueue;
-
+import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+/**
+ * Created by joseba on 22/2/16.
+ */
 public class LoginGUI extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField Correo;
-	private JPasswordField passwordField;
-    private JButton btnLogin, btnRegistro;
-    private loginLogic userLogic;
-    JRadioButton rdbtnPropietario, rdbtnUsuario;
+
+    private JPanel mainPane, headerPane, contentPane;
+    private JButton btnSignIn, btnSignUp;
+    private JTextField tfMail;
+    private JPasswordField pfPass;
+    private JRadioButton rdbtnPropietario, rdbtnUsuario;
     private final ButtonGroup buttonGroup = new ButtonGroup();
+    private ruralManagerLogic logica;
 
-    private final int PROPIETARIO = 0, USUARIO = 1;
+    //Constantes
+    private final Color bckColor = new Color(230, 230, 237);
+    private final int USUARIO = 0, PROPIETARIO = 1;
 
-    /**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginGUI frame = new LoginGUI();
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public LoginGUI() {
-        super("Iniciar sesión");
+    LoginGUI() {
+        setSize(500, 300);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-        setContentPane(addContentPane());
-        loginLogic = new Inicio();
+        setResizable(false);
+        add(setMainPane());
+        logica = new ruralLogic();
         setVisible(true);
     }
 
-    private JPanel addContentPane() {
+    private JPanel setMainPane() {
+        if (mainPane == null) {
+            mainPane = new JPanel(new BorderLayout());
+            mainPane.setBackground(bckColor);
+
+            mainPane.add(setHeaderLayout(), BorderLayout.PAGE_START);
+            mainPane.add(setBtnLayout(), BorderLayout.PAGE_END);
+            mainPane.add(setContentPane(), BorderLayout.CENTER);
+        }
+        return mainPane;
+    }
+
+
+    private JPanel setContentPane() {
         if (contentPane == null) {
             contentPane = new JPanel();
-            contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-            contentPane.setLayout(null);
-
-            //Label 1
-            JLabel lblCorreo = new JLabel("Correo:");
-            lblCorreo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-            lblCorreo.setBounds(10, 50, 123, 26);
-            contentPane.add(lblCorreo);
-
-            //Label 2
-            JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
-            lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 15));
-            lblContrasea.setBounds(10, 99, 169, 26);
-            contentPane.add(lblContrasea);
-
-            contentPane.add(setCorreoField());
-            contentPane.add(setPassField());
-            contentPane.add(setLoginBtn());
-            contentPane.add(setRegBtn());
-
-            //RadioButton
-            rdbtnUsuario = new JRadioButton("Usuario");
-            buttonGroup.add(rdbtnUsuario);
-            rdbtnUsuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            rdbtnUsuario.setBounds(110, 171, 109, 23);
-            contentPane.add(rdbtnUsuario);
-
-            rdbtnPropietario = new JRadioButton("Propietario");
-            buttonGroup.add(rdbtnPropietario);
-            rdbtnPropietario.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            rdbtnPropietario.setBounds(244, 171, 109, 23);
-            contentPane.add(rdbtnPropietario);
+            contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.PAGE_AXIS));
+            contentPane.add(setUserPanel());
+            contentPane.add(setPassPanel());
+            contentPane.add(setRadioPanel());
         }
-
         return contentPane;
     }
 
-    private JButton setRegBtn() {
-        if (btnRegistro == null) {
-            btnRegistro = new JButton("Registro");
-            btnRegistro.setBounds(320, 228, 89, 23);
-            btnRegistro.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new RegistroGUI();
-                    setVisible(false);
-                }
-            });
-        }
-        return btnRegistro;
+    private JPanel setPassPanel() {
+        JPanel passPane = new JPanel(new FlowLayout());
+        passPane.setBackground(bckColor);
+        passPane.add(new JLabel("Contraseña"));
+        pfPass = new JPasswordField(15);
+        passPane.add(pfPass);
+        return passPane;
     }
 
-    private JButton setLoginBtn() {
-        if (btnLogin == null) {
-            btnLogin = new JButton("Login");
-            btnLogin.setBounds(79, 213, 117, 38);
-            btnLogin.addActionListener(new ActionListener() {
+    private JPanel setRadioPanel() {
+        JPanel radioPane = new JPanel(new FlowLayout());
+        radioPane.setBackground(bckColor);
+
+        rdbtnUsuario = new JRadioButton("Usuario");
+        rdbtnUsuario.setSelected(true);
+        buttonGroup.add(rdbtnUsuario);
+        rdbtnUsuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        radioPane.add(rdbtnUsuario);
+
+        rdbtnPropietario = new JRadioButton("Propietario");
+        buttonGroup.add(rdbtnPropietario);
+        rdbtnPropietario.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        radioPane.add(rdbtnPropietario);
+
+        return radioPane;
+    }
+
+    private JPanel setUserPanel() {
+        JPanel userPane = new JPanel(new FlowLayout());
+        userPane.add(new JLabel("Correo electrónico: "));
+        userPane.setBackground(bckColor);
+        tfMail = new JTextField(15);
+        userPane.add(tfMail);
+        return userPane;
+    }
+
+    private JPanel setBtnLayout() {
+        JPanel btnLayout = new JPanel();
+        btnLayout.setLayout(new BoxLayout(btnLayout, BoxLayout.PAGE_AXIS));
+        btnLayout.setBorder(BorderFactory.createMatteBorder(3, 0, 0, 0, Color.BLACK));
+        btnLayout.add(setSignInBtn());
+        btnLayout.add(setSignUpBtn());
+        btnLayout.setBackground(new Color(106, 110, 124));
+
+        return btnLayout;
+    }
+
+    private JPanel setHeaderLayout() {
+        if (headerPane == null) {
+            BufferedImage header;
+            headerPane = new JPanel();
+            headerPane.setBackground(bckColor);
+            JLabel headerLabel;
+            try {
+
+                header = ImageIO.read(new File("src/images/header.png"));
+                headerLabel = new JLabel(new ImageIcon(header));
+            } catch (IOException e) {
+                e.printStackTrace();
+                headerLabel = new JLabel("Iniciar sesión");
+                headerLabel.setFont(new Font("Segoe Print", Font.PLAIN, 35));
+
+            }
+            headerPane.add(headerLabel);
+        }
+        return headerPane;
+    }
+
+    private JButton setSignInBtn() {
+        if (btnSignIn == null) {
+            btnSignIn = new JButton("Iniciar sesión");
+            btnSignIn.setAlignmentX(Component.CENTER_ALIGNMENT);
+            btnSignIn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    int tipo = userLogic.checkLogin(Correo.getText(), passwordField.getText(), rdbtnPropietario.isSelected());
-                    if (tipo == PROPIETARIO) {
+                    int acceso = logica.checkLogin(tfMail.getText(), pfPass.getPassword().toString(), rdbtnUsuario.isSelected());
+                    if (acceso == USUARIO) {
                         new UsuarioGUI();
                         setVisible(false);
-                    } else if (tipo == USUARIO) {
+                    } else if (acceso == PROPIETARIO) {
                         new PropietarioGUI();
                         setVisible(false);
                     } else {
                         JOptionPane.showMessageDialog(null, "Datos incorrectos");
                     }
+                }
+            });
+        }
+        return btnSignIn;
+    }
+
+    private JButton setSignUpBtn() {
+        if (btnSignUp == null) {
+            btnSignUp = new JButton("Registrarse");
+            btnSignUp.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+            btnSignUp.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new RegistroGUI();
 
                 }
             });
-
         }
-        return btnLogin;
+        return btnSignUp;
     }
 
-    private JPasswordField setPassField() {
-        if (passwordField == null) {
-            passwordField = new JPasswordField();
-            passwordField.setBounds(172, 99, 237, 29);
-        }
-        return passwordField;
-    }
 
-    private JTextField setCorreoField() {
-        if (Correo == null) {
-            Correo = new JTextField();
-            Correo.setBounds(172, 50, 237, 29);
-            Correo.setColumns(10);
-        }
-        return Correo;
+    public static void main(String args[]) {
+        new LoginGUI();
     }
 }

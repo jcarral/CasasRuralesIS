@@ -2,17 +2,12 @@ package gui;
 
 import javax.swing.JFrame;
 
-import java.awt.GridLayout;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JSplitPane;
 
-import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Frame;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -22,7 +17,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;
-import javax.xml.bind.ParseConversionEvent;
 import javax.swing.ButtonGroup;
 
 public class RegistroGUI extends JFrame{
@@ -35,9 +29,9 @@ public class RegistroGUI extends JFrame{
 	private JTextField InsertarEmail;
 	private JTextField InsertarDNI;
 	private JTextField InsertarTelefono;
-	private JPasswordField InsertarContraseña;
-	
-	private final ButtonGroup buttonGroup = new ButtonGroup();
+    private JPasswordField InsertarPassword;
+
+    private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JRadioButton Usuario = null;
 	private JRadioButton Propietario = null;
 	
@@ -48,7 +42,7 @@ public class RegistroGUI extends JFrame{
 		this.setSize(671, 649);
 		getContentPane().setLayout(null);
 		
-		//Título//
+		//Tï¿½tulo//
 		JLabel lblRegistro = new JLabel("Registro");
 		lblRegistro.setFont(new Font("Segoe Print", Font.PLAIN, 65));
 		lblRegistro.setBounds(167, 11, 265, 93);
@@ -111,13 +105,13 @@ public class RegistroGUI extends JFrame{
 		InsertarTelefono.setBounds(327, 366, 200, 22);
 		getContentPane().add(InsertarTelefono);
 		
-		//Cajas de contraseñas//
-		
-		InsertarContraseña = new JPasswordField();
-		InsertarContraseña.setBounds(327, 425, 200, 20);
-		getContentPane().add(InsertarContraseña);
-		
-		//RadioButon//
+		//Cajas de contraseï¿½as//
+
+        InsertarPassword = new JPasswordField();
+        InsertarPassword.setBounds(327, 425, 200, 20);
+        getContentPane().add(InsertarPassword);
+
+        //RadioButon//
 		
 		JRadioButton rdbtnUsuario = new JRadioButton("Usuario");
 		rdbtnUsuario.setSelected(true);
@@ -130,7 +124,7 @@ public class RegistroGUI extends JFrame{
 		rdbtnPropietario.setBounds(355, 479, 114, 22);
 		getContentPane().add(rdbtnPropietario);
 		
-		//Botón//
+		//Botï¿½n//
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnRegistrar.setBounds(210, 532, 200, 50);
@@ -144,12 +138,12 @@ public class RegistroGUI extends JFrame{
 						    JOptionPane.ERROR_MESSAGE);
 				}
 				else{
-					boolean P = isPropietario();	
-					
-					loginLogic.CrearUsuario(InsertarNombre.getText(),InsertarContraseña.getPassword().toString(),
-											InsertarApellido.getText(), InsertarEmail.getText(), 
-											InsertarDNI.getText(), Integer.parseInt(InsertarTelefono.getText()),P);
-				}
+					boolean P = isPropietario();
+
+                    //ruralManagerLogic.CrearUsuario(InsertarNombre.getText(),InsertarPassword.getPassword().toString(),
+                    //						InsertarApellido.getText(), InsertarEmail.getText(),
+                    //						InsertarDNI.getText(), Integer.parseInt(InsertarTelefono.getText()),P);
+                }
 			}
 		});
 	}
@@ -179,8 +173,8 @@ public class RegistroGUI extends JFrame{
 			if(InsertarTelefono.getText().equals("")){
 				V=true;
 			}
-			if(InsertarContraseña.getPassword().equals("")){
-				V=true;
+        if (InsertarPassword.getPassword().equals("")) {
+            V=true;
 			}
 			
 			return V;

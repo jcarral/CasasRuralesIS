@@ -61,5 +61,7 @@ public class UsuarioGUI extends JFrame {
 		JButton btnActualizarCuentaUsuario = new JButton("Actualizar Cuenta");
 		btnActualizarCuentaUsuario.setBounds(266, 54, 158, 23);
 		contentPane.add(btnActualizarCuentaUsuario);
-	}
+
+        setVisible(true);
+    }
 }

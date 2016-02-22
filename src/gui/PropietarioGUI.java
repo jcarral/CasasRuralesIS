@@ -75,5 +75,7 @@ public class PropietarioGUI extends JFrame {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(10, 251, 439, 41);
 		contentPane.add(comboBox);
-	}
+
+        setVisible(true);
+    }
 }
