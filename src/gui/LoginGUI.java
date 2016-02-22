@@ -1,6 +1,6 @@
 package gui;
 
-import businessLogic.ruralLogic;
+import businessLogic.rhLogica;
 import businessLogic.ruralManagerLogic;
 
 import javax.imageio.ImageIO;
@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -36,8 +38,10 @@ public class LoginGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         add(setMainPane());
-        logica = new ruralLogic();
+        logica = new rhLogica();
+        cerrarBDalSalir();
         setVisible(true);
+
     }
 
     private JPanel setMainPane() {
@@ -163,7 +167,7 @@ public class LoginGUI extends JFrame {
             btnSignUp.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new RegistroGUI();
+                    new RegistroGUI(logica);
 
                 }
             });
@@ -171,6 +175,44 @@ public class LoginGUI extends JFrame {
         return btnSignUp;
     }
 
+    private void cerrarBDalSalir() {
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                logica.closeDB();
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
+    }
 
     public static void main(String args[]) {
         new LoginGUI();

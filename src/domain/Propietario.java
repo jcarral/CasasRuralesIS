@@ -1,16 +1,18 @@
 package domain;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by joseba on 22/2/16.
  */
 public class Propietario extends Persona {
+
     private List<RuralHouse> listaCasas;
 
-    Propietario(String mail, String password, String nombre, String apellido, String DNI, int numTel, List<RuralHouse> listaCasas) {
+    public Propietario(String mail, String password, String nombre, String apellido, String DNI, int numTel) {
         super(mail, password, nombre, apellido, DNI, numTel);
-        this.listaCasas = listaCasas;
+        listaCasas = new LinkedList<>();
     }
 
     public List<RuralHouse> getListaCasas() {

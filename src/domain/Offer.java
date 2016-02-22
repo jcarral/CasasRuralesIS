@@ -28,7 +28,8 @@ public class Offer implements Serializable {
 		  this.price=price;
 		  this.ruralHouse=ruralHouse;
 		  this.offerNumber=offerNumber;
-	}
+
+    }
 	/**
 	 * Get the house number of the offer
 	 * 
