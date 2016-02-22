@@ -5,6 +5,7 @@ import businessLogic.ruralManagerLogic;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -128,7 +129,7 @@ public class RegistroGUI extends JFrame {
                             JOptionPane.ERROR_MESSAGE);
                 } else {
                     boolean prop = rdbtnPropietario.isSelected();
-                    logica.storeUsuario(insertarEmail.getText(), insertarPass.getPassword().toString(), insertarNombre.getText(),
+                    logica.storeUsuario(insertarEmail.getText(), Arrays.toString(insertarPass.getPassword()), insertarNombre.getText(),
                             insertarApellido.getText(), insertarDNI.getText(), Integer.parseInt(insertarTelefono.getText()), prop);
                     dispose();
                 }

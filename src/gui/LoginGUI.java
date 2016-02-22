@@ -13,6 +13,7 @@ import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by joseba on 22/2/16.
@@ -29,16 +30,15 @@ public class LoginGUI extends JFrame {
     private ruralManagerLogic logica;
 
     //Constantes
-    private final Color bckColor = new Color(230, 230, 237);
     private final int USUARIO = 0, PROPIETARIO = 1;
 
-    LoginGUI() {
+    LoginGUI(ruralManagerLogic logica) {
         setSize(500, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         add(setMainPane());
-        logica = new rhLogica();
+        this.logica = logica;
         cerrarBDalSalir();
         setVisible(true);
 
@@ -47,9 +47,9 @@ public class LoginGUI extends JFrame {
     private JPanel setMainPane() {
         if (mainPane == null) {
             mainPane = new JPanel(new BorderLayout());
-            mainPane.setBackground(bckColor);
+            mainPane.setBackground(estilosGUI.bckColor);
 
-            mainPane.add(setHeaderLayout(), BorderLayout.PAGE_START);
+            mainPane.add(estilosGUI.setHeaderPane("Iniciar sesión"), BorderLayout.PAGE_START);
             mainPane.add(setBtnLayout(), BorderLayout.PAGE_END);
             mainPane.add(setContentPane(), BorderLayout.CENTER);
         }
@@ -70,7 +70,7 @@ public class LoginGUI extends JFrame {
 
     private JPanel setPassPanel() {
         JPanel passPane = new JPanel(new FlowLayout());
-        passPane.setBackground(bckColor);
+        passPane.setBackground(estilosGUI.bckColor);
         passPane.add(new JLabel("Contraseña"));
         pfPass = new JPasswordField(15);
         passPane.add(pfPass);
@@ -79,7 +79,7 @@ public class LoginGUI extends JFrame {
 
     private JPanel setRadioPanel() {
         JPanel radioPane = new JPanel(new FlowLayout());
-        radioPane.setBackground(bckColor);
+        radioPane.setBackground(estilosGUI.bckColor);
 
         rdbtnUsuario = new JRadioButton("Usuario");
         rdbtnUsuario.setSelected(true);
@@ -98,7 +98,7 @@ public class LoginGUI extends JFrame {
     private JPanel setUserPanel() {
         JPanel userPane = new JPanel(new FlowLayout());
         userPane.add(new JLabel("Correo electrónico: "));
-        userPane.setBackground(bckColor);
+        userPane.setBackground(estilosGUI.bckColor);
         tfMail = new JTextField(15);
         userPane.add(tfMail);
         return userPane;
@@ -115,26 +115,7 @@ public class LoginGUI extends JFrame {
         return btnLayout;
     }
 
-    private JPanel setHeaderLayout() {
-        if (headerPane == null) {
-            BufferedImage header;
-            headerPane = new JPanel();
-            headerPane.setBackground(bckColor);
-            JLabel headerLabel;
-            try {
 
-                header = ImageIO.read(new File("src/images/header.png"));
-                headerLabel = new JLabel(new ImageIcon(header));
-            } catch (IOException e) {
-                e.printStackTrace();
-                headerLabel = new JLabel("Iniciar sesión");
-                headerLabel.setFont(new Font("Segoe Print", Font.PLAIN, 35));
-
-            }
-            headerPane.add(headerLabel);
-        }
-        return headerPane;
-    }
 
     private JButton setSignInBtn() {
         if (btnSignIn == null) {
@@ -143,9 +124,9 @@ public class LoginGUI extends JFrame {
             btnSignIn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    int acceso = logica.checkLogin(tfMail.getText(), pfPass.getPassword().toString(), rdbtnUsuario.isSelected());
+                    int acceso = logica.checkLogin(tfMail.getText(), Arrays.toString(pfPass.getPassword()), rdbtnUsuario.isSelected());
                     if (acceso == USUARIO) {
-                        new UsuarioGUI();
+                        new UsuarioGUI(logica);
                         setVisible(false);
                     } else if (acceso == PROPIETARIO) {
                         new PropietarioGUI();
@@ -215,6 +196,6 @@ public class LoginGUI extends JFrame {
     }
 
     public static void main(String args[]) {
-        new LoginGUI();
+        new LoginGUI(new rhLogica());
     }
 }

@@ -10,4 +10,6 @@ public interface ruralManagerLogic {
     public boolean storeUsuario(String mail, String password, String nombre, String apellido, String DNI, int numTel, boolean propietario);
 
     public void closeDB();
+
+    String[] getUserInfo();
 }
