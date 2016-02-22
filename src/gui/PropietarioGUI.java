@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.JList;
+import javax.swing.JComboBox;
 
 public class PropietarioGUI extends JFrame {
 
@@ -36,9 +37,10 @@ public class PropietarioGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public PropietarioGUI() {
+		setResizable(false);
 		setTitle("Propietario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 229);
+		setBounds(100, 100, 475, 354);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -58,7 +60,20 @@ public class PropietarioGUI extends JFrame {
 		contentPane.add(btnAadirCasas);
 		
 		JList InfPropietario = new JList();
-		InfPropietario.setBounds(10, 83, 414, 89);
+		InfPropietario.setBounds(10, 83, 439, 115);
 		contentPane.add(InfPropietario);
+		
+		JLabel lblListaDeCasas = new JLabel("Lista de casas:");
+		lblListaDeCasas.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblListaDeCasas.setBounds(10, 190, 200, 50);
+		contentPane.add(lblListaDeCasas);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(10, 236, -11, 22);
+		contentPane.add(textArea);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(10, 251, 439, 41);
+		contentPane.add(comboBox);
 	}
 }

@@ -42,6 +42,7 @@ public class AñadirCasaGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public AñadirCasaGUI() {
+		setResizable(false);
 		setTitle("A\u00F1adir Casa");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 508);
@@ -109,7 +110,7 @@ public class AñadirCasaGUI extends JFrame {
 		contentPane.add(btnAadirCasa);
 		
 		JButton btnAadirFotos = new JButton("A\u00F1adir fotos");
-		btnAadirFotos.setBounds(123, 364, 100, 23);
+		btnAadirFotos.setBounds(123, 364, 112, 23);
 		contentPane.add(btnAadirFotos);
 	}
 
