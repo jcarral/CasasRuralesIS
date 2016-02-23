@@ -5,9 +5,11 @@ import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
 import domain.Persona;
 import domain.Propietario;
+import domain.RuralHouse;
 import domain.Usuario;
 
 import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by joseba on 22/2/16.
@@ -67,13 +69,7 @@ public class rhLogica implements ruralManagerLogic {
         else
             p = new Usuario(mail, password, nombre, apellido, DNI, numTel);
 
-        try {
-            db.store(p);
-            db.commit();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        return insertPersona(p);
 
 
     }
@@ -94,5 +90,29 @@ public class rhLogica implements ruralManagerLogic {
         info[4] = Integer.toString(actualUser.getNumTel());
 
         return info;
+    }
+
+    @Override
+    public boolean updatePersona(Persona p) {
+        actualUser.clone(p);
+        return insertPersona(actualUser);
+
+    }
+
+    @Override
+    public Vector<RuralHouse> getAllRuralHouses() {
+        List<RuralHouse> res = db.queryByExample(new RuralHouse(0, null, null));
+        return new Vector<RuralHouse>(res);
+    }
+
+    private boolean insertPersona(Persona p) {
+
+        try {
+            db.store(p);
+            db.commit();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

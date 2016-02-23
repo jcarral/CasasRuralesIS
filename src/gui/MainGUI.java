@@ -134,10 +134,10 @@ public class MainGUI extends JFrame {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					// C?digo cedido por la universidad
 					//JFrame a = new QueryAvailabilityWindow();
-					JFrame a = new QueryAvailabilityGUI();
+                    //JFrame a = new QueryAvailabilityGUI(logica);
 
-					a.setVisible(true);
-				}
+                    //a.setVisible(true);
+                }
 			});
 		}
 		return boton3;

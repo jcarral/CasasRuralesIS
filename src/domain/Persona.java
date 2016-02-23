@@ -67,4 +67,13 @@ public abstract class Persona {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
+
+    public void clone(Persona p) {
+        this.mail = p.getMail();
+        this.password = p.getPassword();
+        this.nombre = p.getNombre();
+        this.apellido = p.getApellido();
+        this.DNI = p.getDNI();
+        this.numTel = p.getNumTel();
+    }
 }

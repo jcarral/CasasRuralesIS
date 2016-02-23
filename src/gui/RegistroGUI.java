@@ -51,7 +51,7 @@ public class RegistroGUI extends JFrame {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                System.out.println("jns");
+
                 if (!vacio()) {
 
                     int res = JOptionPane.showConfirmDialog(null,
@@ -96,22 +96,12 @@ public class RegistroGUI extends JFrame {
 
     //Función para comprobar si hay algún campo vacio
     private boolean vacio() {
-        return insertarNombre.getText().isEmpty() && insertarApellido.getText().isEmpty() && !(ValidarCorreo(insertarEmail.getText()))
+        return insertarNombre.getText().isEmpty() && insertarApellido.getText().isEmpty() && !(estilosGUI.validarCorreo(insertarEmail.getText()))
                 && insertarDNI.getText().isEmpty() && insertarTelefono.getText().isEmpty() && (insertarPass.getPassword().length == 0);
     }
 
 
-    //Funcion para validar el campo del email//
-    private boolean ValidarCorreo(String hex) {
 
-        String Patron = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-
-        Pattern pattern = Pattern.compile(Patron);
-        Matcher matcher = pattern.matcher(hex);
-        return matcher.matches();
-
-
-    }
 
 
     private void setBtn() {
