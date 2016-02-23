@@ -20,6 +20,9 @@ public class estilosGUI {
     public static final Color bckColorDark = new Color(83, 92, 95);
     public static final Color bckGray = new Color(224, 236, 236);
 
+    //Constanes para identeficar el array
+    public static final int MAIL = 0, NOMBRE = 1, APELLIDO = 2, DNI = 3, TEL = 4;
+
     /**
      * Genera un header para las interfaces
      *

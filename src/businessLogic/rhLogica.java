@@ -8,6 +8,7 @@ import domain.Propietario;
 import domain.RuralHouse;
 import domain.Usuario;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -54,6 +55,7 @@ public class rhLogica implements ruralManagerLogic {
 
         if (!res.isEmpty()) {
             actualUser = res.get(0);
+
         } else {
             val = -1;
         }
@@ -88,6 +90,7 @@ public class rhLogica implements ruralManagerLogic {
         info[2] = actualUser.getApellido();
         info[3] = actualUser.getDNI();
         info[4] = Integer.toString(actualUser.getNumTel());
+
 
         return info;
     }

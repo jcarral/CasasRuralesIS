@@ -129,7 +129,7 @@ public class LoginGUI extends JFrame {
                         new UsuarioGUI(logica);
                         setVisible(false);
                     } else if (acceso == PROPIETARIO) {
-                        new PropietarioGUI();
+                        new PropietarioGUI(logica);
                         setVisible(false);
                     } else {
                         JOptionPane.showMessageDialog(null, "Datos incorrectos");

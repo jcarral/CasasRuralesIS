@@ -20,7 +20,7 @@ public class UsuarioEditGUI extends JFrame {
     private JPasswordField pfPass, pfVerificarPass;
     private JButton btnConfirm;
 
-    private final int MAIL = 0, NOMBRE = 1, APELLIDO = 2, DNI = 3, TEL = 4;
+
 
     UsuarioEditGUI(ruralManagerLogic logica) {
         super("Configurar perfil de usuario");
@@ -56,7 +56,7 @@ public class UsuarioEditGUI extends JFrame {
 
             JPanel pNombre = new JPanel(new FlowLayout());
             pNombre.add(new JLabel("Nombre: "));
-            tfNombre = new JTextField(info[NOMBRE], 10);
+            tfNombre = new JTextField(info[estilosGUI.NOMBRE], 10);
             pNombre.add(tfNombre);
             pNombre.setBackground(estilosGUI.bckGray);
             infoPane.add(pNombre);
@@ -64,7 +64,7 @@ public class UsuarioEditGUI extends JFrame {
 
             JPanel pApellido = new JPanel(new FlowLayout());
             pApellido.add(new JLabel("Apellido: "));
-            tfApellido = new JTextField(info[APELLIDO], 10);
+            tfApellido = new JTextField(info[estilosGUI.APELLIDO], 10);
             pApellido.add(tfApellido);
             pApellido.setBackground(estilosGUI.bckGray);
             infoPane.add(pApellido);
@@ -72,7 +72,7 @@ public class UsuarioEditGUI extends JFrame {
 
             JPanel pMail = new JPanel(new FlowLayout());
             pMail.add(new JLabel("Correo: "));
-            tfMail = new JTextField(info[MAIL], 20);
+            tfMail = new JTextField(info[estilosGUI.MAIL], 20);
             pMail.add(tfMail);
             pMail.setBackground(estilosGUI.bckGray);
             infoPane.add(pMail);
@@ -80,14 +80,14 @@ public class UsuarioEditGUI extends JFrame {
 
             JPanel pDNI = new JPanel(new FlowLayout());
             pDNI.add(new JLabel("DNI: "));
-            tfDNI = new JTextField(info[DNI], 10);
+            tfDNI = new JTextField(info[estilosGUI.DNI], 10);
             pDNI.add(tfDNI);
             pDNI.setBackground(estilosGUI.bckGray);
             infoPane.add(pDNI);
 
             JPanel pTel = new JPanel(new FlowLayout());
             pTel.add(new JLabel("Telefono: "));
-            tfTel = new JTextField(info[TEL], 10);
+            tfTel = new JTextField(info[estilosGUI.TEL], 10);
             tfTel.addFocusListener(new FocusListener() {
                 @Override
                 public void focusGained(FocusEvent e) {

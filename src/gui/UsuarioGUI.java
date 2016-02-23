@@ -26,7 +26,6 @@ public class UsuarioGUI extends JFrame {
     private JLabel lblNombre, lblMail, lblApellido;
     private JButton btnEdit, btnQuery;
 
-    private final int MAIL = 0, NOMBRE = 1, APELLIDO = 2;
 
 
     UsuarioGUI(ruralManagerLogic logica) {
@@ -57,7 +56,6 @@ public class UsuarioGUI extends JFrame {
 
     private JPanel setInfoPanel() {
         if (infoPane == null) {
-            infoPane = new JPanel(new FlowLayout());
             updateInfoPane();
 
         }
@@ -66,17 +64,27 @@ public class UsuarioGUI extends JFrame {
     }
 
     private void updateInfoPane() {
+        infoPane = new JPanel(new FlowLayout());
+
         String[] info = logica.getUserInfo();
 
-        lblMail = new JLabel(info[MAIL]);
-        infoPane.add(lblMail);
+        if (lblMail == null) {
+            lblMail = new JLabel(info[estilosGUI.MAIL]);
+            infoPane.add(lblMail);
+        } else
+            lblMail.setText(info[estilosGUI.MAIL]);
 
-        lblNombre = new JLabel(info[NOMBRE]);
-        infoPane.add(lblNombre);
+        if (lblNombre == null) {
+            lblNombre = new JLabel(info[estilosGUI.NOMBRE]);
+            infoPane.add(lblNombre);
+        } else
+            lblNombre.setText(info[estilosGUI.NOMBRE]);
 
-        lblApellido = new JLabel(info[APELLIDO]);
-        infoPane.add(lblApellido);
-
+        if (lblApellido == null) {
+            lblApellido = new JLabel(info[estilosGUI.APELLIDO]);
+            infoPane.add(lblApellido);
+        } else
+            lblApellido.setText(info[estilosGUI.APELLIDO]);
         infoPane.setBackground(estilosGUI.bckColor);
     }
 
