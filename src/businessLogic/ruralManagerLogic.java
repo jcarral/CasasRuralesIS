@@ -11,15 +11,16 @@ import java.util.Vector;
  */
 public interface ruralManagerLogic {
 
-    public int checkLogin(String mail, String pass, boolean tipo);
+    int checkLogin(String mail, String pass, boolean tipo);
 
-    public boolean storeUsuario(String mail, String password, String nombre, String apellido, String DNI, int numTel, boolean propietario);
+    boolean storeUsuario(String mail, String password, String nombre, String apellido, String DNI, int numTel, boolean propietario);
 
-    public void closeDB();
-
+    void closeDB();
     String[] getUserInfo();
-
     boolean updatePersona(Persona p);
-
     Vector<RuralHouse> getAllRuralHouses();
+
+    List<RuralHouse> getUsersRuralHouses();
+
+    boolean storeRH(String nombre, String city, String direccion, int numTel, String desc);
 }

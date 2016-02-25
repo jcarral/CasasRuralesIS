@@ -1,31 +1,33 @@
 package gui;
 
-import businessLogic.rhLogica;
 import businessLogic.ruralManagerLogic;
+import domain.RuralHouse;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
-
+import java.util.List;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 public class PropietarioGUI extends JFrame {
 
     private ruralManagerLogic logica;
 
 
-    private JPanel mainPane, infoPane, btnPane;
+    private JPanel mainPane, infoPane, btnPane, listJPanel;
     private JLabel lblMail, lblNombre, lblApellido;
     private JButton btnAddRh, btnAddOff, btnEdit;
-
+    private JList listRH;
+    private DefaultListModel listModel;
+    private JScrollPane paneList;
     PropietarioGUI(ruralManagerLogic logica) {
         super("Zona propietarios");
         this.logica = logica;
-        setSize(500, 200);
+        setSize(500, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
         setLocationRelativeTo(null);
         add(setMainPanel());
         frameEvents();
@@ -40,9 +42,36 @@ public class PropietarioGUI extends JFrame {
             mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.PAGE_AXIS));
             mainPane.add(estilosGUI.setHeaderPane("Zona Usuarios"));
             mainPane.add(setInfoPane());
+            mainPane.add(setListPanel());
             mainPane.add(setBtnPanel());
         }
         return mainPane;
+    }
+
+    private JPanel setListPanel() {
+        if (listJPanel == null) {
+            listJPanel = new JPanel();
+            listJPanel.setLayout(new BoxLayout(listJPanel, BoxLayout.PAGE_AXIS));
+            listModel = new DefaultListModel();
+            listRH = new JList(listModel);
+            paneList = new JScrollPane(listRH);
+            listJPanel.setBackground(estilosGUI.bckGray);
+            listJPanel.setBorder(BorderFactory.createMatteBorder(3, 0, 0, 0, Color.BLACK));
+            JLabel lbl = new JLabel("Lista de casas propias: ");
+            lbl.setAlignmentX(Component.LEFT_ALIGNMENT);
+            listJPanel.add(lbl);
+            listJPanel.add(paneList);
+            insertDataIntoPane();
+        }
+        return listJPanel;
+    }
+
+    private void insertDataIntoPane() {
+        List<RuralHouse> res = logica.getUsersRuralHouses();
+        listModel.clear();
+        for (RuralHouse rh : res)
+            listModel.addElement(rh);
+
     }
 
     private JPanel setBtnPanel() {
@@ -64,7 +93,7 @@ public class PropietarioGUI extends JFrame {
             btnAddRh.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new AddCasaGUI();
+                    new NewRHGUI(logica);
                 }
             });
         }
@@ -138,7 +167,10 @@ public class PropietarioGUI extends JFrame {
         this.addWindowFocusListener(new WindowFocusListener() {
             @Override
             public void windowGainedFocus(WindowEvent e) {
+
                 updateInfoPane();
+                insertDataIntoPane();
+
             }
 
             @Override

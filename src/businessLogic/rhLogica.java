@@ -104,9 +104,32 @@ public class rhLogica implements ruralManagerLogic {
 
     @Override
     public Vector<RuralHouse> getAllRuralHouses() {
-        List<RuralHouse> res = db.queryByExample(new RuralHouse(0, null, null));
+        List<RuralHouse> res = db.queryByExample(new RuralHouse(0, null, null, null, 0, null));
         return new Vector<RuralHouse>(res);
     }
+
+    @Override
+    public List<RuralHouse> getUsersRuralHouses() {
+        return ((Propietario) actualUser).getListaCasas();
+    }
+
+    @Override
+    public boolean storeRH(String nombre, String city, String direccion, int numTel, String desc) {
+
+        RuralHouse rh = new RuralHouse(setRHNumber(), desc, city, nombre, numTel, direccion);
+        ((Propietario) actualUser).addRuralHouse(rh);
+
+        return insertPersona(actualUser);
+
+    }
+
+    private int setRHNumber() {
+        List<RuralHouse> res = getUsersRuralHouses();
+        String numero = Integer.toString(res.size());
+        numero += (int) Math.floor((Math.random() * 1000) + 1);
+        return Integer.parseInt(numero);
+    }
+
 
     private boolean insertPersona(Persona p) {
 

@@ -19,17 +19,23 @@ public class RuralHouse implements Serializable {
 	@XmlJavaTypeAdapter(IntegerAdapter.class)
 	private Integer houseNumber;
 	private String description;
-	private String city; 
-	public Vector<Offer> offers;
+    private String city;
+    private String nombre;
+    private String dir;
+    private int numTel;
+    public Vector<Offer> offers;
 
 	public RuralHouse() {
 		super();
 	}
 
-	public RuralHouse(Integer houseNumber, String description, String city) {
-		this.houseNumber = houseNumber;
+    public RuralHouse(Integer houseNumber, String description, String city, String nombre, int tel, String direccion) {
+        this.houseNumber = houseNumber;
 		this.description = description;
-		this.city = city;
+        this.nombre = nombre;
+        this.numTel = tel;
+        this.dir = direccion;
+        this.city = city;
 		offers=new Vector<Offer>();
 	}
 
@@ -60,8 +66,8 @@ public class RuralHouse implements Serializable {
 
 	
 	public String toString() {
-		return this.houseNumber + ": " + this.city;
-	}
+        return this.houseNumber + ": " + this.nombre + ", " + this.city + ", " + this.dir;
+    }
 	
 	/**
 	 * This method creates an offer with a house number, first day, last day and price

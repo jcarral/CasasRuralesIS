@@ -23,6 +23,7 @@ public class Propietario extends Persona {
         this.listaCasas = listaCasas;
     }
 
+
     public void addRuralHouse(RuralHouse rh) {
         listaCasas.add(rh);
     }
