@@ -1,88 +1,98 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import domain.RuralHouse;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import java.awt.Font;
-import javax.swing.SwingConstants;
 
 public class FichaGUI extends JFrame {
 
-	private JPanel contentPane;
+    private JPanel mainPane, dataPane;
+    private JTextField tfNombre, tfNumero, tfDireccion, tfCiudad, tfTel;
+    private TextArea taDescripcion;
+    private JButton btnCerrar;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FichaGUI frame = new FichaGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    private RuralHouse rh;
 
-	/**
-	 * Create the frame.
-	 */
-	public FichaGUI() {
-		setResizable(false);
-		setTitle("Ficha Casa");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 577);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JLabel lblDescripcin = new JLabel("Descripci\u00F3n:");
-		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDescripcin.setBounds(10, 25, 200, 50);
-		contentPane.add(lblDescripcin);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setEditable(false);
-		textArea.setBounds(10, 61, 414, 196);
-		contentPane.add(textArea);
-		
-		JLabel lblDireccin = new JLabel("Direcci\u00F3n:");
-		lblDireccin.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDireccin.setBounds(10, 437, 76, 30);
-		contentPane.add(lblDireccin);
-		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setEditable(false);
-		textArea_1.setBounds(96, 442, 313, 22);
-		contentPane.add(textArea_1);
-		
-		JLabel lblNmeroDeTelefono = new JLabel("N\u00FAmero de telefono:");
-		lblNmeroDeTelefono.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNmeroDeTelefono.setBounds(10, 478, 200, 50);
-		contentPane.add(lblNmeroDeTelefono);
-		
-		JTextArea textArea_2 = new JTextArea();
-		textArea_2.setEditable(false);
-		textArea_2.setBounds(162, 493, 247, 22);
-		contentPane.add(textArea_2);
-		
-		JLabel lblNombrecasa = new JLabel("Nombre_Casa");
-		lblNombrecasa.setFont(new Font("Broadway", Font.PLAIN, 17));
-		lblNombrecasa.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNombrecasa.setBounds(106, 0, 200, 50);
-		contentPane.add(lblNombrecasa);
-		
-		JLabel lblFotos = new JLabel("Fotos:");
-		lblFotos.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFotos.setBounds(10, 247, 200, 50);
-		contentPane.add(lblFotos);
-	}
+    /**
+     * Create the frame.
+     */
+    public FichaGUI(RuralHouse rh) {
+        super("Ficha técnica");
+        this.rh = rh;
+        setSize(500, 400);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        add(setMainPane());
+
+        setVisible(true);
+    }
+
+    private JPanel setMainPane() {
+
+        if (mainPane == null) {
+            mainPane = new JPanel();
+            mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.PAGE_AXIS));
+
+            mainPane.add(estilosGUI.setHeaderPane("Ficha casa"));
+            mainPane.add(setDataPane());
+
+            mainPane.add(new JLabel("Descripción: "));
+            taDescripcion = new TextArea(rh.getDescription());
+            taDescripcion.setEditable(false);
+            mainPane.add(taDescripcion);
+            mainPane.add(setBtn());
+
+        }
+        return mainPane;
+    }
+
+    private JPanel setDataPane() {
+
+        if (dataPane == null) {
+            dataPane = new JPanel(new GridLayout(5, 2));
+            dataPane.add(new JLabel("Numero casa: "));
+            tfNumero = new JTextField(Integer.toString(rh.getHouseNumber()));
+            tfNumero.setEditable(false);
+            dataPane.add(tfNumero);
+
+            dataPane.add(new JLabel("Nombre de la casa: "));
+            tfNombre = new JTextField(rh.getNombre());
+            tfNombre.setEditable(false);
+            dataPane.add(tfNombre);
+
+            dataPane.add(new JLabel("Ciudad: "));
+            tfCiudad = new JTextField(rh.getCity());
+            tfCiudad.setEditable(false);
+            dataPane.add(tfCiudad);
+
+            dataPane.add(new JLabel("Dirección: "));
+            tfDireccion = new JTextField(rh.getDir());
+            tfDireccion.setEditable(false);
+            dataPane.add(tfDireccion);
+
+            dataPane.add(new JLabel("Numero de telefono: "));
+            tfTel = new JTextField(Integer.toString(rh.getNumTel()));
+            tfTel.setEditable(false);
+            dataPane.add(tfTel);
+        }
+        return dataPane;
+    }
+
+    private JButton setBtn(){
+        if(btnCerrar == null){
+            btnCerrar = new JButton("Cerrar");
+            btnCerrar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    dispose();
+                }
+            });
+        }
+        return btnCerrar;
+    }
 }

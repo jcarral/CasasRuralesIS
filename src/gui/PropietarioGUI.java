@@ -121,7 +121,7 @@ public class PropietarioGUI extends JFrame {
             btnAddOff.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //new SetAvailabilityGUI();
+                    new SetAvailabilityGUI(logica);
                 }
             });
         }

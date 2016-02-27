@@ -25,6 +25,30 @@ public class RuralHouse implements Serializable {
     private int numTel;
     public Vector<Offer> offers;
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDir() {
+		return dir;
+	}
+
+	public void setDir(String dir) {
+		this.dir = dir;
+	}
+
+	public int getNumTel() {
+		return numTel;
+	}
+
+	public void setNumTel(int numTel) {
+		this.numTel = numTel;
+	}
+
 	public RuralHouse() {
 		super();
 	}

@@ -3,12 +3,12 @@ package businessLogic;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
-import domain.Persona;
-import domain.Propietario;
-import domain.RuralHouse;
-import domain.Usuario;
+import domain.*;
+import exceptions.BadDates;
+import exceptions.OverlappingOfferExists;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -104,7 +104,8 @@ public class rhLogica implements ruralManagerLogic {
 
     @Override
     public Vector<RuralHouse> getAllRuralHouses() {
-        List<RuralHouse> res = db.queryByExample(new RuralHouse(0, null, null, null, 0, null));
+        List<RuralHouse> res = db.queryByExample(new RuralHouse(null, null, null, null, 0, null));
+        System.out.println("Borrar" + res);
         return new Vector<RuralHouse>(res);
     }
 
@@ -121,6 +122,17 @@ public class rhLogica implements ruralManagerLogic {
 
         return insertPersona(actualUser);
 
+    }
+
+    @Override
+    public Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists{
+        Offer of;
+
+        if(firstDay.after(lastDay)) throw new BadDates("Fechas incorrectas");
+        of = ruralHouse.createOffer(1, firstDay, lastDay, price);
+        if(db.queryByExample(of).size() > 0) throw new OverlappingOfferExists("La oferta ya existe");
+        insertPersona(actualUser);
+        return of;
     }
 
     private int setRHNumber() {
