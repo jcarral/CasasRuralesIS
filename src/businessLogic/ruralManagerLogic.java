@@ -5,6 +5,8 @@ import domain.Persona;
 import domain.RuralHouse;
 import exceptions.BadDates;
 import exceptions.OverlappingOfferExists;
+import exceptions.UsuarioNoExiste;
+import exceptions.UsuarioRepetido;
 
 import java.util.Date;
 import java.util.List;
@@ -15,13 +17,12 @@ import java.util.Vector;
  */
 public interface ruralManagerLogic {
 
-    int checkLogin(String mail, String pass, boolean tipo);
-    boolean storeUsuario(String mail, String password, String nombre, String apellido, String DNI, int numTel, boolean propietario);
-    void closeDB();
+    int checkLogin(String mail, String pass, boolean tipo) throws UsuarioNoExiste;
+    void storeUsuario(String mail, String password, String nombre, String apellido, String DNI, int numTel, boolean propietario) throws UsuarioRepetido;
     String[] getUserInfo();
-    boolean updatePersona(Persona p);
+    void updatePersona(String mail, String password, String nombre, String apellido, String DNI, int numTel) throws UsuarioNoExiste;
     Vector<RuralHouse> getAllRuralHouses();
     List<RuralHouse> getUsersRuralHouses();
-    boolean storeRH(String nombre, String city, String direccion, int numTel, String desc);
-    Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists;
+    void storeRH(String nombre, String city, String direccion, int numTel, String desc) throws UsuarioNoExiste;
+    Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists, UsuarioNoExiste;
 }

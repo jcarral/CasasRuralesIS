@@ -6,6 +6,8 @@ import com.db4o.config.EmbeddedConfiguration;
 import domain.*;
 import exceptions.BadDates;
 import exceptions.OverlappingOfferExists;
+import exceptions.UsuarioNoExiste;
+import exceptions.UsuarioRepetido;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -26,7 +28,7 @@ public class rhLogica implements ruralManagerLogic {
     private final boolean USUARIO = true, PROPIETARIO = false;
 
     public rhLogica() {
-        openDB();
+
     }
 
     private void openDB() {
@@ -38,7 +40,7 @@ public class rhLogica implements ruralManagerLogic {
 
 
     @Override
-    public int checkLogin(String mail, String pass, boolean usuario) {
+    public int checkLogin(String mail, String pass, boolean usuario) throws UsuarioNoExiste {
 
         Persona p;
         int val;
@@ -51,62 +53,79 @@ public class rhLogica implements ruralManagerLogic {
             val = 1;
         }
 
+        openDB();
         List<Persona> res = db.queryByExample(p);
 
         if (!res.isEmpty()) {
             actualUser = res.get(0);
 
         } else {
-            val = -1;
+            throw new UsuarioNoExiste();
         }
+        db.close();
         return val;
     }
 
     @Override
-    public boolean storeUsuario(String mail, String password, String nombre, String apellido, String DNI, int numTel, boolean propietario) {
+    public void storeUsuario(String mail, String password, String nombre, String apellido, String DNI, int numTel, boolean propietario) throws UsuarioRepetido {
         Persona p;
-
-        if (propietario)
+        List<Persona> props, users;
+        openDB();
+        if (propietario) {
             p = new Propietario(mail, password, nombre, apellido, DNI, numTel);
-        else
+
+        } else {
             p = new Usuario(mail, password, nombre, apellido, DNI, numTel);
 
-        return insertPersona(p);
+        }
+        props = db.queryByExample(new Propietario(mail, null, null, null, null, 0));
+        users = db.queryByExample(new Usuario(mail, null, null, null, null, 0));
 
-
-    }
-
-    @Override
-    public void closeDB() {
-        db.close();
+        if (props.isEmpty() && users.isEmpty()) {
+            db.store(p);
+            db.commit();
+            db.close();
+        } else {
+            db.close();
+            throw new UsuarioRepetido();
+        }
     }
 
     @Override
     public String[] getUserInfo() {
         String[] info = new String[5];
+        try {
+            updatePersona();
 
-        info[0] = actualUser.getMail();
-        info[1] = actualUser.getNombre();
-        info[2] = actualUser.getApellido();
-        info[3] = actualUser.getDNI();
-        info[4] = Integer.toString(actualUser.getNumTel());
+            info[0] = actualUser.getMail();
+            info[1] = actualUser.getNombre();
+            info[2] = actualUser.getApellido();
+            info[3] = actualUser.getDNI();
+            info[4] = Integer.toString(actualUser.getNumTel());
 
-
+        } catch (UsuarioNoExiste usuarioNoExiste) {
+            usuarioNoExiste.printStackTrace();
+        }
         return info;
     }
 
     @Override
-    public boolean updatePersona(Persona p) {
-        actualUser.clone(p);
-        return insertPersona(actualUser);
-
+    public void updatePersona(String mail, String password, String nombre, String apellido, String DNI, int numTel) throws UsuarioNoExiste {
+        Persona p;
+        if (actualUser.getClass().equals(Usuario.class))
+            p = new Usuario(mail, password, nombre, apellido, DNI, numTel);
+        else
+            p = new Propietario(mail, password, nombre, apellido, DNI, numTel);
+        insertPersona(p);
     }
 
     @Override
     public Vector<RuralHouse> getAllRuralHouses() {
+        openDB();
         List<RuralHouse> res = db.queryByExample(new RuralHouse(null, null, null, null, 0, null));
-        System.out.println("Borrar" + res);
-        return new Vector<RuralHouse>(res);
+        Vector<RuralHouse> v = new Vector<>(res);
+        db.close();
+        return v;
     }
 
     @Override
@@ -115,27 +134,45 @@ public class rhLogica implements ruralManagerLogic {
     }
 
     @Override
-    public boolean storeRH(String nombre, String city, String direccion, int numTel, String desc) {
+    public void storeRH(String nombre, String city, String direccion, int numTel, String desc) throws UsuarioNoExiste {
 
-        RuralHouse rh = new RuralHouse(setRHNumber(), desc, city, nombre, numTel, direccion);
+        openDB();
+        List<Propietario> res = db.queryByExample(actualUser);
+        if (res.isEmpty()) throw new UsuarioNoExiste();
+        else
+            actualUser = res.get(0);
+        RuralHouse rh = new RuralHouse(createRHNumber(), desc, city, nombre, numTel, direccion);
         ((Propietario) actualUser).addRuralHouse(rh);
-
-        return insertPersona(actualUser);
+        db.store(actualUser);
+        db.commit();
+        db.close();
 
     }
 
     @Override
-    public Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists{
+    public Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists, UsuarioNoExiste {
         Offer of;
+        openDB();
 
-        if(firstDay.after(lastDay)) throw new BadDates("Fechas incorrectas");
-        of = ruralHouse.createOffer(1, firstDay, lastDay, price);
-        if(db.queryByExample(of).size() > 0) throw new OverlappingOfferExists("La oferta ya existe");
-        insertPersona(actualUser);
+
+        if (firstDay.after(lastDay)) throw new BadDates("Fechas incorrectas");
+        RuralHouse rh = (RuralHouse) db.queryByExample(ruralHouse).get(0);
+        of = rh.createOffer(1, firstDay, lastDay, price);
+
+        if (db.queryByExample(of).size() > 0) throw new OverlappingOfferExists("La oferta ya existe");
+
+        db.store(rh);
+        db.commit();
+        List<Propietario> res = db.queryByExample(new Propietario(actualUser.getMail(), actualUser.getPassword(),
+                actualUser.getNombre(), actualUser.getApellido(), actualUser.getDNI(), actualUser.getNumTel()));
+        if (res.isEmpty()) throw new UsuarioNoExiste();
+        else
+            actualUser = res.get(0);
+        db.close();
         return of;
     }
 
-    private int setRHNumber() {
+    private int createRHNumber() {
         List<RuralHouse> res = getUsersRuralHouses();
         String numero = Integer.toString(res.size());
         numero += (int) Math.floor((Math.random() * 1000) + 1);
@@ -143,14 +180,29 @@ public class rhLogica implements ruralManagerLogic {
     }
 
 
-    private boolean insertPersona(Persona p) {
+    private void insertPersona(Persona p) throws UsuarioNoExiste {
 
-        try {
-            db.store(p);
+        openDB();
+        List<Persona> res = db.queryByExample(actualUser);
+        if (res.isEmpty()) {
+            db.close();
+            throw new UsuarioNoExiste();
+        } else {
+            actualUser = res.get(0);
+            actualUser.clone(p);
+            db.store(actualUser);
             db.commit();
-            return true;
-        } catch (Exception e) {
-            return false;
+            db.close();
         }
+    }
+
+    private void updatePersona() throws UsuarioNoExiste {
+        openDB();
+        List<Persona> res = db.queryByExample(actualUser);
+        if (res.isEmpty())
+            throw new UsuarioNoExiste();
+        else
+            actualUser = res.get(0);
+        db.close();
     }
 }
