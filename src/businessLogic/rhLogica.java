@@ -89,13 +89,9 @@ public class rhLogica implements ruralManagerLogic {
         Persona p;
         List<Persona> props, users;
         openDB();
-        if (propietario) {
-            p = new Propietario(mail, password, nombre, apellido, DNI, numTel);
+        p = (propietario)?new Propietario(mail, password, nombre, apellido, DNI, numTel):
+        new Usuario(mail, password, nombre, apellido, DNI, numTel);
 
-        } else {
-            p = new Usuario(mail, password, nombre, apellido, DNI, numTel);
-
-        }
         props = db.queryByExample(new Propietario(mail, null, null, null, null, 0));
         users = db.queryByExample(new Usuario(mail, null, null, null, null, 0));
 
@@ -144,10 +140,9 @@ public class rhLogica implements ruralManagerLogic {
     @Override
     public void updatePersona(String mail, String password, String nombre, String apellido, String DNI, int numTel) throws UsuarioNoExiste {
         Persona p;
-        if (actualUser.getClass().equals(Usuario.class))
-            p = new Usuario(mail, password, nombre, apellido, DNI, numTel);
-        else
-            p = new Propietario(mail, password, nombre, apellido, DNI, numTel);
+        p = (actualUser.getClass().equals(Usuario.class))?
+            new Usuario(mail, password, nombre, apellido, DNI, numTel):
+            new Propietario(mail, password, nombre, apellido, DNI, numTel);
         insertPersona(p);
     }
 
