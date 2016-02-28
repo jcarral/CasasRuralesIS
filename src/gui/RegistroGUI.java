@@ -1,6 +1,7 @@
 package gui;
 
 import businessLogic.ruralManagerLogic;
+import exceptions.UsuarioRepetido;
 
 import javax.swing.*;
 import java.awt.*;
@@ -119,9 +120,15 @@ public class RegistroGUI extends JFrame {
                             JOptionPane.ERROR_MESSAGE);
                 } else {
                     boolean prop = rdbtnPropietario.isSelected();
-                    logica.storeUsuario(insertarEmail.getText(), Arrays.toString(insertarPass.getPassword()), insertarNombre.getText(),
-                            insertarApellido.getText(), insertarDNI.getText(), Integer.parseInt(insertarTelefono.getText()), prop);
-                    dispose();
+                    try {
+                        logica.storeUsuario(insertarEmail.getText(), Arrays.toString(insertarPass.getPassword()), insertarNombre.getText(),
+                                insertarApellido.getText(), insertarDNI.getText(), Integer.parseInt(insertarTelefono.getText()), prop);
+                        dispose();
+                    } catch (UsuarioRepetido usuarioRepetido) {
+                        JOptionPane.showMessageDialog(null, "Ya hay un usuario registrado con ese correo");
+                        usuarioRepetido.printStackTrace();
+                    }
+
                 }
             }
         });

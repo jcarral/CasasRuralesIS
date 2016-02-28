@@ -37,6 +37,7 @@ public class UsuarioGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         add(setMainPanel());
+        frameEvents();
 
         setVisible(true);
     }

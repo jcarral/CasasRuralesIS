@@ -2,6 +2,7 @@ package gui;
 
 import businessLogic.rhLogica;
 import businessLogic.ruralManagerLogic;
+import exceptions.UsuarioNoExiste;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -39,7 +40,6 @@ public class LoginGUI extends JFrame {
         setResizable(false);
         add(setMainPane());
         this.logica = logica;
-        cerrarBDalSalir();
         setVisible(true);
 
     }
@@ -124,14 +124,19 @@ public class LoginGUI extends JFrame {
             btnSignIn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    int acceso = logica.checkLogin(tfMail.getText(), Arrays.toString(pfPass.getPassword()), rdbtnUsuario.isSelected());
+                    int acceso = 0;
+                    try {
+                        acceso = logica.checkLogin(tfMail.getText(), Arrays.toString(pfPass.getPassword()), rdbtnUsuario.isSelected());
+
                     if (acceso == USUARIO) {
                         new UsuarioGUI(logica);
                         setVisible(false);
-                    } else if (acceso == PROPIETARIO) {
+                    } else {
                         new PropietarioGUI(logica);
                         setVisible(false);
-                    } else {
+                    }
+                    } catch (UsuarioNoExiste usuarioNoExiste) {
+                        usuarioNoExiste.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Datos incorrectos");
                     }
                 }
@@ -156,44 +161,6 @@ public class LoginGUI extends JFrame {
         return btnSignUp;
     }
 
-    private void cerrarBDalSalir() {
-        addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowClosing(WindowEvent e) {
-                logica.closeDB();
-            }
-
-            @Override
-            public void windowClosed(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowIconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeiconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowActivated(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeactivated(WindowEvent e) {
-
-            }
-        });
-    }
 
     public static void main(String args[]) {
         new LoginGUI(new rhLogica());

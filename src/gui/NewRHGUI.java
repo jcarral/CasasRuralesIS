@@ -1,6 +1,7 @@
 package gui;
 
 import businessLogic.ruralManagerLogic;
+import exceptions.UsuarioNoExiste;
 
 import javax.swing.*;
 import java.awt.*;
@@ -94,10 +95,11 @@ public class NewRHGUI extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     if (camposLlenos()) {
-                        if (logica.storeRH(tfNombre.getText(), tfCiudad.getText(), tfDir.getText(), Integer.parseInt(tfNumTel.getText()), taDesc.getText())) {
+                        try {
+                            logica.storeRH(tfNombre.getText(), tfCiudad.getText(), tfDir.getText(), Integer.parseInt(tfNumTel.getText()), taDesc.getText());
                             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
                             dispose();
-                        } else {
+                        } catch (UsuarioNoExiste ex) {
                             JOptionPane.showMessageDialog(null, "No se han podido guardar los datos, intentalos más tarde");
                         }
                     } else {

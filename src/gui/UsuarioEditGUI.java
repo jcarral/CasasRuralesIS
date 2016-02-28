@@ -1,7 +1,9 @@
 package gui;
 
 import businessLogic.ruralManagerLogic;
+import domain.Persona;
 import domain.Usuario;
+import exceptions.UsuarioNoExiste;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +21,6 @@ public class UsuarioEditGUI extends JFrame {
     private JTextField tfNombre, tfMail, tfApellido, tfDNI, tfTel;
     private JPasswordField pfPass, pfVerificarPass;
     private JButton btnConfirm;
-
 
 
     UsuarioEditGUI(ruralManagerLogic logica) {
@@ -149,21 +150,28 @@ public class UsuarioEditGUI extends JFrame {
         if (btnConfirm == null) {
             btnConfirm = new JButton("Confirmar cambios");
             btnConfirm.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
+                                             @Override
+                                             public void actionPerformed(ActionEvent e) {
 
-                    if (camposLlenos()) {
-                        //Actualizar propietario
-                        if (!logica.updatePersona(new Usuario(tfMail.getText(), Arrays.toString(pfPass.getPassword()), tfNombre.getText(), tfApellido.getText(),
-                                tfDNI.getText(), Integer.parseInt(tfTel.getText()))))
-                            JOptionPane.showMessageDialog(null, "Error al actualizar los datos, intentalo más tarde");
-                        else
-                            dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Hay campos vacios, rellenalos todos");
-                    }
-                }
-            });
+                                                 if (camposLlenos()) {
+                                                     //Actualizar propietario
+                                                     try {
+                                                         logica.updatePersona(tfMail.getText(), Arrays.toString(pfPass.getPassword()), tfNombre.getText(), tfApellido.getText(),
+                                                                 tfDNI.getText(), Integer.parseInt(tfTel.getText()));
+                                                         dispose();
+
+                                                     } catch (UsuarioNoExiste ex) {
+                                                         JOptionPane.showMessageDialog(null, "Error al actualizar los datos, el usuario no existe");
+                                                     } catch (Exception ex1) {
+                                                         ex1.printStackTrace();
+                                                         JOptionPane.showMessageDialog(null, "Error al actualizar los datos, intentalo más tarde");
+                                                     }
+
+                                                 }
+                                             }
+                                         }
+
+            );
         }
         btnPane.add(btnConfirm);
         return btnPane;
