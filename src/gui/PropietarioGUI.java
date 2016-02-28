@@ -146,7 +146,16 @@ public class PropietarioGUI extends JFrame {
     private JPanel setInfoPane() {
         if (infoPane == null) {
             updateInfoPane();
-
+            Icon iLogout = new ImageIcon("images/logout.png");
+            JButton btnLogout = new JButton(iLogout);
+            btnLogout.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new LoginGUI(logica);
+                    dispose();
+                }
+            });
+            infoPane.add(btnLogout);
         }
 
         return infoPane;

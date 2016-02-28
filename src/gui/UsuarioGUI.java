@@ -38,7 +38,7 @@ public class UsuarioGUI extends JFrame {
         super("Zona usuarios");
         this.logica = logica;
 
-        setSize(500, 180);
+        setSize(500, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -65,7 +65,16 @@ public class UsuarioGUI extends JFrame {
     private JPanel setInfoPanel() {
         if (infoPane == null) {
             updateInfoPane();
-
+            Icon iLogout = new ImageIcon("images/logout.png");
+            JButton btnLogout = new JButton(iLogout);
+            btnLogout.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new LoginGUI(logica);
+                    dispose();
+                }
+            });
+            infoPane.add(btnLogout);
         }
 
         return infoPane;
