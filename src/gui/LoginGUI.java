@@ -21,18 +21,24 @@ import java.util.Arrays;
  */
 public class LoginGUI extends JFrame {
 
-
+    //COmponentes de la interfaz de usuario
     private JPanel mainPane, headerPane, contentPane;
     private JButton btnSignIn, btnSignUp;
     private JTextField tfMail;
     private JPasswordField pfPass;
     private JRadioButton rdbtnPropietario, rdbtnUsuario;
     private final ButtonGroup buttonGroup = new ButtonGroup();
+
+    //Lógica de negocio de la aplicación
     private ruralManagerLogic logica;
 
     //Constantes
     private final int USUARIO = 0, PROPIETARIO = 1;
 
+    /**
+     * Constructor
+     * @param logica
+     */
     LoginGUI(ruralManagerLogic logica) {
         setSize(500, 300);
         setLocationRelativeTo(null);
@@ -44,6 +50,7 @@ public class LoginGUI extends JFrame {
 
     }
 
+    //JPanel principal
     private JPanel setMainPane() {
         if (mainPane == null) {
             mainPane = new JPanel(new BorderLayout());
@@ -56,7 +63,7 @@ public class LoginGUI extends JFrame {
         return mainPane;
     }
 
-
+    //JPanel con los campos del login
     private JPanel setContentPane() {
         if (contentPane == null) {
             contentPane = new JPanel();
@@ -68,6 +75,7 @@ public class LoginGUI extends JFrame {
         return contentPane;
     }
 
+    //JPanel con los campos para la contraseña
     private JPanel setPassPanel() {
         JPanel passPane = new JPanel(new FlowLayout());
         passPane.setBackground(estilosGUI.bckColor);
@@ -77,6 +85,7 @@ public class LoginGUI extends JFrame {
         return passPane;
     }
 
+    //Jpanel con los radiobuttons
     private JPanel setRadioPanel() {
         JPanel radioPane = new JPanel(new FlowLayout());
         radioPane.setBackground(estilosGUI.bckColor);
@@ -95,6 +104,7 @@ public class LoginGUI extends JFrame {
         return radioPane;
     }
 
+    //JPanel con los campos para el correo
     private JPanel setUserPanel() {
         JPanel userPane = new JPanel(new FlowLayout());
         userPane.add(new JLabel("Correo electrónico: "));
@@ -104,6 +114,7 @@ public class LoginGUI extends JFrame {
         return userPane;
     }
 
+    //JPanel con los botones
     private JPanel setBtnLayout() {
         JPanel btnLayout = new JPanel();
         btnLayout.setLayout(new BoxLayout(btnLayout, BoxLayout.PAGE_AXIS));
@@ -116,7 +127,7 @@ public class LoginGUI extends JFrame {
     }
 
 
-
+    //Boton para iniciar sesión y sla gestión de sus eventos
     private JButton setSignInBtn() {
         if (btnSignIn == null) {
             btnSignIn = new JButton("Iniciar sesión");
@@ -145,6 +156,7 @@ public class LoginGUI extends JFrame {
         return btnSignIn;
     }
 
+    //Boton para registrarse
     private JButton setSignUpBtn() {
         if (btnSignUp == null) {
             btnSignUp = new JButton("Registrarse");

@@ -12,13 +12,19 @@ import java.awt.event.*;
  */
 public class NewRHGUI extends JFrame {
 
+    //Logica de negocio de la aplicación
     private ruralManagerLogic logica;
 
+    //Componentes de la interfaz de usuario
     private JPanel mainPane, infoPane, btnPane;
     private JTextField tfNombre, tfCiudad, tfDir, tfNumTel;
     private JTextArea taDesc;
     private JButton btnAceptar;
 
+    /**
+     * Constructor
+     * @param logica
+     */
     NewRHGUI(ruralManagerLogic logica) {
         super("Añadir nueva casa");
 
@@ -30,6 +36,8 @@ public class NewRHGUI extends JFrame {
         setVisible(true);
     }
 
+
+    //JPanel principal
     private JPanel setMainPane() {
         if (mainPane == null) {
             mainPane = new JPanel();
@@ -41,6 +49,7 @@ public class NewRHGUI extends JFrame {
         return mainPane;
     }
 
+    //JPanel con los componentes para añadir los datos
     private JPanel setInfoPane() {
 
         if (infoPane == null) {
@@ -86,6 +95,7 @@ public class NewRHGUI extends JFrame {
         return infoPane;
     }
 
+    //JPanel con el boton para aceptar los datos
     private JPanel setBtnPane() {
 
         if (btnPane == null) {
@@ -113,11 +123,15 @@ public class NewRHGUI extends JFrame {
         return btnPane;
     }
 
+    //Función para comprobar si todos los textfields estan rellenados
     private boolean camposLlenos() {
         return !tfDir.getText().isEmpty() && !tfNumTel.getText().isEmpty() && !tfCiudad.getText().isEmpty()
                 && !tfNombre.getText().isEmpty() && !taDesc.getText().isEmpty();
     }
 
+
+    //Función para gestionar los eventos del frame al cerrarlo
+    //comprueba si hay campos rellenados y si se descartan cambios
     private void frameEvents() {
         this.addWindowListener(new WindowListener() {
             @Override

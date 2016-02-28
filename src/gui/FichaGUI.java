@@ -11,11 +11,13 @@ import javax.swing.border.EmptyBorder;
 
 public class FichaGUI extends JFrame {
 
+    //Elementos de la interfaz
     private JPanel mainPane, dataPane;
     private JTextField tfNombre, tfNumero, tfDireccion, tfCiudad, tfTel;
     private TextArea taDescripcion;
     private JButton btnCerrar;
 
+    //Casa Rural actual
     private RuralHouse rh;
 
     /**
@@ -32,6 +34,7 @@ public class FichaGUI extends JFrame {
         setVisible(true);
     }
 
+    //JPanel principal
     private JPanel setMainPane() {
 
         if (mainPane == null) {
@@ -51,6 +54,7 @@ public class FichaGUI extends JFrame {
         return mainPane;
     }
 
+    //JPanel con los datos de la casa rural
     private JPanel setDataPane() {
 
         if (dataPane == null) {
@@ -83,6 +87,7 @@ public class FichaGUI extends JFrame {
         return dataPane;
     }
 
+    //Boton para cerrar la ventana
     private JButton setBtn(){
         if(btnCerrar == null){
             btnCerrar = new JButton("Cerrar");

@@ -15,22 +15,28 @@ public class RegistroGUI extends JFrame {
      *
      */
     private static final long serialVersionUID = 1L;
+
+    //Componentes de la interfaz de usuario
     private JTextField insertarNombre;
     private JTextField insertarApellido;
     private JTextField insertarEmail;
     private JTextField insertarDNI;
     private JTextField insertarTelefono;
     private JPasswordField insertarPass;
-
     private final ButtonGroup buttonGroup = new ButtonGroup();
     private JRadioButton rdbtnUsuario = null;
     private JRadioButton rdbtnPropietario = null;
 
+
+    //Logica de negocio de la aplicación
     private ruralManagerLogic logica;
 
     protected Component frame;
 
-
+    /**
+     * Constructor
+     * @param logica
+     */
     public RegistroGUI(ruralManagerLogic logica) {
         this.setSize(671, 649);
         this.setResizable(false);
@@ -102,9 +108,7 @@ public class RegistroGUI extends JFrame {
     }
 
 
-
-
-
+    //Función para añadir el boton de registro
     private void setBtn() {
         //Bot�n//
         JButton btnRegistrar = new JButton("Registrar");
@@ -134,6 +138,7 @@ public class RegistroGUI extends JFrame {
         });
     }
 
+    //Función para introducir los radiobuttons
     private void setRadio() {
         rdbtnUsuario = new JRadioButton("Usuario");
         rdbtnUsuario.setSelected(true);
@@ -147,6 +152,8 @@ public class RegistroGUI extends JFrame {
         getContentPane().add(rdbtnPropietario);
     }
 
+
+    //Función para añadir los textfields
     private void setFields() {
         //Cajas de texto//
         insertarNombre = new JTextField();

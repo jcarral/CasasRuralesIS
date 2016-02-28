@@ -13,15 +13,21 @@ import javax.swing.*;
 
 public class PropietarioGUI extends JFrame {
 
+    //Logica de la aplicación
     private ruralManagerLogic logica;
 
-
+    //Componentes de la interfaz
     private JPanel mainPane, infoPane, btnPane, listJPanel;
     private JLabel lblMail, lblNombre, lblApellido;
     private JButton btnAddRh, btnAddOff, btnEdit;
     private JList listRH;
     private DefaultListModel listModel;
     private JScrollPane paneList;
+
+    /**
+     * Constructor de la ventana
+     * @param logica
+     */
     PropietarioGUI(ruralManagerLogic logica) {
         super("Zona propietarios");
         this.logica = logica;
@@ -36,6 +42,7 @@ public class PropietarioGUI extends JFrame {
 
     }
 
+    //Panel principal
     private JPanel setMainPanel() {
         if (mainPane == null) {
             mainPane = new JPanel();
@@ -48,6 +55,7 @@ public class PropietarioGUI extends JFrame {
         return mainPane;
     }
 
+    //JPanel donde se muestra la lista de casas del usuario
     private JPanel setListPanel() {
         if (listJPanel == null) {
             listJPanel = new JPanel();
@@ -66,6 +74,7 @@ public class PropietarioGUI extends JFrame {
         return listJPanel;
     }
 
+    //Función para introducir las casas del usuario en el modelo
     private void insertDataIntoPane() {
         List<RuralHouse> res = logica.getUsersRuralHouses();
         listModel.clear();
@@ -74,6 +83,7 @@ public class PropietarioGUI extends JFrame {
 
     }
 
+    //JPanel con los botones de la intefaz de usuario
     private JPanel setBtnPanel() {
         if (btnPane == null) {
             btnPane = new JPanel(new FlowLayout());
@@ -86,6 +96,7 @@ public class PropietarioGUI extends JFrame {
         return btnPane;
     }
 
+    //Boton para añadir una nueva casa
     private JButton setBtnAddRH() {
         if (btnAddRh == null) {
             Icon iCasa = new ImageIcon("images/rh.png");
@@ -100,6 +111,8 @@ public class PropietarioGUI extends JFrame {
         return btnAddRh;
     }
 
+
+    //Boton para editar el perfil del usuario
     private JButton setBtnEdit() {
         if (btnEdit == null) {
             Icon iEdit = new ImageIcon("images/edit.png");
@@ -114,6 +127,7 @@ public class PropietarioGUI extends JFrame {
         return btnEdit;
     }
 
+    //Boton para añadir un nuevo usuario
     private JButton setBtnAddOff() {
         if (btnAddOff == null) {
             Icon iOff = new ImageIcon("images/offer.png");
@@ -128,6 +142,7 @@ public class PropietarioGUI extends JFrame {
         return btnAddOff;
     }
 
+    //JPanel con la información del usuario
     private JPanel setInfoPane() {
         if (infoPane == null) {
             updateInfoPane();
@@ -137,7 +152,7 @@ public class PropietarioGUI extends JFrame {
         return infoPane;
     }
 
-
+    //Función para actualizar los datos del usuario
     private void updateInfoPane() {
         infoPane = new JPanel();
 
@@ -163,6 +178,7 @@ public class PropietarioGUI extends JFrame {
         infoPane.setBackground(estilosGUI.bckColor);
     }
 
+    //Función para que al ganar el focus se actualicen los datos en la ventana
     private void frameEvents() {
         this.addWindowFocusListener(new WindowFocusListener() {
             @Override

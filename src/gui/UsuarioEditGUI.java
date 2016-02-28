@@ -15,14 +15,19 @@ import java.util.Arrays;
  */
 public class UsuarioEditGUI extends JFrame {
 
+    //Lógica de negocio de la aplicación
     private ruralManagerLogic logica;
 
+    //Componentes de la interfaz de usuario
     private JPanel mainPane, infoPane;
     private JTextField tfNombre, tfMail, tfApellido, tfDNI, tfTel;
     private JPasswordField pfPass, pfVerificarPass;
     private JButton btnConfirm;
 
-
+    /**
+     * Constructor
+     * @param logica
+     */
     UsuarioEditGUI(ruralManagerLogic logica) {
         super("Configurar perfil de usuario");
         this.logica = logica;
@@ -34,6 +39,7 @@ public class UsuarioEditGUI extends JFrame {
 
     }
 
+    //JPanel principal
     private JPanel mainPanel() {
         if (mainPane == null) {
             mainPane = new JPanel();
@@ -47,6 +53,7 @@ public class UsuarioEditGUI extends JFrame {
         return mainPane;
     }
 
+    //JPanel con los campos que tienen la información
     private JPanel setInfoPanel() {
         if (infoPane == null) {
             infoPane = new JPanel();
@@ -143,6 +150,7 @@ public class UsuarioEditGUI extends JFrame {
         return infoPane;
     }
 
+    //JPanel con el boton para confirmar los cambios
     private JPanel setBtnPane() {
         JPanel btnPane = new JPanel();
         btnPane.setBackground(estilosGUI.bckColorDark);
@@ -178,12 +186,16 @@ public class UsuarioEditGUI extends JFrame {
 
     }
 
+    //Función que verifica si todos los campos están llenos
     private boolean camposLlenos() {
         return !tfApellido.getText().isEmpty() && !tfTel.getText().isEmpty() && estilosGUI.validarCorreo(tfMail.getText())
                 && !tfNombre.getText().isEmpty() && !tfDNI.getText().isEmpty() && pfPass.getPassword().length > 0
                 && pfVerificarPass.getPassword().length > 0;
     }
 
+
+    //Función para gestionar los eventos del frame
+    //Se gestiona el cierre de la ventana
     private void frameEvents() {
         this.addWindowListener(new WindowListener() {
             @Override

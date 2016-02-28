@@ -8,6 +8,10 @@ public class UsuarioRepetido extends Exception {
         super();
     }
 
+    /**
+     * La excepción salta si el usuario está repetido en la base de datos
+     * @param s
+     */
     public UsuarioRepetido(String s){
         super(s);
     }

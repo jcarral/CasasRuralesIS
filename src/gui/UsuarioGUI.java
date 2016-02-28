@@ -21,13 +21,19 @@ import java.io.IOException;
  */
 public class UsuarioGUI extends JFrame {
 
+    //Lógica de negocio de la aplicación
     private ruralManagerLogic logica;
+
+    //Componentesb de la interfaz de usuario
     private JPanel mainPane, infoPane, btnPane;
     private JLabel lblNombre, lblMail, lblApellido;
     private JButton btnEdit, btnQuery;
 
 
-
+    /**
+     * COnstructor
+     * @param logica
+     */
     UsuarioGUI(ruralManagerLogic logica) {
         super("Zona usuarios");
         this.logica = logica;
@@ -42,7 +48,7 @@ public class UsuarioGUI extends JFrame {
         setVisible(true);
     }
 
-
+    //JPanel principal
     private JPanel setMainPanel() {
         if (mainPane == null) {
             mainPane = new JPanel();
@@ -55,6 +61,7 @@ public class UsuarioGUI extends JFrame {
         return mainPane;
     }
 
+    //JPanel con la información del usuario
     private JPanel setInfoPanel() {
         if (infoPane == null) {
             updateInfoPane();
@@ -64,6 +71,7 @@ public class UsuarioGUI extends JFrame {
         return infoPane;
     }
 
+    //Funcion para actualizar la información del usuario
     private void updateInfoPane() {
         infoPane = new JPanel(new FlowLayout());
 
@@ -89,6 +97,7 @@ public class UsuarioGUI extends JFrame {
         infoPane.setBackground(estilosGUI.bckColor);
     }
 
+    //JPanel con los botones de la interfaz
     private JPanel setBtnPanel() {
         if (btnPane == null) {
             btnPane = new JPanel(new FlowLayout());
@@ -100,6 +109,7 @@ public class UsuarioGUI extends JFrame {
         return btnPane;
     }
 
+    //Boton de busqueda
     private JButton setQueryBtn() {
         if (btnQuery == null) {
             Icon edit = new ImageIcon("images/search.png");
@@ -116,7 +126,7 @@ public class UsuarioGUI extends JFrame {
         return btnQuery;
     }
 
-
+    //Boton para editar el perfil
     private JButton setEditableBtn() {
         if (btnEdit == null) {
             Icon edit = new ImageIcon("images/edit.png");
@@ -133,7 +143,8 @@ public class UsuarioGUI extends JFrame {
         return btnEdit;
     }
 
-
+    //Función para gestionar los eventos del frame
+    //Gestiona cuando la ventana obtiene el foco
     private void frameEvents() {
         this.addWindowFocusListener(new WindowFocusListener() {
             @Override

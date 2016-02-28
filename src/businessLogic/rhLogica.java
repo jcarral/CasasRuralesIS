@@ -38,7 +38,14 @@ public class rhLogica implements ruralManagerLogic {
         db = Db4oEmbedded.openFile(configuration, DB4OFILENAME);
     }
 
-
+    /**
+     * Comprueba si existe un usuario con esos atributos en la base de datos
+     * @param mail correo del usuario
+     * @param pass contraseña del usuario
+     * @param usuario true si es usuario, false si es propietario
+     * @return 0 si es usuario, 1 si es propietario
+     * @throws UsuarioNoExiste si el usuario no existe en la base de datos
+     */
     @Override
     public int checkLogin(String mail, String pass, boolean usuario) throws UsuarioNoExiste {
 
@@ -66,6 +73,17 @@ public class rhLogica implements ruralManagerLogic {
         return val;
     }
 
+    /**
+     * Guarda un nuevo usuario en la base de datos
+     * @param mail correo del usuario
+     * @param password contraseña del usuario
+     * @param nombre nombre del usuario
+     * @param apellido apellido del usuario
+     * @param DNI dni del usuario
+     * @param numTel numero de telefono del usuario
+     * @param propietario true si es propietario, false si es usuario
+     * @throws UsuarioRepetido si existe en la base de datos una persona con el mismo correo
+     */
     @Override
     public void storeUsuario(String mail, String password, String nombre, String apellido, String DNI, int numTel, boolean propietario) throws UsuarioRepetido {
         Persona p;
@@ -91,6 +109,10 @@ public class rhLogica implements ruralManagerLogic {
         }
     }
 
+    /**
+     * Obtiene la información del usuario actual
+     * @return Array con toda la información del usuario
+     */
     @Override
     public String[] getUserInfo() {
         String[] info = new String[5];
@@ -109,6 +131,16 @@ public class rhLogica implements ruralManagerLogic {
         return info;
     }
 
+    /**
+     * Actualiza los datos de la persona actual
+     * @param mail
+     * @param password
+     * @param nombre
+     * @param apellido
+     * @param DNI
+     * @param numTel
+     * @throws UsuarioNoExiste si actualmente no hay ningún usuario
+     */
     @Override
     public void updatePersona(String mail, String password, String nombre, String apellido, String DNI, int numTel) throws UsuarioNoExiste {
         Persona p;
@@ -119,6 +151,10 @@ public class rhLogica implements ruralManagerLogic {
         insertPersona(p);
     }
 
+    /**
+     * Devuelve todas las casas rurales de la base de datos
+     * @return Vector con todas las casas rurales
+     */
     @Override
     public Vector<RuralHouse> getAllRuralHouses() {
         openDB();
@@ -128,11 +164,24 @@ public class rhLogica implements ruralManagerLogic {
         return v;
     }
 
+    /**
+     * Devuelve todas las casas rurales del actual usuario
+     * @return Lista con todas las casas rurales
+     */
     @Override
     public List<RuralHouse> getUsersRuralHouses() {
         return ((Propietario) actualUser).getListaCasas();
     }
 
+    /**
+     * Almacena una nueva casa rural en la base de datos
+     * @param nombre
+     * @param city
+     * @param direccion
+     * @param numTel
+     * @param desc
+     * @throws UsuarioNoExiste Si actualmente no hay ningún usuario
+     */
     @Override
     public void storeRH(String nombre, String city, String direccion, int numTel, String desc) throws UsuarioNoExiste {
 
@@ -149,6 +198,17 @@ public class rhLogica implements ruralManagerLogic {
 
     }
 
+    /**
+     * Almacena una nueva oferta en la base de datos
+     * @param ruralHouse
+     * @param firstDay
+     * @param lastDay
+     * @param price
+     * @return Devuelve la nueva oferta
+     * @throws BadDates Si el primer día es posterior al último
+     * @throws OverlappingOfferExists Si ya existe esa oferta en la bd
+     * @throws UsuarioNoExiste Si actualmente no hay ningun usuario
+     */
     @Override
     public Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists, UsuarioNoExiste {
         Offer of;
@@ -172,14 +232,15 @@ public class rhLogica implements ruralManagerLogic {
         return of;
     }
 
+    //Genera un número para cada casa
     private int createRHNumber() {
         List<RuralHouse> res = getUsersRuralHouses();
-        String numero = Integer.toString(res.size());
+        String numero = Integer.toString(res.size()) + 1;
         numero += (int) Math.floor((Math.random() * 1000) + 1);
         return Integer.parseInt(numero);
     }
 
-
+    //Inserta una persona p en la base de datos
     private void insertPersona(Persona p) throws UsuarioNoExiste {
 
         openDB();
@@ -196,6 +257,7 @@ public class rhLogica implements ruralManagerLogic {
         }
     }
 
+    //Actualiza los valores de la persona actual
     private void updatePersona() throws UsuarioNoExiste {
         openDB();
         List<Persona> res = db.queryByExample(actualUser);
