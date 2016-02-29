@@ -292,6 +292,7 @@ public class QueryAvailabilityGUI extends JFrame {
                     // They have to be converted into java.sql.Date objects before
                     Date firstDaySqlDate = new Date(of.getFirstDay().getTime());
                     Date lastDaySqlDate = new Date(of.getLastDay().getTime());
+                    row.add(rh.getNombre());
                     row.add(firstDaySqlDate);
                     row.add(lastDaySqlDate);
                     row.add(of.getPrice());
