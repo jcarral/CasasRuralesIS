@@ -67,6 +67,7 @@ public class rhLogica implements ruralManagerLogic {
             actualUser = res.get(0);
 
         } else {
+            db.close();
             throw new UsuarioNoExiste();
         }
         db.close();
@@ -154,7 +155,7 @@ public class rhLogica implements ruralManagerLogic {
     public Vector<RuralHouse> getAllRuralHouses() {
         openDB();
         List<RuralHouse> res = db.queryByExample(new RuralHouse(null, null, null, null, 0, null));
-        Vector<RuralHouse> v = new Vector<>(res);
+        Vector<RuralHouse> v = new Vector(res);
         db.close();
         return v;
     }

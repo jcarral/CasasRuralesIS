@@ -18,7 +18,7 @@ public class estilosGUI {
 
     public static final Color bckColor = new Color(230, 230, 237);
     public static final Color bckColorDark = new Color(83, 92, 95);
-    public static final Color bckGray = new Color(224, 236, 236);
+    public static final Color bckGray = new Color(242, 254, 254);
 
     //Constanes para identeficar el array
     public static final int MAIL = 0, NOMBRE = 1, APELLIDO = 2, DNI = 3, TEL = 4;
@@ -50,15 +50,5 @@ public class estilosGUI {
         return headerPane;
     }
 
-    //Funcion para validar el campo del email//
-    public static boolean validarCorreo(String hex) {
 
-        String Patron = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-
-        Pattern pattern = Pattern.compile(Patron);
-        Matcher matcher = pattern.matcher(hex);
-        return matcher.matches();
-
-
-    }
 }

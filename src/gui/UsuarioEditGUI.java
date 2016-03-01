@@ -15,6 +15,9 @@ import java.util.Arrays;
  */
 public class UsuarioEditGUI extends JFrame {
 
+    //Constantes
+    private final int NUMERO_CAMPOS = 4;
+
     //Lógica de negocio de la aplicación
     private ruralManagerLogic logica;
 
@@ -81,6 +84,7 @@ public class UsuarioEditGUI extends JFrame {
             JPanel pMail = new JPanel(new FlowLayout());
             pMail.add(new JLabel("Correo: "));
             tfMail = new JTextField(info[estilosGUI.MAIL], 20);
+            tfMail.setEditable(false);
             pMail.add(tfMail);
             pMail.setBackground(estilosGUI.bckGray);
             infoPane.add(pMail);
@@ -105,7 +109,7 @@ public class UsuarioEditGUI extends JFrame {
                 @Override
                 public void focusLost(FocusEvent e) {
                     try {
-                        Integer.parseInt(tfTel.getText());
+                        Long.parseLong(tfTel.getText());
                     } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(null, "Eso no es un número de telefono correcto");
                         tfTel.setText("");
@@ -161,7 +165,7 @@ public class UsuarioEditGUI extends JFrame {
                                              @Override
                                              public void actionPerformed(ActionEvent e) {
 
-                                                 if (camposLlenos()) {
+                                                 if (numeroCamposLibres() == 0) {
                                                      //Actualizar propietario
                                                      try {
                                                          logica.updatePersona(tfMail.getText(), Arrays.toString(pfPass.getPassword()), tfNombre.getText(), tfApellido.getText(),
@@ -175,6 +179,8 @@ public class UsuarioEditGUI extends JFrame {
                                                          JOptionPane.showMessageDialog(null, "Error al actualizar los datos, intentalo más tarde");
                                                      }
 
+                                                 } else {
+                                                     JOptionPane.showMessageDialog(null, "Por favor, rellena todos los campos");
                                                  }
                                              }
                                          }
@@ -185,14 +191,6 @@ public class UsuarioEditGUI extends JFrame {
         return btnPane;
 
     }
-
-    //Función que verifica si todos los campos están llenos
-    private boolean camposLlenos() {
-        return !tfApellido.getText().isEmpty() && !tfTel.getText().isEmpty() && estilosGUI.validarCorreo(tfMail.getText())
-                && !tfNombre.getText().isEmpty() && !tfDNI.getText().isEmpty() && pfPass.getPassword().length > 0
-                && pfVerificarPass.getPassword().length > 0;
-    }
-
 
     //Función para gestionar los eventos del frame
     //Se gestiona el cierre de la ventana
@@ -205,7 +203,7 @@ public class UsuarioEditGUI extends JFrame {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                if (!camposLlenos()) {
+                if (numeroCamposLibres() < NUMERO_CAMPOS) {
 
                     int res = JOptionPane.showConfirmDialog(null,
                             "¿Estás seguro que quieres descartar los cambios?", null, JOptionPane.YES_NO_OPTION);
@@ -242,5 +240,19 @@ public class UsuarioEditGUI extends JFrame {
 
             }
         });
+    }
+
+    private int numeroCamposLibres() {
+        int num = 0;
+        if (tfDNI.getText().isEmpty())
+            num++;
+        if (tfTel.getText().isEmpty())
+            num++;
+        if (tfNombre.getText().isEmpty())
+            num++;
+        if (tfApellido.getText().isEmpty())
+            num++;
+
+        return num;
     }
 }

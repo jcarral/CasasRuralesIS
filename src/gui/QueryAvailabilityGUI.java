@@ -84,7 +84,8 @@ public class QueryAvailabilityGUI extends JFrame {
     private JPanel setComboPanel(){
 
         if(comboPane == null){
-            comboPane = new JPanel(new FlowLayout());
+            comboPane = new JPanel();
+            comboPane.setLayout(new BoxLayout(comboPane, BoxLayout.PAGE_AXIS));
 
             //Label
             comboPane.add(new JLabel("Selecciona casa: "));

@@ -11,10 +11,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegistroGUI extends JFrame {
-    /**
-     *
-     */
+
     private static final long serialVersionUID = 1L;
+
+    //Constantes
+    private final int NUMERO_CAMPOS = 6;
 
     //Componentes de la interfaz de usuario
     private JTextField insertarNombre;
@@ -59,7 +60,7 @@ public class RegistroGUI extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
 
-                if (!vacio()) {
+                if (numeroCamposLibres() < NUMERO_CAMPOS) {
 
                     int res = JOptionPane.showConfirmDialog(null,
                             "¿Estás seguro que quieres descartar los cambios?", null, JOptionPane.YES_NO_OPTION);
@@ -68,7 +69,8 @@ public class RegistroGUI extends JFrame {
                     else
                         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
-                }
+                } else
+                    dispose();
             }
 
             @Override
@@ -101,10 +103,16 @@ public class RegistroGUI extends JFrame {
     }
 
 
-    //Función para comprobar si hay algún campo vacio
-    private boolean vacio() {
-        return insertarNombre.getText().isEmpty() && insertarApellido.getText().isEmpty() && !(estilosGUI.validarCorreo(insertarEmail.getText()))
-                && insertarDNI.getText().isEmpty() && insertarTelefono.getText().isEmpty() && (insertarPass.getPassword().length == 0);
+    //Funcion para validar el campo del email//
+    private static boolean validarCorreo(String hex) {
+
+        String Patron = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+
+        Pattern pattern = Pattern.compile(Patron);
+        Matcher matcher = pattern.matcher(hex);
+        return matcher.matches();
+
+
     }
 
 
@@ -117,7 +125,7 @@ public class RegistroGUI extends JFrame {
         getContentPane().add(btnRegistrar);
         btnRegistrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                if (vacio()) {
+                if (numeroCamposLibres() > 0) {
                     JOptionPane.showMessageDialog(frame,
                             "Hay algun campo incorrecto o vacio",
                             "Error",
@@ -246,5 +254,22 @@ public class RegistroGUI extends JFrame {
         getContentPane().add(lblContrasea);
     }
 
+    private int numeroCamposLibres() {
+        int num = 0;
+        if (insertarTelefono.getText().isEmpty())
+            num++;
+        if (insertarApellido.getText().isEmpty())
+            num++;
+        if (insertarDNI.getText().isEmpty())
+            num++;
+        if (insertarEmail.getText().isEmpty())
+            num++;
+        if (insertarNombre.getText().isEmpty())
+            num++;
+        if (insertarPass.getText().isEmpty())
+            num++;
+
+        return num;
+    }
 
 }

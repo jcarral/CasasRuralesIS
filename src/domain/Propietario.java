@@ -11,7 +11,7 @@ public class Propietario extends Persona {
     private List<RuralHouse> listaCasas;
     public Propietario(String mail, String password, String nombre, String apellido, String DNI, int numTel) {
         super(mail, password, nombre, apellido, DNI, numTel);
-        listaCasas = new LinkedList<>();
+        listaCasas = new LinkedList();
     }
     public List<RuralHouse> getListaCasas() {
         return listaCasas;

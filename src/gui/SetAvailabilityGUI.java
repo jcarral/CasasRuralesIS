@@ -59,7 +59,7 @@ public class SetAvailabilityGUI extends JFrame {
 
     private void jbInit(Vector<RuralHouse> v) throws Exception {
         this.getContentPane().setLayout(null);
-        this.setSize(new Dimension(500, 433));
+        this.setSize(new Dimension(500, 453));
         this.setTitle("Set availability");
 
 

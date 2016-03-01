@@ -12,6 +12,9 @@ import java.awt.event.*;
  */
 public class NewRHGUI extends JFrame {
 
+    //Constantes
+    private final int NUMERO_CAMPOS = 5;
+
     //Logica de negocio de la aplicación
     private ruralManagerLogic logica;
 
@@ -29,8 +32,9 @@ public class NewRHGUI extends JFrame {
         super("Añadir nueva casa");
 
         this.logica = logica;
-        setSize(500, 600);
+        setSize(500, 400);
         setLocationRelativeTo(null);
+        setResizable(false);
         add(setMainPane());
         frameEvents();
         setVisible(true);
@@ -54,16 +58,17 @@ public class NewRHGUI extends JFrame {
 
         if (infoPane == null) {
             infoPane = new JPanel();
+            infoPane.setLayout(new BoxLayout(infoPane, BoxLayout.PAGE_AXIS));
             infoPane.add(new JLabel("Nombre de la casa: "));
-            tfNombre = new JTextField(10);
+            tfNombre = new JTextField(20);
             infoPane.add(tfNombre);
 
             infoPane.add(new JLabel("Ciudad: "));
-            tfCiudad = new JTextField(10);
+            tfCiudad = new JTextField(20);
             infoPane.add(tfCiudad);
 
             infoPane.add(new JLabel("Numero de telefono: "));
-            tfNumTel = new JTextField(10);
+            tfNumTel = new JTextField(20);
             tfNumTel.addFocusListener(new FocusListener() {
                 @Override
                 public void focusGained(FocusEvent e) {
@@ -84,11 +89,12 @@ public class NewRHGUI extends JFrame {
             infoPane.add(tfNumTel);
 
             infoPane.add(new JLabel("Dirección: "));
-            tfDir = new JTextField(10);
+            tfDir = new JTextField(20);
             infoPane.add(tfDir);
 
             infoPane.add(new JLabel("Descripción sobre la casa rural"));
-            taDesc = new JTextArea(10, 20);
+
+            taDesc = new JTextArea(20, 20);
             infoPane.add(taDesc);
 
         }
@@ -104,7 +110,7 @@ public class NewRHGUI extends JFrame {
             btnAceptar.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (camposLlenos()) {
+                    if (numeroCamposLibres() == 0) {
                         try {
                             logica.storeRH(tfNombre.getText(), tfCiudad.getText(), tfDir.getText(), Integer.parseInt(tfNumTel.getText()), taDesc.getText());
                             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
@@ -123,11 +129,7 @@ public class NewRHGUI extends JFrame {
         return btnPane;
     }
 
-    //Función para comprobar si todos los textfields estan rellenados
-    private boolean camposLlenos() {
-        return !tfDir.getText().isEmpty() && !tfNumTel.getText().isEmpty() && !tfCiudad.getText().isEmpty()
-                && !tfNombre.getText().isEmpty() && !taDesc.getText().isEmpty();
-    }
+
 
 
     //Función para gestionar los eventos del frame al cerrarlo
@@ -141,7 +143,7 @@ public class NewRHGUI extends JFrame {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                if (!camposLlenos()) {
+                if (numeroCamposLibres() < NUMERO_CAMPOS) {
                     int num = JOptionPane.showConfirmDialog(null,
                             "Si sales perderas los cambios, ¿estás seguro?", null, JOptionPane.YES_NO_OPTION);
                     if (num == JOptionPane.YES_OPTION)
@@ -178,5 +180,19 @@ public class NewRHGUI extends JFrame {
         });
     }
 
+    private int numeroCamposLibres() {
+        int num = 0;
+        if (tfDir.getText().isEmpty())
+            num++;
+        if (tfNumTel.getText().isEmpty())
+            num++;
+        if (tfCiudad.getText().isEmpty())
+            num++;
+        if (tfNombre.getText().isEmpty())
+            num++;
+        if (taDesc.getText().isEmpty())
+            num++;
 
+        return num;
+    }
 }
