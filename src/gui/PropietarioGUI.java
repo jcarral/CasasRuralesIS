@@ -99,7 +99,7 @@ public class PropietarioGUI extends JFrame {
     //Boton para añadir una nueva casa
     private JButton setBtnAddRH() {
         if (btnAddRh == null) {
-            Icon iCasa = new ImageIcon("images/rh.png");
+            Icon iCasa = new ImageIcon("/images/rh.png");
             btnAddRh = new JButton("Añadir casa ", iCasa);
             btnAddRh.addActionListener(new ActionListener() {
                 @Override
@@ -115,7 +115,7 @@ public class PropietarioGUI extends JFrame {
     //Boton para editar el perfil del usuario
     private JButton setBtnEdit() {
         if (btnEdit == null) {
-            Icon iEdit = new ImageIcon("images/edit.png");
+            Icon iEdit = new ImageIcon("/images/edit.png");
             btnEdit = new JButton("Editar info ", iEdit);
             btnEdit.addActionListener(new ActionListener() {
                 @Override
@@ -130,7 +130,7 @@ public class PropietarioGUI extends JFrame {
     //Boton para añadir un nuevo usuario
     private JButton setBtnAddOff() {
         if (btnAddOff == null) {
-            Icon iOff = new ImageIcon("images/offer.png");
+            Icon iOff = new ImageIcon("/images/offer.png");
             btnAddOff = new JButton("Añadir oferta ", iOff);
             btnAddOff.addActionListener(new ActionListener() {
                 @Override
@@ -146,7 +146,7 @@ public class PropietarioGUI extends JFrame {
     private JPanel setInfoPane() {
         if (infoPane == null) {
             updateInfoPane();
-            Icon iLogout = new ImageIcon("images/logout.png");
+            Icon iLogout = new ImageIcon("/images/logout.png");
             JButton btnLogout = new JButton(iLogout);
             btnLogout.addActionListener(new ActionListener() {
                 @Override
