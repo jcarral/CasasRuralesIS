@@ -37,7 +37,7 @@ public class estilosGUI {
         JLabel headerLabel;
         try {
 
-            header = ImageIO.read(new File("images/header.png"));
+            header = ImageIO.read(new File("/images/header.png"));
             headerLabel = new JLabel(new ImageIcon(header));
         } catch (IOException e) {
             e.printStackTrace();
