@@ -65,7 +65,7 @@ public class UsuarioGUI extends JFrame {
     private JPanel setInfoPanel() {
         if (infoPane == null) {
             updateInfoPane();
-            Icon iLogout = new ImageIcon("images/logout.png");
+            Icon iLogout = new ImageIcon("/images/logout.png");
             JButton btnLogout = new JButton(iLogout);
             btnLogout.addActionListener(new ActionListener() {
                 @Override
@@ -121,7 +121,7 @@ public class UsuarioGUI extends JFrame {
     //Boton de busqueda
     private JButton setQueryBtn() {
         if (btnQuery == null) {
-            Icon edit = new ImageIcon("images/search.png");
+            Icon edit = new ImageIcon("/images/search.png");
             btnQuery = new JButton("Buscar ", edit);
             btnQuery.setSize(200, 50);
 
@@ -138,7 +138,7 @@ public class UsuarioGUI extends JFrame {
     //Boton para editar el perfil
     private JButton setEditableBtn() {
         if (btnEdit == null) {
-            Icon edit = new ImageIcon("images/edit.png");
+            Icon edit = new ImageIcon("/images/edit.png");
             btnEdit = new JButton("Configurar perfil ", edit);
             btnEdit.setSize(200, 50);
 
