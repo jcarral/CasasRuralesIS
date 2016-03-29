@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.util.List;
+
 import javax.swing.*;
 
 public class PropietarioGUI extends JFrame {
@@ -19,7 +20,7 @@ public class PropietarioGUI extends JFrame {
     //Componentes de la interfaz
     private JPanel mainPane, infoPane, btnPane, listJPanel;
     private JLabel lblMail, lblNombre, lblApellido;
-    private JButton btnAddRh, btnAddOff, btnEdit;
+    private JButton btnAddRh, btnAddOff, btnEdit, btnReservas;
     private JList listRH;
     private DefaultListModel listModel;
     private JScrollPane paneList;
@@ -31,11 +32,11 @@ public class PropietarioGUI extends JFrame {
     PropietarioGUI(ruralManagerLogic logica) {
         super("Zona propietarios");
         this.logica = logica;
-        setSize(500, 300);
+        setSize(900, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        add(setMainPanel());
+        getContentPane().add(setMainPanel());
         frameEvents();
 
         setVisible(true);
@@ -90,6 +91,7 @@ public class PropietarioGUI extends JFrame {
             btnPane.add(setBtnAddRH());
             btnPane.add(setBtnAddOff());
             btnPane.add(setBtnEdit());
+            btnPane.add(setBtnReservas());
             btnPane.setBackground(estilosGUI.bckColorDark);
             btnPane.setBorder(BorderFactory.createMatteBorder(3, 0, 0, 0, Color.BLACK));
         }
@@ -99,7 +101,7 @@ public class PropietarioGUI extends JFrame {
     //Boton para añadir una nueva casa
     private JButton setBtnAddRH() {
         if (btnAddRh == null) {
-            Icon iCasa = new ImageIcon("/images/rh.png");
+            Icon iCasa = new ImageIcon("images/rh.png");
             btnAddRh = new JButton("Añadir casa ", iCasa);
             btnAddRh.addActionListener(new ActionListener() {
                 @Override
@@ -115,7 +117,7 @@ public class PropietarioGUI extends JFrame {
     //Boton para editar el perfil del usuario
     private JButton setBtnEdit() {
         if (btnEdit == null) {
-            Icon iEdit = new ImageIcon("/images/edit.png");
+            Icon iEdit = new ImageIcon("images/edit.png");
             btnEdit = new JButton("Editar info ", iEdit);
             btnEdit.addActionListener(new ActionListener() {
                 @Override
@@ -126,11 +128,27 @@ public class PropietarioGUI extends JFrame {
         }
         return btnEdit;
     }
+    
+  //Boton para ver reservas
+  	private JButton setBtnReservas() {
+		if (btnReservas == null) {
+  			Icon edit = new ImageIcon("images/reserve.png");
+  			btnReservas = new JButton("Ver reservas", edit);
+  			btnReservas.setSize(50, 50);
+  			btnReservas.addActionListener(new ActionListener() {
+                  @Override
+                  public void actionPerformed(ActionEvent e) {
+                      new ReservasPropietarioGUI(logica);
+                  }
+              });
+  		}
+  		return btnReservas;
+  	}
 
     //Boton para añadir un nuevo usuario
     private JButton setBtnAddOff() {
         if (btnAddOff == null) {
-            Icon iOff = new ImageIcon("/images/offer.png");
+            Icon iOff = new ImageIcon("images/offer.png");
             btnAddOff = new JButton("Añadir oferta ", iOff);
             btnAddOff.addActionListener(new ActionListener() {
                 @Override
@@ -146,7 +164,7 @@ public class PropietarioGUI extends JFrame {
     private JPanel setInfoPane() {
         if (infoPane == null) {
             updateInfoPane();
-            Icon iLogout = new ImageIcon("/images/logout.png");
+            Icon iLogout = new ImageIcon("images/logout.png");
             JButton btnLogout = new JButton(iLogout);
             btnLogout.addActionListener(new ActionListener() {
                 @Override

@@ -15,6 +15,7 @@ import java.awt.event.WindowFocusListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import javax.swing.border.MatteBorder;
 
 /**
  * Created by joseba on 22/2/16.
@@ -28,6 +29,7 @@ public class UsuarioGUI extends JFrame {
     private JPanel mainPane, infoPane, btnPane;
     private JLabel lblNombre, lblMail, lblApellido;
     private JButton btnEdit, btnQuery;
+    private JButton btnReservas;
 
 
     /**
@@ -38,11 +40,11 @@ public class UsuarioGUI extends JFrame {
         super("Zona usuarios");
         this.logica = logica;
 
-        setSize(500, 200);
+        setSize(648, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        add(setMainPanel());
+        getContentPane().add(setMainPanel());
         frameEvents();
 
         setVisible(true);
@@ -65,7 +67,7 @@ public class UsuarioGUI extends JFrame {
     private JPanel setInfoPanel() {
         if (infoPane == null) {
             updateInfoPane();
-            Icon iLogout = new ImageIcon("/images/logout.png");
+            Icon iLogout = new ImageIcon("images/logout.png");
             JButton btnLogout = new JButton(iLogout);
             btnLogout.addActionListener(new ActionListener() {
                 @Override
@@ -110,10 +112,11 @@ public class UsuarioGUI extends JFrame {
     private JPanel setBtnPanel() {
         if (btnPane == null) {
             btnPane = new JPanel(new FlowLayout());
-            btnPane.add(setEditableBtn());
             btnPane.add(setQueryBtn());
+            btnPane.add(setEditableBtn());
             btnPane.setBackground(estilosGUI.bckColorDark);
-            btnPane.setBorder(BorderFactory.createMatteBorder(3, 0, 0, 0, Color.BLACK));
+            btnPane.setBorder(new MatteBorder(4, 0, 0, 0, (Color) new Color(0, 0, 0)));
+            btnPane.add(setBtnReservas());
         }
         return btnPane;
     }
@@ -121,14 +124,12 @@ public class UsuarioGUI extends JFrame {
     //Boton de busqueda
     private JButton setQueryBtn() {
         if (btnQuery == null) {
-            Icon edit = new ImageIcon("/images/search.png");
+            Icon edit = new ImageIcon("images/search.png");
             btnQuery = new JButton("Buscar ", edit);
-            btnQuery.setSize(200, 50);
-
             btnQuery.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new QueryAvailabilityGUI(logica);
+                    new BusquedaAvanzadaGUI(logica);
                 }
             });
         }
@@ -138,10 +139,8 @@ public class UsuarioGUI extends JFrame {
     //Boton para editar el perfil
     private JButton setEditableBtn() {
         if (btnEdit == null) {
-            Icon edit = new ImageIcon("/images/edit.png");
+            Icon edit = new ImageIcon("images/edit.png");
             btnEdit = new JButton("Configurar perfil ", edit);
-            btnEdit.setSize(200, 50);
-
             btnEdit.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -151,6 +150,20 @@ public class UsuarioGUI extends JFrame {
         }
         return btnEdit;
     }
+    //Boton para ver reservas
+	private JButton setBtnReservas() {
+		if (btnReservas == null) {
+			Icon edit = new ImageIcon("images/reserve.png");
+			btnReservas = new JButton("Reservas realizadas", edit);
+			btnReservas.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new ReservasUsuarioGUI(logica);
+                }
+            });
+		}
+		return btnReservas;
+	}
 
     //Función para gestionar los eventos del frame
     //Gestiona cuando la ventana obtiene el foco
@@ -167,6 +180,5 @@ public class UsuarioGUI extends JFrame {
             }
         });
     }
-
-
+	
 }
