@@ -40,77 +40,30 @@ public class BusquedaAvanzadaGUI extends JFrame {
         setLabels();
         setFields();
         setBtn();
-        
-      
-        this.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {
 
-            }
-
-            @Override
-            public void windowClosing(WindowEvent e) {
-
-                if (numeroCamposLibres() < NUMERO_CAMPOS) {
-
-                    int res = JOptionPane.showConfirmDialog(null,
-                            "�Estas seguro que quieres descartar la busqueda?", null, JOptionPane.YES_NO_OPTION);
-                    if (res == JOptionPane.YES_OPTION)
-                        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    else
-                        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-
-                } else
-                    dispose();
-            }
-
-            @Override
-            public void windowClosed(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowIconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeiconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowActivated(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeactivated(WindowEvent e) {
-
-            }
-
-        });
         setVisible(true);
     }
     //Función para añadir el boton de busqueda
     private void setBtn() {
-        //Bot�n//
+        //Boton//
     	Icon edit = new ImageIcon("images/search.png");
         JButton btnBuscar = new JButton("Buscar",edit);
         btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btnBuscar.setBounds(109, 331, 138, 40);
         getContentPane().add(btnBuscar);
-        
-        
+
+
         btnBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-            	
-                if (numeroCamposLibres() > 0 || insertarMinPrecio.getText().compareTo(insertarMaxPrecio.getText())>0 ) {
+
+                if (insertarMinPrecio.getText().compareTo(insertarMaxPrecio.getText())>0 ) {
                     JOptionPane.showMessageDialog(frame,
                             "Hay algun campo incorrecto o vacio",
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
+                    //TODO: Arregla esto tio que aquí llevas siempre al mismo sitio, tienes que enviar al usuario una lista de casas que cumplan los requisitos
+
                 	 new QueryAvailabilityGUI(logica);
                 }
             }
@@ -204,17 +157,5 @@ public class BusquedaAvanzadaGUI extends JFrame {
         getContentPane().add(lblDni);
 
     }
-
-    private int numeroCamposLibres() {
-        int num = 0;
-        if (insertarCasa.getText().isEmpty())
-            num++;
-        if (insertarCiudad.getText().isEmpty())
-            num++;
-        if (insertarMinPrecio.getText().isEmpty())
-            num++;
-        if (insertarMaxPrecio.getText().isEmpty())
-            num++;
-        return num;
-    }
+    
 }

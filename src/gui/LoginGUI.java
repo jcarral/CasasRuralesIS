@@ -90,7 +90,7 @@ public class LoginGUI extends JFrame {
         JPanel radioPane = new JPanel(new FlowLayout());
         radioPane.setBackground(estilosGUI.bckColor);
 
-        rdbtnUsuario = new JRadioButton("Usuario");
+        rdbtnUsuario = new JRadioButton("Cliente");
         rdbtnUsuario.setSelected(true);
         buttonGroup.add(rdbtnUsuario);
         rdbtnUsuario.setFont(new Font("Tahoma", Font.PLAIN, 14));

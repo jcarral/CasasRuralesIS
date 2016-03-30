@@ -7,7 +7,7 @@ public class BadDates extends Exception {
     super();
   }
   /**This exception is triggered if first date is greater than last date in offers
-  *@param String
+  *@param s
   *@return None
   */
   public BadDates(String s)

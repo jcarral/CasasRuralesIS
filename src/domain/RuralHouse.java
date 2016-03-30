@@ -96,7 +96,7 @@ public class RuralHouse implements Serializable {
 	/**
 	 * This method creates an offer with a house number, first day, last day and price
 	 * 
-	 * @param House
+	 * @param offerNumber
 	 *            number, start day, last day and price
 	 * @return None
 	 */
@@ -104,6 +104,13 @@ public class RuralHouse implements Serializable {
         Offer off=new Offer(offerNumber,firstDay,lastDay,price,this);
         offers.add(off);
         return off;
+	}
+
+	public void addOffer(Offer of){
+		if(of != null) {
+            offers.add(of);
+            of.setRuralHouse(this);
+        }
 	}
 
 	@Override
@@ -132,7 +139,7 @@ public class RuralHouse implements Serializable {
 	/**
 	 * This method obtains available offers for a concrete house in a certain period 
 	 * 
-	 * @param houseNumber, the house number where the offers must be obtained 
+	 *
 	 * @param firstDay, first day in a period range 
 	 * @param lastDay, last day in a period range
 	 * @return a vector of offers(Offer class)  available  in this period

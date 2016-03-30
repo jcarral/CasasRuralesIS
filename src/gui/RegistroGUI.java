@@ -148,7 +148,7 @@ public class RegistroGUI extends JFrame {
 
     //Función para introducir los radiobuttons
     private void setRadio() {
-        rdbtnUsuario = new JRadioButton("Usuario");
+        rdbtnUsuario = new JRadioButton("Cliente");
         rdbtnUsuario.setSelected(true);
         buttonGroup.add(rdbtnUsuario);
         rdbtnUsuario.setBounds(181, 479, 114, 22);

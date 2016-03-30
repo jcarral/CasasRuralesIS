@@ -1,8 +1,6 @@
 package gui;
 
 import businessLogic.ruralManagerLogic;
-import domain.Persona;
-import domain.Usuario;
 import exceptions.UsuarioNoExiste;
 
 import javax.swing.*;
