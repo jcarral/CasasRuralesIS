@@ -11,6 +11,7 @@ import exceptions.UsuarioNoExiste;
 import exceptions.UsuarioRepetido;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
@@ -181,6 +182,44 @@ public class rhLogica implements ruralManagerLogic {
         Propietario p = new Propietario(actualUser.getMail(), actualUser.getPassword(), actualUser.getNombre(), actualUser.getApellido(), actualUser.getDNI(), actualUser.getNumTel());
         actualUser = dataManager.updateUser(p);
         return oferta;
+    }
+
+    /**
+     * Función para buscar una casa según el precio de una oferta
+     * @param nombre
+     * @param ciudad
+     * @param direccion
+     * @param min
+     * @param max
+     * @return
+     */
+    @Override
+    public List<RuralHouse> searchUsingFilter(String nombre, String ciudad, String direccion, int min, int max) {
+        if(nombre != null && nombre.length()==0)
+            nombre = null;
+        if(ciudad != null && ciudad.length() == 0)
+            ciudad = null;
+        if(direccion != null && direccion.length() == 0)
+            direccion = null;
+
+        RuralHouse rh = new RuralHouse(null, null, ciudad, nombre, 0, direccion);
+        DataAccess datamanager = new DataAccess();
+        Vector<RuralHouse> ruralhouses = datamanager.getRuralHousesBy(rh);
+        List<RuralHouse> res = new LinkedList<>();
+        System.out.println(rh);
+        System.out.println(ruralhouses);
+
+        for(RuralHouse ruralhouse : ruralhouses){
+            List<Offer> auxList = ruralhouse.getOffers();
+            for(Offer of : auxList){
+                float price = of.getPrice();
+                if(price >= min && price<=max){
+                    res.add(ruralhouse);
+                    break;
+                }
+            }
+        }
+        return res;
     }
 
     //Genera un número para cada casa

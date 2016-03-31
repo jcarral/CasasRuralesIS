@@ -24,10 +24,19 @@ public class DataAccess
         db = Db4oEmbedded.openFile(configuration, DB4OFILENAME);
     }
 
+    /**
+     * Función para cerrar la conexión con la base de datos
+     */
     public void closeDb(){
         db.close();
     }
 
+    /**
+     * Función para validar si una persona existe en la base de datos
+     * @param p
+     * @return
+     * @throws UsuarioNoExiste
+     */
     public Persona validUser(Persona p) throws UsuarioNoExiste{
         Persona actualUser;
         openDB();
@@ -44,6 +53,12 @@ public class DataAccess
         return actualUser;
     }
 
+    /**
+     * Función para validar si un usuario existe como persona o cliente
+     * @param p
+     * @param c
+     * @return
+     */
     public boolean existsUser(Propietario p, Cliente c){
         List<Persona> props, users;
         openDB();
@@ -56,6 +71,10 @@ public class DataAccess
         return exists;
     }
 
+    /**
+     * Función para almacenar un usuario nuevo en la base de datos
+     * @param p
+     */
     public void insertUser(Persona p){
         openDB();
         db.store(p);
@@ -63,14 +82,26 @@ public class DataAccess
         closeDb();
     }
 
+    /**
+     * Función para obtener todas las casas rurales que coincidan con la que se pasa por parametro
+     * @param rh
+     * @return
+     */
     public Vector<RuralHouse> getRuralHousesBy(RuralHouse rh){
         openDB();
+        System.out.println(rh);
         List<RuralHouse> res = db.queryByExample(rh);
         Vector<RuralHouse> v = new Vector(res);
         closeDb();
         return v;
     }
 
+    /**
+     * Función para actualizar el usuario
+     * @param p
+     * @return
+     * @throws UsuarioNoExiste
+     */
     public Persona updateUser(Persona p) throws UsuarioNoExiste{
         openDB();
         Persona perAux;
@@ -83,6 +114,13 @@ public class DataAccess
         return perAux;
     }
 
+    /**
+     * Función para modificar un usuario
+     * @param actual
+     * @param p
+     * @return
+     * @throws UsuarioNoExiste
+     */
     public Persona modifyUser(Persona actual, Persona p) throws UsuarioNoExiste{
         openDB();
         List<Persona> res = db.queryByExample(actual);
@@ -100,6 +138,11 @@ public class DataAccess
         return actual;
     }
 
+    /**
+     * Función para insertar una oferta nueva en la base de datos
+     * @param rh
+     * @param of
+     */
     public void insertOffer(RuralHouse rh, Offer of){
         openDB();
         RuralHouse rhRef = (RuralHouse) db.queryByExample(rh).get(0);
@@ -109,6 +152,13 @@ public class DataAccess
         closeDb();
     }
 
+    /**
+     * Función para almacenar una casa nueva en la base de datos
+     * @param rh
+     * @param p
+     * @return
+     * @throws UsuarioNoExiste
+     */
     public Persona storeNewRuralHouse(RuralHouse rh, Persona p) throws UsuarioNoExiste{
         openDB();
         List<Propietario> res = db.queryByExample(p);

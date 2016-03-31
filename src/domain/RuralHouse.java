@@ -29,6 +29,14 @@ public class RuralHouse implements Serializable {
 		return nombre;
 	}
 
+	public Vector<Offer> getOffers() {
+		return offers;
+	}
+
+	public void setOffers(Vector<Offer> offers) {
+		this.offers = offers;
+	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -90,7 +98,7 @@ public class RuralHouse implements Serializable {
 
 	
 	public String toString() {
-        return this.houseNumber + ": " + this.nombre + ", " + this.city + ", " + this.dir;
+        return this.houseNumber + ": " + this.nombre + ", " + this.city + ", " + this.dir + ", " + this.numTel;
     }
 	
 	/**

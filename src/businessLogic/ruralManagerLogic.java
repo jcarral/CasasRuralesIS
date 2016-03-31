@@ -25,4 +25,5 @@ public interface ruralManagerLogic {
     List<RuralHouse> getUsersRuralHouses();
     void storeRH(String nombre, String city, String direccion, int numTel, String desc) throws UsuarioNoExiste;
     Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists, UsuarioNoExiste;
+    List<RuralHouse> searchUsingFilter(String nombre, String ciudad, String direccion, int min, int max);
 }

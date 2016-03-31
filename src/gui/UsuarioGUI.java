@@ -28,7 +28,7 @@ public class UsuarioGUI extends JFrame {
     //Componentesb de la interfaz de usuario
     private JPanel mainPane, infoPane, btnPane;
     private JLabel lblNombre, lblMail, lblApellido;
-    private JButton btnEdit, btnQuery;
+    private JButton btnEdit, btnQuery, btnFilter;
     private JButton btnReservas;
 
 
@@ -112,6 +112,7 @@ public class UsuarioGUI extends JFrame {
     private JPanel setBtnPanel() {
         if (btnPane == null) {
             btnPane = new JPanel(new FlowLayout());
+            btnPane.add(setFilterSearch());
             btnPane.add(setQueryBtn());
             btnPane.add(setEditableBtn());
             btnPane.setBackground(estilosGUI.bckColorDark);
@@ -119,6 +120,21 @@ public class UsuarioGUI extends JFrame {
             btnPane.add(setBtnReservas());
         }
         return btnPane;
+    }
+
+    //Boton de busqueda avanzada
+    private JButton setFilterSearch(){
+        if(btnFilter == null){
+            Icon iFilter = new ImageIcon(("images/filter.png"));
+            btnFilter = new JButton("Busqueda avanzada ", iFilter);
+            btnFilter.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new BusquedaAvanzadaGUI(logica);
+                }
+            });
+        }
+        return btnFilter;
     }
 
     //Boton de busqueda
@@ -129,7 +145,7 @@ public class UsuarioGUI extends JFrame {
             btnQuery.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new BusquedaAvanzadaGUI(logica);
+                    new QueryAvailabilityGUI(logica);
                 }
             });
         }
