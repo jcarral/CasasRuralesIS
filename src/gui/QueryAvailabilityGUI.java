@@ -286,7 +286,7 @@ public class QueryAvailabilityGUI extends JFrame {
                     of = en.nextElement();
                     System.out.println("Offer retrieved: " + of.toString());
                     Vector row = new Vector();
-                    row.add(of.getOfferNumber());
+                    row.add(of.getOfferID());
                     //row.add(of.getRuralHouse().getHouseNumber());
 
                     // Dates are stored in db4o as java.util.Date objects instead of java.sql.Date objects

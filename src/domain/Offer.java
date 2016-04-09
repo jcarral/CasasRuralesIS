@@ -1,7 +1,8 @@
 package domain;
 
 import java.io.*;
-import java.util.Date;	
+import java.util.Date;
+import java.util.UUID;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -14,22 +15,30 @@ import javax.xml.bind.annotation.XmlIDREF;
 public class Offer implements Serializable {
 	
 
-	private Integer offerNumber;
+	private String offerID;
 	private Date firstDay; // Dates are stored as java.util.Date objects instead of java.sql.Date objects
 	private Date lastDay;  // because, they are not well stored in db4o as java.util.Date objects
 	private float price;   // This is coherent because objects of java.sql.Date are objects of java.util.Date 
-	@XmlIDREF
+	private Reserva reserva;
 	private RuralHouse ruralHouse;
 
 	public Offer(){}
-	public Offer(int offerNumber, Date firstDay, Date lastDay, float price, RuralHouse ruralHouse){
+	public Offer( Date firstDay, Date lastDay, float price, RuralHouse ruralHouse){
 		  this.firstDay=firstDay;
 		  this.lastDay=lastDay;
 		  this.price=price;
 		  this.ruralHouse=ruralHouse;
-		  this.offerNumber=offerNumber;
+		  this.offerID= UUID.randomUUID().toString();
 
     }
+
+	public Reserva getReserva(){
+		return this.reserva;
+	}
+
+	public void setReserva(Reserva reserva){
+		this.reserva = reserva;
+	}
 	/**
 	 * Get the house number of the offer
 	 * 
@@ -42,7 +51,7 @@ public class Offer implements Serializable {
 	/**
 	 * Set the house number to a offer
 	 * 
-	 * @param house number
+	 *
 	 */
 	public void setRuralHouse(RuralHouse ruralHouse) {
 		this.ruralHouse = ruralHouse;
@@ -54,8 +63,8 @@ public class Offer implements Serializable {
 	 * 
 	 * @return offer number
 	 */
-	public int getOfferNumber() {
-		return this.offerNumber;
+	public String getOfferID() {
+		return this.offerID;
 	}
 
 	
@@ -117,6 +126,6 @@ public class Offer implements Serializable {
 	}
 	
 	public String toString(){
-		return offerNumber+";"+firstDay.toString()+";"+lastDay.toString()+";"+price;
+		return firstDay.toString()+";"+lastDay.toString()+";"+price;
 	}
 }

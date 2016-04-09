@@ -5,10 +5,7 @@ import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
 import dataAccess.DataAccess;
 import domain.*;
-import exceptions.BadDates;
-import exceptions.OverlappingOfferExists;
-import exceptions.UsuarioNoExiste;
-import exceptions.UsuarioRepetido;
+import exceptions.*;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -28,29 +25,27 @@ public class rhLogica implements ruralManagerLogic {
      * Comprueba si existe un usuario con esos atributos en la base de datos
      * @param mail correo del usuario
      * @param pass contraseña del usuario
-     * @param usuario true si es usuario, false si es propietario
      * @return 0 si es usuario, 1 si es propietario
      * @throws UsuarioNoExiste si el usuario no existe en la base de datos
      */
     @Override
-    public int checkLogin(String mail, String pass, boolean usuario) throws UsuarioNoExiste {
+    public int checkLogin(String mail, String pass) throws UsuarioNoExiste {
 
-        Persona p;
+        Cliente c;
+        Propietario p;
         DataAccess dataManager = new DataAccess();
-        int val;
 
-        if (usuario) {
-            p = new Cliente(mail, pass, null, null, null, 0);
-            val = 0;
-        } else {
+
+            c = new Cliente(mail, pass, null, null, null, 0);
             p = new Propietario(mail, pass, null, null, null, 0);
-            val = 1;
-        }
 
-        actualUser = dataManager.validUser(p);
+        actualUser = dataManager.validUser(c, p);
         dataManager.closeDb();
 
-        return val;
+        if(actualUser instanceof Cliente )
+            return 0;
+        else
+            return 1;
     }
 
     /**
@@ -133,7 +128,7 @@ public class rhLogica implements ruralManagerLogic {
     public Vector<RuralHouse> getAllRuralHouses() {
 
         DataAccess dataManager = new DataAccess();
-        return dataManager.getRuralHousesBy(new RuralHouse(null, null, null, null, 0, null));
+        return dataManager.getRuralHousesBy(new RuralHouse(null, null, null, null, 0, null, 0, 0));
     }
 
     /**
@@ -155,9 +150,9 @@ public class rhLogica implements ruralManagerLogic {
      * @throws UsuarioNoExiste Si actualmente no hay ningún usuario
      */
     @Override
-    public void storeRH(String nombre, String city, String direccion, int numTel, String desc) throws UsuarioNoExiste {
+    public void storeRH(String nombre, String city, String direccion, int numTel, String desc, int habitaciones, int banios) throws UsuarioNoExiste {
         DataAccess dataManager = new DataAccess();
-        RuralHouse rh = new RuralHouse(createRHNumber(), desc, city, nombre, numTel, direccion);
+        RuralHouse rh = new RuralHouse(createRHNumber(), desc, city, nombre, numTel, direccion, habitaciones, banios);
         actualUser = dataManager.storeNewRuralHouse(rh, actualUser);
     }
 
@@ -173,11 +168,11 @@ public class rhLogica implements ruralManagerLogic {
      * @throws UsuarioNoExiste Si actualmente no hay ningun usuario
      */
     @Override
-    public Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists, UsuarioNoExiste {
+    public Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists, UsuarioNoExiste, OfertaRepetida {
 
         DataAccess dataManager = new DataAccess();
         if (firstDay.after(lastDay)) throw new BadDates("Fechas incorrectas");
-        Offer oferta = new Offer(1, firstDay, lastDay, price, null);
+        Offer oferta = new Offer(firstDay, lastDay, price, null);
         dataManager.insertOffer(ruralHouse, oferta);
         Propietario p = new Propietario(actualUser.getMail(), actualUser.getPassword(), actualUser.getNombre(), actualUser.getApellido(), actualUser.getDNI(), actualUser.getNumTel());
         actualUser = dataManager.updateUser(p);
@@ -194,7 +189,7 @@ public class rhLogica implements ruralManagerLogic {
      * @return
      */
     @Override
-    public List<RuralHouse> searchUsingFilter(String nombre, String ciudad, String direccion, int min, int max) {
+    public List<RuralHouse> searchUsingFilter(String nombre, String ciudad, String direccion, int min, int max, int habitaciones, int banios) {
         if(nombre != null && nombre.length()==0)
             nombre = null;
         if(ciudad != null && ciudad.length() == 0)
@@ -202,24 +197,45 @@ public class rhLogica implements ruralManagerLogic {
         if(direccion != null && direccion.length() == 0)
             direccion = null;
 
-        RuralHouse rh = new RuralHouse(null, null, ciudad, nombre, 0, direccion);
+        RuralHouse rh = new RuralHouse(null, null, ciudad, nombre, 0, direccion, habitaciones, banios);
         DataAccess datamanager = new DataAccess();
         Vector<RuralHouse> ruralhouses = datamanager.getRuralHousesBy(rh);
         List<RuralHouse> res = new LinkedList<>();
-        System.out.println(rh);
-        System.out.println(ruralhouses);
 
-        for(RuralHouse ruralhouse : ruralhouses){
-            List<Offer> auxList = ruralhouse.getOffers();
-            for(Offer of : auxList){
-                float price = of.getPrice();
-                if(price >= min && price<=max){
-                    res.add(ruralhouse);
-                    break;
+        if(!(ruralhouses == null || ruralhouses.isEmpty())) {
+            System.out.println("1");
+
+            for (RuralHouse ruralhouse : ruralhouses) {
+                List<Offer> auxList = ruralhouse.getOffers();
+
+                if(auxList.isEmpty())
+                    continue;
+
+                for (Offer of : auxList) {
+                    System.out.println("3");
+
+                    float price = of.getPrice();
+                    if (price >= min && price <= max) {
+                        res.add(ruralhouse);
+                        break;
+                    }
                 }
             }
         }
         return res;
+    }
+
+    @Override
+    public void confirmarReserva(Offer of) throws UsuarioNoExiste, OfertaNoExiste {
+
+        if(of.getReserva() != null){
+            return;
+        }
+        DataAccess dataManager = new DataAccess();
+        Reserva reserva = new Reserva(dataManager.getUserRef(actualUser));
+        dataManager.insertarReserva(reserva, of);
+
+
     }
 
     //Genera un número para cada casa

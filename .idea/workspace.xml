@@ -1,29 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/gui/SetAvailabilityGUI.java" line="238" />
+    <bookmark url="file://$PROJECT_DIR$/src/domain/Offer.java" line="128" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="62fa8f9d-00f7-4d0f-ba8e-c141a6017727" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/filter.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$4.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/+casa.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/+casahover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/+oferta.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/+ofertahover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/ajustes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/ajusteshover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/buscar - copia.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/buscar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/buscardisabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/buscarhover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/inicio.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/iniciohover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/reservar (2).png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/reservar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/reservarhover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/salir.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/salirhover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/menu/searchhover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/domain/Reserva.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/exceptions/OfertaNoExiste.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/exceptions/OfertaRepetida.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/ReservarGUI.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/SoloNumeros.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MyReservaManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/QueryAvailabilityGUI.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Reserva.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ReservaManagerLogic.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Tarjeta.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/NewRHGUI$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/NewRHGUI$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/ReservasUsuarioGUI.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioEditGUI$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioEditGUI$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioEditGUI$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioEditGUI$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioEditGUI.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/reservar_DBaccess.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rhs.db4o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/ReservasUsuarioGUI.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/gui/UsuarioEditGUI.java" afterPath="$PROJECT_DIR$/src/gui/AjustesGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/businessLogic/rhLogica.class" afterPath="$PROJECT_DIR$/bin/businessLogic/rhLogica.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/businessLogic/ruralManagerLogic.class" afterPath="$PROJECT_DIR$/bin/businessLogic/ruralManagerLogic.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/dataAccess/DataAccess.class" afterPath="$PROJECT_DIR$/bin/dataAccess/DataAccess.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/domain/Offer.class" afterPath="$PROJECT_DIR$/bin/domain/Offer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/domain/RuralHouse.class" afterPath="$PROJECT_DIR$/bin/domain/RuralHouse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$3.class" afterPath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI.class" afterPath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/LoginGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/LoginGUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/LoginGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/LoginGUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/LoginGUI.class" afterPath="$PROJECT_DIR$/bin/gui/LoginGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/NewRHGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/NewRHGUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/NewRHGUI.class" afterPath="$PROJECT_DIR$/bin/gui/NewRHGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/PropietarioGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/PropietarioGUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI.class" afterPath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$3.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$4.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$5.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/UsuarioGUI$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/UsuarioGUI$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$3.class" afterPath="$PROJECT_DIR$/bin/gui/UsuarioGUI$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$4.class" afterPath="$PROJECT_DIR$/bin/gui/UsuarioGUI$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$5.class" afterPath="$PROJECT_DIR$/bin/gui/UsuarioGUI$5.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI.class" afterPath="$PROJECT_DIR$/bin/gui/UsuarioGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rhs.db4o" afterPath="$PROJECT_DIR$/rhs.db4o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/businessLogic/rhLogica.java" afterPath="$PROJECT_DIR$/src/businessLogic/rhLogica.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/businessLogic/ruralManagerLogic.java" afterPath="$PROJECT_DIR$/src/businessLogic/ruralManagerLogic.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataAccess/DataAccess.java" afterPath="$PROJECT_DIR$/src/dataAccess/DataAccess.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/Offer.java" afterPath="$PROJECT_DIR$/src/domain/Offer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/RuralHouse.java" afterPath="$PROJECT_DIR$/src/domain/RuralHouse.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java" afterPath="$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/LoginGUI.java" afterPath="$PROJECT_DIR$/src/gui/LoginGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/NewRHGUI.java" afterPath="$PROJECT_DIR$/src/gui/NewRHGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/PropietarioGUI.java" afterPath="$PROJECT_DIR$/src/gui/PropietarioGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/QueryAvailabilityGUI.java" afterPath="$PROJECT_DIR$/src/gui/QueryAvailabilityGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/SetAvailabilityGUI.java" afterPath="$PROJECT_DIR$/src/gui/SetAvailabilityGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/UsuarioGUI.java" afterPath="$PROJECT_DIR$/src/gui/UsuarioGUI.java" />
     </list>
     <ignored path="WSRuralHouse-2016 2.iws" />
@@ -47,16 +110,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BusquedaAvanzadaGUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BusquedaAvanzadaGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="118" column="110" selection-start-line="118" selection-start-column="110" selection-end-line="118" selection-end-column="110" />
+            <state relative-caret-position="216">
+              <caret line="163" column="51" selection-start-line="163" selection-start-column="50" selection-end-line="163" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="100" column="15" selection-start-line="100" selection-start-column="14" selection-end-line="100" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5460#5461#0" expanded="true" />
-                <element signature="e#5528#5529#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReservarGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/ReservarGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="113" column="22" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewRHGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/NewRHGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="134" column="21" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SetAvailabilityGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/SetAvailabilityGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="76" column="19" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AjustesGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/AjustesGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="156" column="64" selection-start-line="156" selection-start-column="63" selection-end-line="156" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FichaGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/FichaGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,12 +205,29 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/exceptions/BadDates.java" />
-        <option value="$PROJECT_DIR$/src/businessLogic/ruralManagerLogic.java" />
-        <option value="$PROJECT_DIR$/src/domain/RuralHouse.java" />
         <option value="$PROJECT_DIR$/src/gui/UsuarioGUI.java" />
-        <option value="$PROJECT_DIR$/src/businessLogic/rhLogica.java" />
+        <option value="$PROJECT_DIR$/src/test/MenuTest.java" />
+        <option value="$PROJECT_DIR$/src/test/RolloverIcon.java" />
+        <option value="$PROJECT_DIR$/src/test/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/gui/UsuarioEditGUI.java" />
+        <option value="$PROJECT_DIR$/src/test/BusquedaAvanzadaGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/LoginGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/SoloNumeros.java" />
+        <option value="$PROJECT_DIR$/src/gui/AjustesGUI.java" />
+        <option value="$PROJECT_DIR$/src/exceptions/OfertaNoExiste.java" />
+        <option value="$PROJECT_DIR$/src/gui/QueryAvailabilityGUI.java" />
+        <option value="$PROJECT_DIR$/src/domain/RuralHouse.java" />
+        <option value="$PROJECT_DIR$/src/exceptions/OfertaRepetida.java" />
+        <option value="$PROJECT_DIR$/src/businessLogic/ruralManagerLogic.java" />
+        <option value="$PROJECT_DIR$/src/domain/Offer.java" />
+        <option value="$PROJECT_DIR$/src/domain/Reserva.java" />
         <option value="$PROJECT_DIR$/src/dataAccess/DataAccess.java" />
+        <option value="$PROJECT_DIR$/src/businessLogic/rhLogica.java" />
+        <option value="$PROJECT_DIR$/src/gui/ReservarGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/SetAvailabilityGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/NewRHGUI.java" />
       </list>
     </option>
   </component>
@@ -98,6 +238,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -126,7 +267,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
@@ -179,76 +319,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CasasRuralesIS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CasasRuralesIS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataAccess" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CasasRuralesIS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="businessLogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CasasRuralesIS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,6 +334,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="gui" />
+      <recent name="test" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.LoginGUI">
     <configuration default="false" name="LoginGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -270,6 +349,46 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="gui.LoginGUI" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WSRuralHouse-2016-2" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MenuTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="test.MenuTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WSRuralHouse-2016-2" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="test.MainFrame" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -683,12 +802,16 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="1">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.LoginGUI" />
+      <item index="1" class="java.lang.String" itemvalue="Application.MenuTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.MainFrame" />
     </list>
     <recent_temporary>
-      <list size="1">
+      <list size="3">
         <item index="0" class="java.lang.String" itemvalue="Application.LoginGUI" />
+        <item index="1" class="java.lang.String" itemvalue="Application.MainFrame" />
+        <item index="2" class="java.lang.String" itemvalue="Application.MenuTest" />
       </list>
     </recent_temporary>
   </component>
@@ -710,19 +833,40 @@
       <workItem from="1459351075886" duration="8272000" />
       <workItem from="1459417326002" duration="677000" />
       <workItem from="1459418826275" duration="8192000" />
-      <workItem from="1459427037746" duration="4778000" />
+      <workItem from="1459427037746" duration="6165000" />
+      <workItem from="1459537068309" duration="23000" />
+      <workItem from="1459689665163" duration="1104000" />
+      <workItem from="1460141372812" duration="18793000" />
+      <workItem from="1460202130427" duration="31717000" />
     </task>
+    <task id="LOCAL-00001" summary="Logica busqueda hecha y arreglado lo de oscar">
+      <created>1459431877679</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1459431877679</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26379000" />
+    <option name="totallyTimeSpent" value="79403000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -730,12 +874,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15276273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23510292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18443497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="db4o" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="db4o" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -749,6 +893,35 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="db4o" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23510292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18443497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -761,9 +934,13 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Logica busqueda hecha y arreglado lo de oscar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logica busqueda hecha y arreglado lo de oscar" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -772,82 +949,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
-            <element signature="e#5528#5529#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/businessLogic/ruralManagerLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/businessLogic/rhLogica.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2958">
-          <caret line="189" column="67" selection-start-line="189" selection-start-column="67" selection-end-line="189" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/QueryAvailabilityGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataAccess/DataAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/RuralHouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
-            <element signature="e#5528#5529#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
-            <element signature="e#5528#5529#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Cliente.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -862,7 +963,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/UsuarioEditGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/AjustesGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
@@ -918,64 +1019,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/LoginGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1899">
-          <caret line="159" column="12" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/Cliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/RegistroGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3859">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/UsuarioEditGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/Offer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="117" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/PropietarioGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/QueryAvailabilityGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/RuralHouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="100" column="110" selection-start-line="100" selection-start-column="110" selection-end-line="100" selection-end-column="110" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -989,49 +1036,287 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ReservasUsuarioGUI.java" />
+    <entry file="file://$PROJECT_DIR$/ReservaManagerLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyReservaManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reservar_DBaccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QueryAvailabilityGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1921">
+          <caret line="132" column="42" selection-start-line="132" selection-start-column="42" selection-end-line="132" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/RegistroGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reserva.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Persona.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Cliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Propietario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/menu/settings.png" />
+    <entry file="file://$PROJECT_DIR$/src/test/MenuTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/RolloverIcon.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/BusquedaAvanzadaGUI.java" />
+    <entry file="file://$USER_HOME$/Downloads/ReservarGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2888">
+          <caret line="229" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/MainFrame.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2871">
+          <caret line="5569" column="13" selection-start-line="5569" selection-start-column="13" selection-end-line="5569" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/estilosGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/LoginGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-172">
+          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/SoloNumeros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/UsuarioGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="128" column="67" selection-start-line="128" selection-start-column="67" selection-end-line="128" selection-end-column="67" />
+        <state relative-caret-position="117">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exceptions/UsuarioNoExiste.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="1" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/src.zip!/javax/swing/DefaultListModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding>
-            <element signature="e#4113#4114#0" expanded="true" />
-            <element signature="e#4184#4185#0" expanded="true" />
+            <element signature="e#2587#2588#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/QueryAvailabilityGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="291" column="106" selection-start-line="291" selection-start-column="106" selection-end-line="291" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/RuralHouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-313">
+          <caret line="111" column="6" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exceptions/OfertaRepetida.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exceptions/OfertaNoExiste.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Offer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+          <folding>
+            <element signature="e#1090#1091#0" expanded="true" />
+            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#2382#2383#0" expanded="true" />
+            <element signature="e#2448#2449#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Reserva.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/businessLogic/rhLogica.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="187" column="65" selection-start-line="187" selection-start-column="65" selection-end-line="187" selection-end-column="65" />
-          <folding />
+        <state relative-caret-position="3683">
+          <caret line="231" column="19" selection-start-line="231" selection-start-column="19" selection-end-line="231" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/businessLogic/ruralManagerLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        <state relative-caret-position="272">
+          <caret line="23" column="159" selection-start-line="23" selection-start-column="159" selection-end-line="23" selection-end-column="159" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dataAccess/DataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1553">
-          <caret line="155" column="64" selection-start-line="155" selection-start-column="64" selection-end-line="155" selection-end-column="64" />
+        <state relative-caret-position="-1054">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/FichaGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ReservarGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="113" column="22" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="118" column="110" selection-start-line="118" selection-start-column="110" selection-end-line="118" selection-end-column="110" />
+        <state relative-caret-position="216">
+          <caret line="163" column="51" selection-start-line="163" selection-start-column="50" selection-end-line="163" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/NewRHGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="134" column="21" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/SetAvailabilityGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="76" column="19" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/AjustesGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="156" column="64" selection-start-line="156" selection-start-column="63" selection-end-line="156" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="100" column="15" selection-start-line="100" selection-start-column="14" selection-end-line="100" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
-            <element signature="e#5528#5529#0" expanded="true" />
           </folding>
         </state>
       </provider>

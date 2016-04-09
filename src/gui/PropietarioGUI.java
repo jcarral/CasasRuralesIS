@@ -122,7 +122,7 @@ public class PropietarioGUI extends JFrame {
             btnEdit.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new UsuarioEditGUI(logica);
+                    new AjustesGUI(logica);
                 }
             });
         }

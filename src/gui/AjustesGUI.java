@@ -11,7 +11,7 @@ import java.util.Arrays;
 /**
  * Created by joseba on 22/2/16.
  */
-public class UsuarioEditGUI extends JFrame {
+public class AjustesGUI extends JPanel {
 
     //Constantes
     private final int NUMERO_CAMPOS = 4;
@@ -29,15 +29,18 @@ public class UsuarioEditGUI extends JFrame {
      * Constructor
      * @param logica
      */
-    UsuarioEditGUI(ruralManagerLogic logica) {
-        super("Configurar perfil de usuario");
+    AjustesGUI(ruralManagerLogic logica) {
+
         this.logica = logica;
-        setSize(500, 600);
-        setResizable(false);
-        setLocationRelativeTo(null);
+        setPreferredSize(new Dimension(520, 400));
+        setBackground(new Color(237, 237, 237));
         add(mainPanel());
         setVisible(true);
 
+    }
+
+    public JPanel getPanel(){
+        return this;
     }
 
     //JPanel principal
@@ -45,10 +48,9 @@ public class UsuarioEditGUI extends JFrame {
         if (mainPane == null) {
             mainPane = new JPanel();
             mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.PAGE_AXIS));
-            mainPane.add(estilosGUI.setHeaderPane("Editar perfil"));
             mainPane.add(setInfoPanel());
-            frameEvents();
             mainPane.add(setBtnPane());
+            mainPane.setBackground(new Color(237, 237, 237));
 
         }
         return mainPane;
@@ -59,8 +61,8 @@ public class UsuarioEditGUI extends JFrame {
         if (infoPane == null) {
             infoPane = new JPanel();
             infoPane.setLayout(new BoxLayout(infoPane, BoxLayout.PAGE_AXIS));
-            infoPane.setBorder(BorderFactory.createMatteBorder(3, 0, 0, 0, Color.BLACK));
-            infoPane.setBackground(estilosGUI.bckGray);
+            infoPane.setPreferredSize(new Dimension(520, 400));
+
             String[] info = logica.getUserInfo();
 
             JPanel pNombre = new JPanel(new FlowLayout());
@@ -98,22 +100,7 @@ public class UsuarioEditGUI extends JFrame {
             JPanel pTel = new JPanel(new FlowLayout());
             pTel.add(new JLabel("Telefono: "));
             tfTel = new JTextField(info[estilosGUI.TEL], 10);
-            tfTel.addFocusListener(new FocusListener() {
-                @Override
-                public void focusGained(FocusEvent e) {
-
-                }
-
-                @Override
-                public void focusLost(FocusEvent e) {
-                    try {
-                        Long.parseLong(tfTel.getText());
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Eso no es un número de telefono correcto");
-                        tfTel.setText("");
-                    }
-                }
-            });
+            tfTel.addFocusListener(new SoloNumeros());
             pTel.add(tfTel);
             pTel.setBackground(estilosGUI.bckGray);
             infoPane.add(pTel);
@@ -155,20 +142,17 @@ public class UsuarioEditGUI extends JFrame {
     //JPanel con el boton para confirmar los cambios
     private JPanel setBtnPane() {
         JPanel btnPane = new JPanel();
-        btnPane.setBackground(estilosGUI.bckColorDark);
-        btnPane.setBorder(BorderFactory.createMatteBorder(3, 0, 0, 0, Color.BLACK));
+        btnPane.setBackground(new Color(237, 237, 237));
         if (btnConfirm == null) {
             btnConfirm = new JButton("Confirmar cambios");
-            btnConfirm.addActionListener(new ActionListener() {
-                                             @Override
-                                             public void actionPerformed(ActionEvent e) {
+            btnConfirm.addActionListener(e-> {
 
                                                  if (numeroCamposLibres() == 0) {
                                                      //Actualizar propietario
                                                      try {
                                                          logica.updatePersona(tfMail.getText(), Arrays.toString(pfPass.getPassword()), tfNombre.getText(), tfApellido.getText(),
                                                                  tfDNI.getText(), Integer.parseInt(tfTel.getText()));
-                                                         dispose();
+                                                         JOptionPane.showMessageDialog(null, "Se ha modificado el perfil correctamente");
 
                                                      } catch (UsuarioNoExiste ex) {
                                                          JOptionPane.showMessageDialog(null, "Error al actualizar los datos, el usuario no existe");
@@ -181,10 +165,12 @@ public class UsuarioEditGUI extends JFrame {
                                                      JOptionPane.showMessageDialog(null, "Por favor, rellena todos los campos");
                                                  }
                                              }
-                                         }
+
 
             );
         }
+        btnConfirm.setBackground(new Color(88, 147, 145));
+
         btnPane.add(btnConfirm);
         return btnPane;
 
@@ -192,53 +178,7 @@ public class UsuarioEditGUI extends JFrame {
 
     //Función para gestionar los eventos del frame
     //Se gestiona el cierre de la ventana
-    private void frameEvents() {
-        this.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {
 
-            }
-
-            @Override
-            public void windowClosing(WindowEvent e) {
-                if (numeroCamposLibres() < NUMERO_CAMPOS) {
-
-                    int res = JOptionPane.showConfirmDialog(null,
-                            "¿Estás seguro que quieres descartar los cambios?", null, JOptionPane.YES_NO_OPTION);
-                    if (res == JOptionPane.YES_OPTION)
-                        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    else
-                        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-
-                }
-            }
-
-            @Override
-            public void windowClosed(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowIconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeiconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowActivated(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeactivated(WindowEvent e) {
-
-            }
-        });
-    }
 
     private int numeroCamposLibres() {
         int num = 0;
@@ -249,6 +189,10 @@ public class UsuarioEditGUI extends JFrame {
         if (tfNombre.getText().isEmpty())
             num++;
         if (tfApellido.getText().isEmpty())
+            num++;
+        if(pfPass.getPassword().length == 0)
+            num++;
+        if(pfVerificarPass.getPassword().length == 0)
             num++;
 
         return num;

@@ -23,7 +23,21 @@ public class RuralHouse implements Serializable {
     private String nombre;
     private String dir;
     private int numTel;
+	private int numeroHabitaciones;
+	private int numeroBanios;
     public Vector<Offer> offers;
+
+	public RuralHouse(Integer houseNumber, String description, String city, String nombre, int tel, String direccion, int habitaciones, int banios) {
+		this.houseNumber = houseNumber;
+		this.description = description;
+		this.nombre = nombre;
+		this.numTel = tel;
+		this.dir = direccion;
+		this.city = city;
+		this.numeroBanios = banios;
+		this.numeroHabitaciones = habitaciones;
+		offers=new Vector<Offer>();
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -61,15 +75,7 @@ public class RuralHouse implements Serializable {
 		super();
 	}
 
-    public RuralHouse(Integer houseNumber, String description, String city, String nombre, int tel, String direccion) {
-        this.houseNumber = houseNumber;
-		this.description = description;
-        this.nombre = nombre;
-        this.numTel = tel;
-        this.dir = direccion;
-        this.city = city;
-		offers=new Vector<Offer>();
-	}
+
 
 	public Integer getHouseNumber() {
 		return houseNumber;
@@ -103,13 +109,11 @@ public class RuralHouse implements Serializable {
 	
 	/**
 	 * This method creates an offer with a house number, first day, last day and price
-	 * 
-	 * @param offerNumber
-	 *            number, start day, last day and price
+	 *
 	 * @return None
 	 */
-	public Offer createOffer(int offerNumber,Date firstDay, Date lastDay, float price)  {
-        Offer off=new Offer(offerNumber,firstDay,lastDay,price,this);
+	public Offer createOffer(Date firstDay, Date lastDay, float price)  {
+        Offer off=new Offer(firstDay,lastDay,price,this);
         offers.add(off);
         return off;
 	}

@@ -4,8 +4,11 @@ import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
 import domain.*;
+import exceptions.OfertaNoExiste;
+import exceptions.OfertaRepetida;
 import exceptions.UsuarioNoExiste;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
@@ -31,17 +34,38 @@ public class DataAccess
         db.close();
     }
 
+    public void insertarReserva(Reserva reserva, Offer oferta) throws OfertaNoExiste {
+
+        List<Offer> res = db.queryByExample(oferta);
+        if(res.isEmpty()) throw new OfertaNoExiste("No se puede hacer una reserva porque no existe oferta");
+        else{
+            Offer actualOffer = res.get(0);
+            reserva.setOffer(actualOffer);
+            db.store(reserva);
+            db.commit();
+            db.close();
+        }
+    }
+
+    public Persona getUserRef(Persona p) throws UsuarioNoExiste{
+        openDB();
+        List<Persona> res = db.queryByExample(p);
+        if(res.isEmpty()) throw new UsuarioNoExiste("No se puede obtener la referencia del usuario");
+        else return res.get(0);
+    }
     /**
      * Función para validar si una persona existe en la base de datos
      * @param p
      * @return
      * @throws UsuarioNoExiste
      */
-    public Persona validUser(Persona p) throws UsuarioNoExiste{
+    public Persona validUser(Cliente c, Propietario p) throws UsuarioNoExiste{
         Persona actualUser;
         openDB();
-        List<Persona> res = db.queryByExample(p);
-
+        List<Persona> resP = db.queryByExample(p);
+        List<Persona> resC = db.queryByExample(c);
+        List<Persona> res = new LinkedList<>(resP);
+        res.addAll(resC);
         if (!res.isEmpty()) {
             actualUser = res.get(0);
 
@@ -143,9 +167,11 @@ public class DataAccess
      * @param rh
      * @param of
      */
-    public void insertOffer(RuralHouse rh, Offer of){
+    public void insertOffer(RuralHouse rh, Offer of) throws OfertaRepetida {
         openDB();
         RuralHouse rhRef = (RuralHouse) db.queryByExample(rh).get(0);
+        List<Offer> offers = db.queryByExample(of);
+        if(!offers.isEmpty()) throw new OfertaRepetida("La oferta que intentas meter ya está en la base de datos");
         rhRef.addOffer(of);
         db.store(rhRef);
         db.commit();

@@ -3,14 +3,27 @@ package gui;
 import businessLogic.ruralManagerLogic;
 import exceptions.UsuarioNoExiste;
 
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReadParam;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.awt.color.ColorSpace;
 import java.awt.event.*;
+import java.awt.image.*;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * Created by joseba on 25/2/16.
  */
-public class NewRHGUI extends JFrame {
+public class NewRHGUI extends JPanel {
 
     //Constantes
     private final int NUMERO_CAMPOS = 5;
@@ -20,33 +33,35 @@ public class NewRHGUI extends JFrame {
 
     //Componentes de la interfaz de usuario
     private JPanel mainPane, infoPane, btnPane;
-    private JTextField tfNombre, tfCiudad, tfDir, tfNumTel;
+    private JTextField tfNombre, tfCiudad, tfDir, tfNumTel, tfHabs, tfBan;
     private JTextArea taDesc;
     private JButton btnAceptar;
 
+    private String imagePath;
+
     /**
      * Constructor
+     *
      * @param logica
      */
     NewRHGUI(ruralManagerLogic logica) {
-        super("Añadir nueva casa");
 
         this.logica = logica;
-        setSize(500, 400);
-        setLocationRelativeTo(null);
-        setResizable(false);
         add(setMainPane());
-        frameEvents();
         setVisible(true);
+        renderingHandler();
     }
 
+    public JPanel getPanel() {
+        return this;
+    }
 
     //JPanel principal
     private JPanel setMainPane() {
         if (mainPane == null) {
             mainPane = new JPanel();
             mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.PAGE_AXIS));
-            mainPane.add(estilosGUI.setHeaderPane("Añadir casa nueva"));
+
             mainPane.add(setInfoPane());
             mainPane.add(setBtnPane());
         }
@@ -58,47 +73,86 @@ public class NewRHGUI extends JFrame {
 
         if (infoPane == null) {
             infoPane = new JPanel();
+            infoPane.setPreferredSize(new Dimension(400, 400));
             infoPane.setLayout(new BoxLayout(infoPane, BoxLayout.PAGE_AXIS));
             infoPane.add(new JLabel("Nombre de la casa: "));
-            tfNombre = new JTextField(20);
+            tfNombre = new JTextField(17);
             infoPane.add(tfNombre);
 
             infoPane.add(new JLabel("Ciudad: "));
-            tfCiudad = new JTextField(20);
+            tfCiudad = new JTextField(17);
             infoPane.add(tfCiudad);
 
             infoPane.add(new JLabel("Numero de telefono: "));
-            tfNumTel = new JTextField(20);
-            tfNumTel.addFocusListener(new FocusListener() {
-                @Override
-                public void focusGained(FocusEvent e) {
-
-                }
-
-                @Override
-                public void focusLost(FocusEvent e) {
-                    try {
-                        Integer.parseInt(tfNumTel.getText());
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Mete un número de teléfono bien");
-                        tfNumTel.setBackground(Color.red);
-                        tfNumTel.setText("");
-                    }
-                }
-            });
+            tfNumTel = new JTextField(17);
+            tfNumTel.addFocusListener(new SoloNumeros());
             infoPane.add(tfNumTel);
 
             infoPane.add(new JLabel("Dirección: "));
-            tfDir = new JTextField(20);
+            tfDir = new JTextField(17);
             infoPane.add(tfDir);
+
+            infoPane.add(new JLabel("Número de habitaciones: "));
+            tfHabs = new JTextField(17);
+            tfHabs.addFocusListener(new SoloNumeros());
+            infoPane.add(tfHabs);
+
+            infoPane.add(new JLabel("Número de baños: "));
+            tfBan = new JTextField(17);
+            tfBan.addFocusListener(new SoloNumeros());
+            infoPane.add(tfBan);
 
             infoPane.add(new JLabel("Descripción sobre la casa rural"));
 
-            taDesc = new JTextArea(20, 20);
-            infoPane.add(taDesc);
+            taDesc = new JTextArea(17, 5);
+            JScrollPane scrollText = new JScrollPane(taDesc);
+            scrollText.getViewport().setPreferredSize(new Dimension(400, 200));
+
+            infoPane.add(scrollText);
+
 
         }
         return infoPane;
+    }
+
+    //TODO: Futura implementación para añadir imagenes
+    private JButton getImage() {
+        JButton chooserBtn = new JButton("Introducir imagen");
+        chooserBtn.addActionListener(e -> {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new java.io.File("."));
+            chooser.setDialogTitle("Introduce una imagen de la casa");
+            chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            chooser.setAcceptAllFileFilterUsed(false);
+            chooser.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "png", "gif", "bmp"));
+
+            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+
+                String filepath = chooser.getSelectedFile().toString();
+
+
+            } else {
+                System.out.println("No Selection ");
+            }
+        });
+
+        return chooserBtn;
+    }
+
+    //TODO: Futura implementacion para convertir la imagen añadida
+    private byte[] convertImage(String path) {
+
+        File image = new File(path);
+        try {
+            BufferedImage buf = ImageIO.read(image);
+            WritableRaster raster = buf.getRaster();
+            DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
+            return data.getData();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
     //JPanel con el boton para aceptar los datos
@@ -107,22 +161,22 @@ public class NewRHGUI extends JFrame {
         if (btnPane == null) {
             btnPane = new JPanel();
             btnAceptar = new JButton("Aceptar");
-            btnAceptar.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (numeroCamposLibres() == 0) {
-                        try {
-                            logica.storeRH(tfNombre.getText(), tfCiudad.getText(), tfDir.getText(), Integer.parseInt(tfNumTel.getText()), taDesc.getText());
-                            JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
-                            dispose();
-                        } catch (UsuarioNoExiste ex) {
-                            JOptionPane.showMessageDialog(null, "No se han podido guardar los datos, intentalos más tarde");
+            btnAceptar.addActionListener(e -> {
+
+                        if (numeroCamposLibres() == 0) {
+                            try {
+                                logica.storeRH(tfNombre.getText(), tfCiudad.getText(), tfDir.getText(), Integer.parseInt(tfNumTel.getText()),
+                                        taDesc.getText(), Integer.parseInt(tfHabs.getText()), Integer.parseInt(tfBan.getText()));
+                                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+
+                            } catch (UsuarioNoExiste ex) {
+                                JOptionPane.showMessageDialog(null, "No se han podido guardar los datos, intentalos más tarde");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "No has rellenado todos los campos");
                         }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No has rellenado todos los campos");
                     }
-                }
-            });
+            );
 
             btnPane.add(btnAceptar);
         }
@@ -130,51 +184,37 @@ public class NewRHGUI extends JFrame {
     }
 
 
+    private void clearFields() {
+        tfHabs.setText("");
+        tfBan.setText("");
+        tfCiudad.setText("");
+        tfDir.setText("");
+        tfNombre.setText("");
+        tfNumTel.setText("");
+        taDesc.setText("");
+
+    }
 
 
-    //Función para gestionar los eventos del frame al cerrarlo
-    //comprueba si hay campos rellenados y si se descartan cambios
-    private void frameEvents() {
-        this.addWindowListener(new WindowListener() {
+    private void renderingHandler() {
+        this.addComponentListener(new ComponentListener() {
             @Override
-            public void windowOpened(WindowEvent e) {
+            public void componentResized(ComponentEvent e) {
 
             }
 
             @Override
-            public void windowClosing(WindowEvent e) {
-                if (numeroCamposLibres() < NUMERO_CAMPOS) {
-                    int num = JOptionPane.showConfirmDialog(null,
-                            "Si sales perderas los cambios, ¿estás seguro?", null, JOptionPane.YES_NO_OPTION);
-                    if (num == JOptionPane.YES_OPTION)
-                        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    else
-                        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-                }
-            }
-
-            @Override
-            public void windowClosed(WindowEvent e) {
+            public void componentMoved(ComponentEvent e) {
 
             }
 
             @Override
-            public void windowIconified(WindowEvent e) {
-
+            public void componentShown(ComponentEvent e) {
+                clearFields();
             }
 
             @Override
-            public void windowDeiconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowActivated(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeactivated(WindowEvent e) {
+            public void componentHidden(ComponentEvent e) {
 
             }
         });
