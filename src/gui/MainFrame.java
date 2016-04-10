@@ -43,9 +43,11 @@ public class MainFrame extends JFrame {
     }
 
     public void changeToReserves(List<RuralHouse> lista){
+        reserva.setList(lista);
+
         CardLayout c1 = (CardLayout)contentPanel.getLayout();
         c1.show(contentPanel, menu[RESERVAR]);
-        reserva.setList(lista);
+
     }
 
     private JPanel setContentPane(){
@@ -129,11 +131,14 @@ public class MainFrame extends JFrame {
 
     private void editCard(ActionEvent e){
         JButton btn = (JButton) e.getSource();
-        CardLayout c1 = (CardLayout)contentPanel.getLayout();
-        c1.show(contentPanel, btn.getText());
+
         if(btn.equals(botonesMenu[RESERVAR])){
             reserva.setList(logica.getAllRuralHouses());
         }
+
+        CardLayout c1 = (CardLayout)contentPanel.getLayout();
+        c1.show(contentPanel, btn.getText());
+
     }
 
     private JPanel setMainPanel(){
@@ -142,10 +147,25 @@ public class MainFrame extends JFrame {
         JLabel lblBienvenido = new JLabel("Bienvenido a ScrumMasters RuralHouses");
         lblBienvenido.setHorizontalAlignment(JLabel.CENTER);
         lblBienvenido.setFont(new Font("Tahoma", Font.PLAIN, 24));
+
+        mainPanel.add(setCenterContent(), BorderLayout.CENTER);
+
         Icon footer = new ImageIcon("images/footer.png");
         JLabel lblFooter = new JLabel(footer);
         mainPanel.add(lblBienvenido, BorderLayout.PAGE_START);
         mainPanel.add(lblFooter, BorderLayout.PAGE_END);
         return mainPanel;
+    }
+
+    private JPanel setCenterContent(){
+        JPanel centerPanel = new JPanel();
+
+        if(tipo == CLIENTE){
+
+        }else{
+
+        }
+
+        return centerPanel;
     }
 }

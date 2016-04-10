@@ -43,6 +43,28 @@ public class BusquedaAvanzadaGUI extends JPanel {
 
         this.logica = logica;
         add(setMainPanel());
+
+        this.addComponentListener(new ComponentListener() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+
+            }
+
+            @Override
+            public void componentMoved(ComponentEvent e) {
+
+            }
+
+            @Override
+            public void componentShown(ComponentEvent e) {
+                listModel.clear();
+            }
+
+            @Override
+            public void componentHidden(ComponentEvent e) {
+
+            }
+        });
     }
 
     public JPanel getPanel() {

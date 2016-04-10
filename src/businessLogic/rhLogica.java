@@ -203,7 +203,7 @@ public class rhLogica implements ruralManagerLogic {
         List<RuralHouse> res = new LinkedList<>();
 
         if(!(ruralhouses == null || ruralhouses.isEmpty())) {
-            System.out.println("1");
+
 
             for (RuralHouse ruralhouse : ruralhouses) {
                 List<Offer> auxList = ruralhouse.getOffers();
@@ -212,7 +212,6 @@ public class rhLogica implements ruralManagerLogic {
                     continue;
 
                 for (Offer of : auxList) {
-                    System.out.println("3");
 
                     float price = of.getPrice();
                     if (price >= min && price <= max) {
