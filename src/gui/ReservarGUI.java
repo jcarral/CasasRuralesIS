@@ -128,7 +128,7 @@ public class ReservarGUI extends JPanel {
 
             editorPane = new JEditorPane();
             editorPane.setEditable(false);
-            editorPane.setPreferredSize(new Dimension(400, 200));
+            editorPane.setPreferredSize(new Dimension(520, 390));
             editorPane.setContentType("text/html");
             panelContent.add(editorPane);
 

@@ -5,15 +5,25 @@
     <bookmark url="file://$PROJECT_DIR$/src/domain/Offer.java" line="128" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62fa8f9d-00f7-4d0f-ba8e-c141a6017727" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/footer.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/PropietarioGUI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/UsuarioGUI.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rhs.db4o" afterPath="$PROJECT_DIR$/rhs.db4o" />
+    <list default="true" id="62fa8f9d-00f7-4d0f-ba8e-c141a6017727" name="Default" comment="Error Reservas arreglado!">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/PropietarioGUI$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/PropietarioGUI$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/PropietarioGUI$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/PropietarioGUI$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/PropietarioGUI$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/PropietarioGUI$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/PropietarioGUI.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/gui/UsuarioGUI.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rhs.db4o" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/businessLogic/rhLogica.class" afterPath="$PROJECT_DIR$/bin/businessLogic/rhLogica.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI.class" afterPath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/NewRHGUI.class" afterPath="$PROJECT_DIR$/bin/gui/NewRHGUI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/businessLogic/rhLogica.java" afterPath="$PROJECT_DIR$/src/businessLogic/rhLogica.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java" afterPath="$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/ReservarGUI.java" afterPath="$PROJECT_DIR$/src/gui/ReservarGUI.java" />
     </list>
     <ignored path="WSRuralHouse-2016 2.iws" />
@@ -37,23 +47,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BusquedaAvanzadaGUI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-              <folding>
-                <element signature="e#1581#1582#0" expanded="true" />
-                <element signature="e#1630#1631#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
+            <state relative-caret-position="510">
               <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -65,7 +62,7 @@
       <file leaf-file-name="LoginGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/LoginGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
+            <state relative-caret-position="1360">
               <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
               <folding />
             </state>
@@ -82,15 +79,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReservarGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReservarGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/ReservarGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-495">
-              <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
-              <folding>
-                <element signature="e#2242#2243#0" expanded="true" />
-                <element signature="e#2314#2315#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,7 +92,7 @@
       <file leaf-file-name="RuralHouse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/RuralHouse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-539">
+            <state relative-caret-position="612">
               <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
                 <element signature="e#1282#1283#0" expanded="true" />
@@ -110,7 +104,7 @@
       <file leaf-file-name="Offer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/Offer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="493">
               <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="e#1047#1048#0" expanded="true" />
@@ -122,7 +116,7 @@
       <file leaf-file-name="rhLogica.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/businessLogic/rhLogica.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
+            <state relative-caret-position="3434">
               <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -173,8 +167,8 @@
         <option value="$PROJECT_DIR$/src/gui/NewRHGUI.java" />
         <option value="$PROJECT_DIR$/src/businessLogic/rhLogica.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
-        <option value="$PROJECT_DIR$/src/gui/ReservarGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/ReservarGUI.java" />
       </list>
     </option>
   </component>
@@ -214,8 +208,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -268,7 +260,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -784,7 +778,8 @@
       <workItem from="1459537068309" duration="23000" />
       <workItem from="1459689665163" duration="1104000" />
       <workItem from="1460141372812" duration="18793000" />
-      <workItem from="1460202130427" duration="43636000" />
+      <workItem from="1460202130427" duration="43800000" />
+      <workItem from="1460298254579" duration="716000" />
     </task>
     <task id="LOCAL-00001" summary="Logica busqueda hecha y arreglado lo de oscar">
       <created>1459431877679</created>
@@ -800,11 +795,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460238913642</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Error Reservas arreglado!">
+      <created>1460251050441</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1460251050441</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91322000" />
+    <option name="totallyTimeSpent" value="92202000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -817,7 +819,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -832,7 +834,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18443497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18443497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="db4o" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -891,7 +893,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Logica busqueda hecha y arreglado lo de oscar" />
     <MESSAGE value="Rediseño y primeros pasos Iteracion2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rediseño y primeros pasos Iteracion2" />
+    <MESSAGE value="Error Reservas arreglado!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error Reservas arreglado!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -931,9 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,19 +969,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/PropietarioGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/PropietarioGUI.java" />
     <entry file="file://$PROJECT_DIR$/images/header.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -993,58 +984,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/ReservasUsuarioGUI.java" />
-    <entry file="file://$PROJECT_DIR$/ReservaManagerLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyReservaManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reservar_DBaccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QueryAvailabilityGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="132" column="42" selection-start-line="132" selection-start-column="42" selection-end-line="132" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ReservaManagerLogic.java" />
+    <entry file="file://$PROJECT_DIR$/MyReservaManager.java" />
+    <entry file="file://$PROJECT_DIR$/reservar_DBaccess.java" />
+    <entry file="file://$PROJECT_DIR$/QueryAvailabilityGUI.java" />
     <entry file="file://$PROJECT_DIR$/src/gui/RegistroGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Reserva.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Reserva.java" />
     <entry file="file://$PROJECT_DIR$/src/domain/Persona.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1052,7 +1007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1060,7 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1088,7 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1096,25 +1048,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/UsuarioGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/UsuarioGUI.java" />
     <entry file="file://$PROJECT_DIR$/src/exceptions/UsuarioNoExiste.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="16" column="1" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,9 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding>
-            <element signature="e#2587#2588#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,7 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="291" column="106" selection-start-line="291" selection-start-column="106" selection-end-line="291" selection-end-column="106" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,7 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,7 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,9 +1091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,7 +1098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="23" column="159" selection-start-line="23" selection-start-column="159" selection-end-line="23" selection-end-column="159" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,13 +1129,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/businessLogic/rhLogica.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
+        <state relative-caret-position="3434">
           <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1222,7 +1152,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Offer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
+        <state relative-caret-position="493">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="e#1047#1048#0" expanded="true" />
@@ -1232,19 +1162,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/LoginGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="1360">
           <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1252,17 +1172,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="1117" column="0" selection-start-line="1117" selection-start-column="0" selection-end-line="1117" selection-end-column="0" />
-          <folding>
-            <element signature="e#27935#27936#0" expanded="true" />
-            <element signature="e#27980#27981#0" expanded="true" />
-            <element signature="e#43324#43325#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/RuralHouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-539">
+        <state relative-caret-position="612">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <element signature="e#1282#1283#0" expanded="true" />
@@ -1270,25 +1185,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/ReservarGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495">
-          <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
-          <folding>
-            <element signature="e#2242#2243#0" expanded="true" />
-            <element signature="e#2314#2315#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
+        <state relative-caret-position="-2858">
           <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
             <element signature="e#1581#1582#0" expanded="true" />
             <element signature="e#1630#1631#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ReservarGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
