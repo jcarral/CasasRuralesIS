@@ -1,27 +1,23 @@
 package gui;
 
-import java.beans.*;
-import java.text.DateFormat;
-import java.util.*;
-
-import javax.swing.*;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.util.List;
-
-import businessLogic.ApplicationFacadeInterfaceWS;
-
 import businessLogic.ruralManagerLogic;
 import com.toedter.calendar.JCalendar;
-
 import domain.Offer;
 import domain.RuralHouse;
-import exceptions.OverlappingOfferExists;
 import exceptions.BadDates;
+import exceptions.OverlappingOfferExists;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.text.DateFormat;
+import java.util.*;
+import java.util.List;
 
 
-public class SetAvailabilityGUI extends JPanel {
+public class SetAvailabilityGUI extends JPanel implements PanelCard{
     private static final long serialVersionUID = 1L;
 
     private JComboBox jComboBox1;
@@ -117,7 +113,7 @@ public class SetAvailabilityGUI extends JPanel {
     private JPanel setBtnPanel() {
         JPanel panelBtn = new JPanel();
         //Boton aceptar
-        btnAceptar.setText("Accept");
+        btnAceptar.setText("Aceptar");
 
         btnAceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -126,7 +122,7 @@ public class SetAvailabilityGUI extends JPanel {
         });
 
         //Boton cancelar
-        btnCancelar.setText("Cancel");
+        btnCancelar.setText("Cancelar");
 
         btnCancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -142,6 +138,8 @@ public class SetAvailabilityGUI extends JPanel {
     private JPanel setCalendarPanel() {
         JPanel panelCalendar = new JPanel();
 
+        calInicio.setPreferredSize(new Dimension(200, 200));
+        calFin.setPreferredSize(new Dimension(200, 200));
         // Code for  JCalendar
         this.calInicio.addPropertyChangeListener(new PropertyChangeListener() {
             public void propertyChange(PropertyChangeEvent propertychangeevent) {
@@ -182,7 +180,7 @@ public class SetAvailabilityGUI extends JPanel {
     private JPanel setPanelData() {
         JPanel panelData = new JPanel(new GridLayout(3, 2));
 
-        panelData.setPreferredSize(new Dimension(400, 100));
+        panelData.setPreferredSize(new Dimension(400, 75));
         lblPrimerDia.setText("Primer dia :");
         jTextField1.setEditable(false);
         lblUltimoDia.setText("Ultimo dia :");
@@ -240,7 +238,7 @@ public class SetAvailabilityGUI extends JPanel {
             if (o == null)
                 jLabel5.setText("Bad dates or there exists an overlapping offer");
             else {
-                JOptionPane.showMessageDialog(null, "Ofertad creada correctamente");
+                JOptionPane.showMessageDialog(null, "Oferta creada correctamente");
                 this.setVisible(false);
             }
 

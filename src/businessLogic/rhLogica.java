@@ -224,7 +224,12 @@ public class rhLogica implements ruralManagerLogic {
         return res;
     }
 
-    @Override
+    /**
+     * Función para confirmar la reserva de una oferta
+     * @param of oferta que se piensa confirmar
+     * @throws UsuarioNoExiste si el usuario actual no existe
+     * @throws OfertaNoExiste si la oferta que se quiere reservar no se encuentrav en la bd
+     */
     public void confirmarReserva(Offer of) throws UsuarioNoExiste, OfertaNoExiste {
 
         if(of.getReserva() != null){

@@ -47,6 +47,12 @@ public class DataAccess
         }
     }
 
+    /**
+     * Función para obtener la referencia al objeto Persona
+     * @param p Persona que se quiere recuperar
+     * @return la referencia del objeto
+     * @throws UsuarioNoExiste si la persona que se busca no se encuentra en la base de datos
+     */
     public Persona getUserRef(Persona p) throws UsuarioNoExiste{
         openDB();
         List<Persona> res = db.queryByExample(p);
@@ -55,9 +61,9 @@ public class DataAccess
     }
     /**
      * Función para validar si una persona existe en la base de datos
-     * @param p
-     * @return
-     * @throws UsuarioNoExiste
+     * @param p Persona que se busca
+     * @return Objeto con la referencia de la persona
+     * @throws UsuarioNoExiste si la persona no existe como cliente o propietario
      */
     public Persona validUser(Cliente c, Propietario p) throws UsuarioNoExiste{
         Persona actualUser;
@@ -113,7 +119,6 @@ public class DataAccess
      */
     public Vector<RuralHouse> getRuralHousesBy(RuralHouse rh){
         openDB();
-        System.out.println(rh);
         List<RuralHouse> res = db.queryByExample(rh);
         Vector<RuralHouse> v = new Vector(res);
         closeDb();

@@ -4,26 +4,21 @@ import businessLogic.ruralManagerLogic;
 import exceptions.UsuarioNoExiste;
 
 import javax.imageio.ImageIO;
-import javax.imageio.ImageReadParam;
-import javax.imageio.ImageReader;
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.color.ColorSpace;
-import java.awt.event.*;
-import java.awt.image.*;
-import java.io.ByteArrayInputStream;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Iterator;
 
 /**
  * Created by joseba on 25/2/16.
  */
-public class NewRHGUI extends JPanel {
+public class NewRHGUI extends JPanel implements PanelCard{
 
     //Constantes
     private final int NUMERO_CAMPOS = 5;
@@ -183,7 +178,7 @@ public class NewRHGUI extends JPanel {
         return btnPane;
     }
 
-
+    //Función para limpiar los campos al salir
     private void clearFields() {
         tfHabs.setText("");
         tfBan.setText("");

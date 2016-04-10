@@ -16,16 +16,18 @@ public class MainFrame extends JFrame {
     private JPanel contentPanel, cReserva;
     private JButton[] botonesMenu = new JButton[7];
 
+    //Atributos clase
     private ruralManagerLogic logica;
     private int tipo;
-    ReservarGUI reserva;
+    private ReservarGUI reserva;
 
+    //Constantes
     private final int INICIO = 0, BUSCAR = 1, RESERVAR = 2, ADDCASA = 3, ADDOFFER = 4, AJUSTES = 5, SALIR = 6;
     private final int CLIENTE = 0, PROPIETARIO = 1;
-
     private final String[] menu = {"Inicio", "Buscar", "Reservar", "+Casa", "+Oferta", "Ajustes", "Salir"};
 
-    MainFrame(ruralManagerLogic logica, int tipo){
+
+    MainFrame(ruralManagerLogic logica, int tipo) {
         super("ScrumMasters RuralHouses");
         this.logica = logica;
         this.tipo = tipo;
@@ -42,16 +44,20 @@ public class MainFrame extends JFrame {
         this.setVisible(true);
     }
 
-    public void changeToReserves(List<RuralHouse> lista){
+    /**
+     * Función para cambiar desde una clase externa el cardlayout
+     * @param lista
+     */
+    public void changeToReserves(List<RuralHouse> lista) {
         reserva.setList(lista);
 
-        CardLayout c1 = (CardLayout)contentPanel.getLayout();
+        CardLayout c1 = (CardLayout) contentPanel.getLayout();
         c1.show(contentPanel, menu[RESERVAR]);
 
     }
 
-    private JPanel setContentPane(){
-        if(contentPanel == null){
+    private JPanel setContentPane() {
+        if (contentPanel == null) {
             contentPanel = new JPanel(new CardLayout());
             contentPanel.setBackground(new Color(224, 224, 224));
 
@@ -83,11 +89,12 @@ public class MainFrame extends JFrame {
         return contentPanel;
     }
 
-    private JMenuBar setMenuBar(){
-        if(menuBar == null){
+    //Función auxiliar para crear el menu
+    private JMenuBar setMenuBar() {
+        if (menuBar == null) {
             menuBar = new JMenuBar();
 
-            for (int i = 0; i < menu.length ; i++) {
+            for (int i = 0; i < menu.length; i++) {
                 inicializarMenu(i);
             }
             setExitBtn();
@@ -95,7 +102,8 @@ public class MainFrame extends JFrame {
         return menuBar;
     }
 
-    private void inicializarMenu(int n){
+    //FUnción auxiliar para inicializar cada boton del menu
+    private void inicializarMenu(int n) {
 
         String pathBtn = "images/menu/" + menu[n].toLowerCase() + ".png";
         String pathBtnHover = "images/menu/" + menu[n].toLowerCase() + "hover.png";
@@ -111,39 +119,40 @@ public class MainFrame extends JFrame {
         botonesMenu[n].setRolloverEnabled(true);
         botonesMenu[n].setCursor(new Cursor(Cursor.HAND_CURSOR));
         botonesMenu[n].setRolloverIcon(new ImageIcon((pathBtnHover)));
-        botonesMenu[n].addActionListener(e->{
+        botonesMenu[n].addActionListener(e -> {
             editCard(e);
         });
-        if(tipo == CLIENTE && (n == ADDCASA || n == ADDOFFER)){
+        if (tipo == CLIENTE && (n == ADDCASA || n == ADDOFFER)) {
             botonesMenu[n].setEnabled(false);
         }
         menuBar.add(botonesMenu[n]);
     }
 
-    private void setExitBtn(){
-        botonesMenu[SALIR].addActionListener(e->{
+    //Funcion auxiliar para gestionar el comportamiento del boton de salir de forma independiente
+    private void setExitBtn() {
+        botonesMenu[SALIR].addActionListener(e -> {
             new LoginGUI(logica);
             dispose();
         });
     }
 
-
-
-    private void editCard(ActionEvent e){
+    //Función para cambiar los panels del cardlayout
+    private void editCard(ActionEvent e) {
         JButton btn = (JButton) e.getSource();
 
-        if(btn.equals(botonesMenu[RESERVAR])){
+        if (btn.equals(botonesMenu[RESERVAR])) {
             reserva.setList(logica.getAllRuralHouses());
         }
 
-        CardLayout c1 = (CardLayout)contentPanel.getLayout();
+        CardLayout c1 = (CardLayout) contentPanel.getLayout();
         c1.show(contentPanel, btn.getText());
 
     }
 
-    private JPanel setMainPanel(){
+
+    private JPanel setMainPanel() {
         JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setPreferredSize(new Dimension(520, 455));
+        mainPanel.setPreferredSize(new Dimension(520, 460));
         JLabel lblBienvenido = new JLabel("Bienvenido a ScrumMasters RuralHouses");
         lblBienvenido.setHorizontalAlignment(JLabel.CENTER);
         lblBienvenido.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -157,12 +166,13 @@ public class MainFrame extends JFrame {
         return mainPanel;
     }
 
-    private JPanel setCenterContent(){
+
+    private JPanel setCenterContent() {
         JPanel centerPanel = new JPanel();
 
-        if(tipo == CLIENTE){
+        if (tipo == CLIENTE) {
 
-        }else{
+        } else {
 
         }
 

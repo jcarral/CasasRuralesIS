@@ -5,13 +5,14 @@ import exceptions.UsuarioNoExiste;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.Arrays;
 
 /**
  * Created by joseba on 22/2/16.
  */
-public class AjustesGUI extends JPanel {
+public class AjustesGUI extends JPanel implements PanelCard{
 
     //Constantes
     private final int NUMERO_CAMPOS = 4;
@@ -179,7 +180,7 @@ public class AjustesGUI extends JPanel {
     //Función para gestionar los eventos del frame
     //Se gestiona el cierre de la ventana
 
-
+    @Deprecated
     private int numeroCamposLibres() {
         int num = 0;
         if (tfDNI.getText().isEmpty())

@@ -17,7 +17,6 @@ public class estilosGUI {
     //COLORES UTILIZADOS PARA LAS INTERFACES
 
     public static final Color bckColor = new Color(230, 230, 237);
-    public static final Color bckColorDark = new Color(83, 92, 95);
     public static final Color bckGray = new Color(242, 254, 254);
 
     //Constanes para identeficar el array

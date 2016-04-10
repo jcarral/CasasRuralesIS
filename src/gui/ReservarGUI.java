@@ -1,16 +1,21 @@
 package gui;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.List;
+import businessLogic.ruralManagerLogic;
 import domain.Offer;
 import domain.RuralHouse;
-import businessLogic.ruralManagerLogic;
 import exceptions.OfertaNoExiste;
 import exceptions.UsuarioNoExiste;
 
-public class ReservarGUI extends JPanel {
+import javax.swing.*;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.util.List;
+
+public class ReservarGUI extends JPanel implements PanelCard{
 
     //UI components
     private JPanel panelContent, panelBtns, panelHeaderOffers;
@@ -23,7 +28,7 @@ public class ReservarGUI extends JPanel {
     private List<RuralHouse> casas;
     private Offer ofertaReserva;
 
-    ReservarGUI(ruralManagerLogic logica){
+    ReservarGUI(ruralManagerLogic logica) {
 
         this.logica = logica;
         this.casas = logica.getAllRuralHouses();
@@ -31,37 +36,32 @@ public class ReservarGUI extends JPanel {
 
         this.addComponentListener(new ComponentListener() {
             ActionListener listener;
-            public void componentResized(ComponentEvent e) {}
-            public void componentMoved(ComponentEvent e) {}
+
+            public void componentResized(ComponentEvent e) {
+            }
+
+            public void componentMoved(ComponentEvent e) {
+            }
+
             public void componentShown(ComponentEvent e) {
-                System.out.println("Entro por aquí");
+
                 printList(casas);
                 comboModel.removeAllElements();
-                System.out.println("comboModelSize: " + comboModel.getSize());
                 searchOffers(casas);
-                System.out.println("comboModelSize2: " + comboModel.getSize());
 
-                listener = new ActionListener() {
-                    /**
-                     * Invoked when an action occurs.
-                     *
-                     * @param e
-                     */
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        System.out.println("Seleccionada");
-                        ofertaReserva = (Offer) comboModel.getElementAt(comboList.getSelectedIndex());
-                        editorPane.setText(textoResumenOferta(ofertaReserva));
-                        btnConfirmar.setEnabled(true);
-                    }
+                listener = ev -> { //El listener da problemas para actualizar los modelos de los cardlayouts
+                    System.out.println("Seleccionada");
+                    ofertaReserva = (Offer) comboModel.getElementAt(comboList.getSelectedIndex());
+                    editorPane.setText(textoResumenOferta(ofertaReserva));
+                    btnConfirmar.setEnabled(true);
+
 
                 };
-
-
                 comboList.addActionListener(listener);
-                System.out.println("Añadido! " + listener);
+
 
             }
+
             public void componentHidden(ComponentEvent e) {
                 comboList.removeActionListener(listener);
             }
@@ -69,13 +69,15 @@ public class ReservarGUI extends JPanel {
 
     }
 
-    public JPanel getPanel(){return this;}
+    public JPanel getPanel() {
+        return this;
+    }
 
-    public void setList(List<RuralHouse> lista){
+    public void setList(List<RuralHouse> lista) {
         casas = lista;
     }
 
-    private JPanel setMainPane(){
+    private JPanel setMainPane() {
         JPanel mainPane = new JPanel();
         mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.PAGE_AXIS));
 
@@ -85,8 +87,8 @@ public class ReservarGUI extends JPanel {
         return mainPane;
     }
 
-    private JPanel setBtnPanel(){
-        if(panelBtns == null){
+    private JPanel setBtnPanel() {
+        if (panelBtns == null) {
             panelBtns = new JPanel();
             btnConfirmar = new JButton("Confirmar");
             btnConfirmar.setEnabled(false);
@@ -96,8 +98,8 @@ public class ReservarGUI extends JPanel {
         return panelBtns;
     }
 
-    private void confirmHandler(JButton btn){
-        btn.addActionListener(e->{
+    private void confirmHandler(JButton btn) {
+        btn.addActionListener(e -> {
             try {
                 logica.confirmarReserva(ofertaReserva);
             } catch (UsuarioNoExiste usuarioNoExiste) {
@@ -112,21 +114,32 @@ public class ReservarGUI extends JPanel {
     }
 
 
-
-    private JPanel setPanelContent(){
-        if(panelContent == null) {
+    private JPanel setPanelContent() {
+        if (panelContent == null) {
             panelContent = new JPanel();
             panelContent.setLayout(new BoxLayout(panelContent, BoxLayout.PAGE_AXIS));
             comboModel = new DefaultComboBoxModel<>();
             comboList = new JComboBox(comboModel);
 
-            if(!casas.isEmpty()){
+            if (!casas.isEmpty()) {
                 searchOffers(casas);
             }
 
             panelContent.add(comboList);
 
             editorPane = new JEditorPane();
+            HTMLEditorKit kitHTML = new HTMLEditorKit();
+            editorPane.setEditorKit(kitHTML);
+
+            StyleSheet css = kitHTML.getStyleSheet();
+
+            //CSS RULES
+            css.addRule("body{margin: 10px; padding: 10px; background-color: #bdc3c7; border: 2px solid #2c3e50}");
+            css.addRule("h2{text-align: center;}");
+            css.addRule("strong{display: inline-block; margin: 0; padding: 0; font-size: 16px;");
+            css.addRule("p{display:inline-block; margin: 0; padding: 0;");
+            css.addRule("div{margin-top: 15px;}");
+
             editorPane.setEditable(false);
             editorPane.setPreferredSize(new Dimension(520, 390));
             editorPane.setContentType("text/html");
@@ -137,31 +150,34 @@ public class ReservarGUI extends JPanel {
         return panelContent;
     }
 
-    private String textoResumenOferta(Offer of){
+    private String textoResumenOferta(Offer of) {
         RuralHouse rh = of.getRuralHouse();
         String res = "<h2>Resumen oferta</h2>\n" +
-                "  <strong>Nombre casa rural:</strong> <p> " + rh.getNombre() + "</p>\n" +
-                "  <strong>Localidad:</strong> <p>" + rh.getCity() +  "</p>\n" +
-                "  <strong>Inicio oferta:</strong> <p>" + of.getFirstDay() +"</p>\n" +
-                "  <strong>Fin Oferta: </strong> <p>"+  of.getLastDay() + "</p>\n" +
-                "  <strong>Precio:</strong> <p> "+ of.getPrice()+"€ </p>";
+                "  <div><strong>Nombre casa rural:</strong> <p> " + rh.getNombre() + "</p></div>\n" +
+                "  <div><strong>Localidad:</strong> <p>" + rh.getCity() + "</p></div>\n" +
+                "  <div><strong>Inicio oferta:</strong> <p>" + of.getFirstDay() + "</p></div>\n" +
+                "  <div><strong>Fin Oferta: </strong> <p>" + of.getLastDay() + "</p></div>\n" +
+                "  <div><strong>Precio:</strong> <p> " + of.getPrice() + "€ </p></div>\n";
+
         return res;
     }
 
-    private void searchOffers(List<RuralHouse> list){
-        for(RuralHouse rh : list){
+    //Función para recargar el combomodel
+    private void searchOffers(List<RuralHouse> list) {
+        for (RuralHouse rh : list) {
             List<Offer> res = rh.getOffers();
             for (Offer of : res)
-                if(of.getReserva() == null)
+                if (of.getReserva() == null)
                     comboModel.addElement(of);
         }
     }
 
-    private void printList(List<RuralHouse> res){
-        for(RuralHouse rh : res){
+    //Función auxiliar para imprimir por consola todas las ofertas de las casas
+    private void printList(List<RuralHouse> res) {
+        for (RuralHouse rh : res) {
             List<Offer> resOf = rh.getOffers();
             System.out.println("RuralHouse: " + rh.getNombre());
-            for(Offer of : resOf)
+            for (Offer of : resOf)
                 System.out.println("---------> " + of.getOfferID() + ", esta llena: " + (of.getReserva() != null));
         }
     }

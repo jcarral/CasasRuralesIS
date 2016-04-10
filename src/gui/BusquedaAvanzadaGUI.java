@@ -2,18 +2,16 @@ package gui;
 
 import businessLogic.ruralManagerLogic;
 import domain.RuralHouse;
-import sun.applet.Main;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.util.List;
 import java.util.Vector;
 
-public class BusquedaAvanzadaGUI extends JPanel {
+public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
 
     private static final long serialVersionUID = 1L;
 
@@ -165,10 +163,10 @@ public class BusquedaAvanzadaGUI extends JPanel {
 
         List<RuralHouse> res = logica.searchUsingFilter(nombre, ciudad, direccion, min, max, habitaciones, banios);
         listModel.clear();
-        if(res == null){
+        if (res == null) {
             return;
         }
-        for (RuralHouse rh : res){
+        for (RuralHouse rh : res) {
             listModel.addElement(rh);
         }
 
@@ -199,7 +197,9 @@ public class BusquedaAvanzadaGUI extends JPanel {
 
     private JPanel setDataPanel() {
         if (dataPane == null) {
+
             dataPane = new JPanel(new GridLayout(7, 2));
+            dataPane.setPreferredSize(new Dimension(500, 200));
             dataPane.setBorder(new EmptyBorder(20, 20, 20, 20));
             //Fila1: Nombre casa
             JLabel lblNombre = new JLabel("Casa:");

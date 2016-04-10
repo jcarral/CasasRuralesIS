@@ -13,7 +13,7 @@ public class FichaGUI extends JFrame {
 
     //Elementos de la interfaz
     private JPanel mainPane, dataPane;
-    private JTextField tfNombre, tfNumero, tfDireccion, tfCiudad, tfTel;
+    private JTextField tfNombre, tfNumero, tfDireccion, tfCiudad, tfTel, tfBanios, tfHabitaciones;
     private TextArea taDescripcion;
     private JButton btnCerrar;
 
@@ -26,7 +26,7 @@ public class FichaGUI extends JFrame {
     public FichaGUI(RuralHouse rh) {
         super("Ficha técnica");
         this.rh = rh;
-        setSize(500, 400);
+        setSize(500, 500);
         setResizable(false);
         setLocationRelativeTo(null);
         add(setMainPane());
@@ -58,7 +58,8 @@ public class FichaGUI extends JFrame {
     private JPanel setDataPane() {
 
         if (dataPane == null) {
-            dataPane = new JPanel(new GridLayout(5, 2));
+            dataPane = new JPanel(new GridLayout(7, 2));
+            dataPane.setPreferredSize(new Dimension(450, 300));
             dataPane.add(new JLabel("Numero casa: "));
             tfNumero = new JTextField(Integer.toString(rh.getHouseNumber()));
             tfNumero.setEditable(false);
@@ -83,6 +84,16 @@ public class FichaGUI extends JFrame {
             tfTel = new JTextField(Integer.toString(rh.getNumTel()));
             tfTel.setEditable(false);
             dataPane.add(tfTel);
+
+            dataPane.add(new JLabel("Numero de habitaciones: "));
+            tfHabitaciones = new JTextField(Integer.toString(rh.getNumeroHabitaciones()));
+            tfHabitaciones.setEditable(false);
+            dataPane.add(tfHabitaciones);
+
+            dataPane.add(new JLabel("Numero de baños: "));
+            tfBanios = new JTextField(Integer.toString(rh.getNumeroBanios()));
+            tfBanios.setEditable(false);
+            dataPane.add(tfBanios);
         }
         return dataPane;
     }
