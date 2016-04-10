@@ -25,6 +25,7 @@ public class RuralHouse implements Serializable {
     private int numTel;
     private int numeroHabitaciones;
     private int numeroBanios;
+    private Propietario propietario;
 
     public RuralHouse(Integer houseNumber, String description, String city, String nombre, int tel, String direccion, int habitaciones, int banios) {
         this.houseNumber = houseNumber;
@@ -35,11 +36,16 @@ public class RuralHouse implements Serializable {
         this.city = city;
         this.numeroBanios = banios;
         this.numeroHabitaciones = habitaciones;
+
         offers = new Vector<Offer>();
     }
 
-    public RuralHouse() {
-        super();
+    public void setPropietario(Propietario propietario){
+        this.propietario = propietario;
+    }
+
+    public Propietario getPropietario(){
+        return propietario;
     }
 
     public String getNombre() {

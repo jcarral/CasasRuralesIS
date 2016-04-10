@@ -1,11 +1,13 @@
 package gui;
 
 import businessLogic.ruralManagerLogic;
+import domain.Offer;
 import domain.RuralHouse;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -173,6 +175,13 @@ public class MainFrame extends JFrame {
         if (tipo == CLIENTE) {
 
         } else {
+            JButton btntabla = new JButton("Ver las reservas a mis casas");
+            btntabla.addActionListener(e->{
+                new ReservasPropietarioGUI(logica);
+            });
+
+            centerPanel.add(btntabla);
+
 
         }
 

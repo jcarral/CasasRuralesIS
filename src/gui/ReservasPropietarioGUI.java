@@ -3,6 +3,7 @@ package gui;
 import businessLogic.ruralManagerLogic;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
 public class ReservasPropietarioGUI extends JFrame {
@@ -38,7 +39,16 @@ public class ReservasPropietarioGUI extends JFrame {
 
         setLabels();
         setPane();
+        fillTable();
         setVisible(true);
+    }
+
+    private void fillTable(){
+        Vector<Vector<String>> res = logica.reservedRHInfo();
+
+        for(Vector<String> v : res){
+            tableModel.addRow(v);
+        }
     }
 
     //Función para añadir los label
@@ -57,6 +67,7 @@ public class ReservasPropietarioGUI extends JFrame {
         
       //Tabla
         table = new JTable();
+        table.setEnabled(false);
         scrollPane.setViewportView(table);
         tableModel = new DefaultTableModel(
                 null,

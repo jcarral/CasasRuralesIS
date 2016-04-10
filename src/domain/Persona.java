@@ -76,4 +76,31 @@ public abstract class Persona {
         this.DNI = p.getDNI();
         this.numTel = p.getNumTel();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Persona)) return false;
+
+        Persona persona = (Persona) o;
+
+        if (numTel != persona.numTel) return false;
+        if (apellido != null ? !apellido.equals(persona.apellido) : persona.apellido != null) return false;
+        if (mail != null ? !mail.equals(persona.mail) : persona.mail != null) return false;
+        if (password != null ? !password.equals(persona.password) : persona.password != null) return false;
+        if (nombre != null ? !nombre.equals(persona.nombre) : persona.nombre != null) return false;
+        return !(DNI != null ? !DNI.equals(persona.DNI) : persona.DNI != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = apellido != null ? apellido.hashCode() : 0;
+        result = 31 * result + (mail != null ? mail.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
+        result = 31 * result + (DNI != null ? DNI.hashCode() : 0);
+        result = 31 * result + numTel;
+        return result;
+    }
 }

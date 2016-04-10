@@ -1,16 +1,11 @@
 package businessLogic;
 
-import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.config.EmbeddedConfiguration;
+
 import dataAccess.DataAccess;
 import domain.*;
 import exceptions.*;
 
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 
 public class rhLogica implements ruralManagerLogic {
@@ -240,6 +235,33 @@ public class rhLogica implements ruralManagerLogic {
         dataManager.insertarReserva(reserva, of);
 
 
+    }
+
+    /**
+     * Devuelve un vector bidimensional en el que se almacenan las filas para la tabla
+     * @return
+     */
+    public Vector<Vector<String>> reservedRHInfo() {
+        DataAccess dataManager = new DataAccess();
+        List<Reserva> lista = dataManager.getUserReservedOffers((Propietario) actualUser);
+
+        Vector<Vector<String>> result = new Vector();
+
+        for(Reserva res : lista){
+
+            Vector<String> v = new Vector<>();
+
+            v.add(res.getOferta().getRuralHouse().getNombre());
+            v.add(res.getOferta().getFirstDay().toString());
+            v.add(res.getOferta().getLastDay().toString());
+            v.add(Float.toString(res.getOferta().getPrice()));
+            v.add(res.getUsuario().getNombre() + " " + res.getUsuario().getApellido());
+
+            result.add(v);
+        }
+
+        dataManager.closeDb();
+        return result;
     }
 
     //Genera un número para cada casa

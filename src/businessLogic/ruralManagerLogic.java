@@ -6,6 +6,7 @@ import domain.RuralHouse;
 import exceptions.*;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
@@ -24,4 +25,5 @@ public interface ruralManagerLogic {
     Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) throws BadDates, OverlappingOfferExists, UsuarioNoExiste, OfertaRepetida;
     List<RuralHouse> searchUsingFilter(String nombre, String ciudad, String direccion, int min, int max, int habitaciones, int banios);
     void confirmarReserva(Offer of) throws UsuarioNoExiste, OfertaNoExiste;
+    Vector<Vector<String>> reservedRHInfo();
 }

@@ -3,6 +3,7 @@ package dataAccess;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
+import com.db4o.query.Predicate;
 import domain.*;
 import exceptions.OfertaNoExiste;
 import exceptions.OfertaRepetida;
@@ -41,9 +42,12 @@ public class DataAccess
         else{
             Offer actualOffer = res.get(0);
             reserva.setOffer(actualOffer);
+            actualOffer.setReserva(reserva);
             db.store(reserva);
+            db.store(actualOffer);
             db.commit();
             db.close();
+            System.out.println("Reserva almacenada: " + actualOffer.getReserva().toString());
         }
     }
 
@@ -201,5 +205,26 @@ public class DataAccess
         db.commit();
         closeDb();
         return p;
+    }
+
+    /**
+     * Obtiene todas las reservas que han hecho para la casa de un usuario
+     * @param p
+     * @return
+     */
+    public List<Reserva> getUserReservedOffers(Propietario p){
+        openDB();
+
+        List<Reserva> res = db.query(new Predicate<Reserva>() {
+
+            @Override
+            public boolean match(Reserva reserva) {
+
+                return reserva.getUsuario() != null && reserva.getOferta() != null && p.equals(reserva.getOferta().getRuralHouse().getPropietario());
+            }
+        });
+
+
+        return res;
     }
 }

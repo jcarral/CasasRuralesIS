@@ -25,6 +25,13 @@ public class Propietario extends Persona {
 
     public void addRuralHouse(RuralHouse rh) {
         listaCasas.add(rh);
+        rh.setPropietario(this);
     }
 
+
+
+    @Override
+    public int hashCode() {
+        return listaCasas != null ? listaCasas.hashCode() : 0;
+    }
 }

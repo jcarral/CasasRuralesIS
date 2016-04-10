@@ -25,5 +25,32 @@ public class Reserva {
     public void setOffer(Offer oferta) {
         this.oferta = oferta;
         oferta.setReserva(this);
+
+    }
+
+    public Persona getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Persona usuario) {
+        this.usuario = usuario;
+    }
+
+    public Offer getOferta() {
+        return oferta;
+    }
+
+    public void setOferta(Offer oferta) {
+        this.oferta = oferta;
+    }
+
+    @Override
+    public String toString() {
+        return "Reserva{" +
+                "oferta=" + oferta +
+                ", fechaReserva=" + fechaReserva +
+                ", reservaID='" + reservaID + '\'' +
+                ", usuario=" + usuario +
+                '}';
     }
 }

@@ -36,6 +36,7 @@ public class Offer implements Serializable {
 
     public void setReserva(Reserva reserva) {
         this.reserva = reserva;
+
     }
 
     /**
