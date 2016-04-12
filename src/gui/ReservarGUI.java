@@ -58,8 +58,7 @@ public class ReservarGUI extends JPanel implements PanelCard{
 
                 };
                 comboList.addActionListener(listener);
-
-
+                btnConfirmar.setEnabled(false);
             }
 
             public void componentHidden(ComponentEvent e) {

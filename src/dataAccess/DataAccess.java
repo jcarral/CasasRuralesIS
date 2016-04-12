@@ -52,7 +52,7 @@ public class DataAccess
     }
 
     /**
-     * Función para obtener la referencia al objeto Persona
+     * Función para obtener la referencia al objeto Personar
      * @param p Persona que se quiere recuperar
      * @return la referencia del objeto
      * @throws UsuarioNoExiste si la persona que se busca no se encuentra en la base de datos

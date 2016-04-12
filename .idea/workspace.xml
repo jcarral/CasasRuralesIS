@@ -11,60 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62fa8f9d-00f7-4d0f-ba8e-c141a6017727" name="Default" comment="Error Reservas arreglado!">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/businessLogic/ApplicationFacadeInterfaceWS.class" afterPath="$PROJECT_DIR$/bin/businessLogic/ApplicationFacadeInterfaceWS.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/businessLogic/rhLogica.class" afterPath="$PROJECT_DIR$/bin/businessLogic/rhLogica.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/configuration/ConfigXML.class" afterPath="$PROJECT_DIR$/bin/configuration/ConfigXML.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/dataAccess/DataAccess.class" afterPath="$PROJECT_DIR$/bin/dataAccess/DataAccess.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/domain/IntegerAdapter.class" afterPath="$PROJECT_DIR$/bin/domain/IntegerAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/domain/Offer.class" afterPath="$PROJECT_DIR$/bin/domain/Offer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/domain/Persona.class" afterPath="$PROJECT_DIR$/bin/domain/Persona.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/domain/Propietario.class" afterPath="$PROJECT_DIR$/bin/domain/Propietario.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/domain/RuralHouse.class" afterPath="$PROJECT_DIR$/bin/domain/RuralHouse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/exceptions/BadDates.class" afterPath="$PROJECT_DIR$/bin/exceptions/BadDates.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/exceptions/DB4oManagerCreationException.class" afterPath="$PROJECT_DIR$/bin/exceptions/DB4oManagerCreationException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/exceptions/OfertaNoExiste.class" afterPath="$PROJECT_DIR$/bin/exceptions/OfertaNoExiste.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/exceptions/OfertaRepetida.class" afterPath="$PROJECT_DIR$/bin/exceptions/OfertaRepetida.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/exceptions/OfferCanNotBeBooked.class" afterPath="$PROJECT_DIR$/bin/exceptions/OfferCanNotBeBooked.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/exceptions/OverlappingOfferExists.class" afterPath="$PROJECT_DIR$/bin/exceptions/OverlappingOfferExists.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/exceptions/UsuarioNoExiste.class" afterPath="$PROJECT_DIR$/bin/exceptions/UsuarioNoExiste.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/exceptions/UsuarioRepetido.class" afterPath="$PROJECT_DIR$/bin/exceptions/UsuarioRepetido.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/AjustesGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/AjustesGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/AjustesGUI.class" afterPath="$PROJECT_DIR$/bin/gui/AjustesGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI$1.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rhs.db4o" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI.class" afterPath="$PROJECT_DIR$/bin/gui/BusquedaAvanzadaGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/FichaGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/FichaGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/FichaGUI.class" afterPath="$PROJECT_DIR$/bin/gui/FichaGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/LoginGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/LoginGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/LoginGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/LoginGUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/LoginGUI.class" afterPath="$PROJECT_DIR$/bin/gui/LoginGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/NewRHGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/NewRHGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/NewRHGUI.class" afterPath="$PROJECT_DIR$/bin/gui/NewRHGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/PanelCard.class" afterPath="$PROJECT_DIR$/bin/gui/PanelCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$3.class" afterPath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$4.class" afterPath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$5.class" afterPath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$6.class" afterPath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI.class" afterPath="$PROJECT_DIR$/bin/gui/QueryAvailabilityGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/RegistroGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/RegistroGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/RegistroGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/RegistroGUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/RegistroGUI$3.class" afterPath="$PROJECT_DIR$/bin/gui/RegistroGUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/RegistroGUI.class" afterPath="$PROJECT_DIR$/bin/gui/RegistroGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/ReservarGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/ReservarGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/ReservarGUI.class" afterPath="$PROJECT_DIR$/bin/gui/ReservarGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/ReservasPropietarioGUI.class" afterPath="$PROJECT_DIR$/bin/gui/ReservasPropietarioGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$1.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$2.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$3.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$4.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$5.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$6.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI.class" afterPath="$PROJECT_DIR$/bin/gui/SetAvailabilityGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/SoloNumeros.class" afterPath="$PROJECT_DIR$/bin/gui/SoloNumeros.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/estilosGUI.class" afterPath="$PROJECT_DIR$/bin/gui/estilosGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/gui/MainFrame.class" afterPath="$PROJECT_DIR$/bin/gui/MainFrame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WSRuralHouse-2016-2.iml" afterPath="$PROJECT_DIR$/WSRuralHouse-2016-2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataAccess/DataAccess.java" afterPath="$PROJECT_DIR$/src/dataAccess/DataAccess.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/ReservarGUI.java" afterPath="$PROJECT_DIR$/src/gui/ReservarGUI.java" />
     </list>
     <ignored path="WSRuralHouse-2016 2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,122 +39,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+      <file leaf-file-name="ReservarGUI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gui/ReservarGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="123" column="45" selection-start-line="123" selection-start-column="45" selection-end-line="123" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cliente.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/Cliente.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.6832918">
+              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RuralHouse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/RuralHouse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="21" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="21" />
-              <folding>
-                <element signature="e#1352#1353#0" expanded="true" />
-                <element signature="e#1398#1399#0" expanded="true" />
-                <element signature="e#1440#1441#0" expanded="true" />
-                <element signature="e#1474#1475#0" expanded="true" />
-                <element signature="e#1507#1508#0" expanded="true" />
-                <element signature="e#1536#1537#0" expanded="true" />
-                <element signature="e#1656#1657#0" expanded="true" />
-                <element signature="e#1685#1686#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reserva.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/Reserva.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Propietario.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/domain/Propietario.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6167763">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Offer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/Offer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataAccess.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataAccess/DataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="15" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#915#916#0" expanded="false" />
-                <element signature="e#941#942#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Persona.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/Persona.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="81" column="16" selection-start-line="81" selection-start-column="15" selection-end-line="81" selection-end-column="16" />
-              <folding>
-                <element signature="e#573#574#0" expanded="false" />
-                <element signature="e#604#605#0" expanded="false" />
-                <element signature="e#652#653#0" expanded="false" />
-                <element signature="e#692#693#0" expanded="false" />
-                <element signature="e#723#724#0" expanded="false" />
-                <element signature="e#750#751#0" expanded="false" />
-                <element signature="e#790#791#0" expanded="false" />
-                <element signature="e#822#823#0" expanded="false" />
-                <element signature="e#857#858#0" expanded="false" />
-                <element signature="e#888#889#0" expanded="false" />
-                <element signature="e#936#937#0" expanded="false" />
-                <element signature="e#976#977#0" expanded="false" />
-                <element signature="e#1009#1010#0" expanded="false" />
-                <element signature="e#1038#1039#0" expanded="false" />
-                <element signature="e#1082#1083#0" expanded="false" />
-                <element signature="e#1118#1119#0" expanded="false" />
-                <element signature="e#1148#1149#0" expanded="false" />
-                <element signature="e#1177#1178#0" expanded="false" />
-                <element signature="e#1218#1219#0" expanded="false" />
-                <element signature="e#1254#1255#0" expanded="false" />
-                <element signature="e#1284#1285#0" expanded="false" />
-                <element signature="e#1310#1311#0" expanded="false" />
-                <element signature="e#1348#1349#0" expanded="false" />
-                <element signature="e#1378#1379#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -244,22 +86,22 @@
         <option value="$PROJECT_DIR$/src/gui/FichaGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/PanelCard.java" />
         <option value="$PROJECT_DIR$/src/gui/AjustesGUI.java" />
-        <option value="$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/NewRHGUI.java" />
-        <option value="$PROJECT_DIR$/src/gui/ReservarGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/SetAvailabilityGUI.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/gui/MisCasas.java" />
         <option value="$PROJECT_DIR$/src/domain/RuralHouse.java" />
-        <option value="$PROJECT_DIR$/src/domain/Propietario.java" />
         <option value="$PROJECT_DIR$/src/domain/Persona.java" />
         <option value="$PROJECT_DIR$/src/businessLogic/ruralManagerLogic.java" />
         <option value="$PROJECT_DIR$/src/gui/ReservasPropietarioGUI.java" />
         <option value="$PROJECT_DIR$/src/businessLogic/rhLogica.java" />
-        <option value="$PROJECT_DIR$/src/dataAccess/DataAccess.java" />
         <option value="$PROJECT_DIR$/src/domain/Reserva.java" />
         <option value="$PROJECT_DIR$/src/domain/Offer.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/domain/Propietario.java" />
+        <option value="$PROJECT_DIR$/src/dataAccess/DataAccess.java" />
+        <option value="$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/ReservarGUI.java" />
       </list>
     </option>
   </component>
@@ -297,7 +139,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,81 +171,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataAccess" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WSRuralHouse-2016 2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="businessLogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -935,6 +705,7 @@
       <workItem from="1460318384391" duration="6973000" />
       <workItem from="1460370501714" duration="135000" />
       <workItem from="1460397994416" duration="1176000" />
+      <workItem from="1460490797241" duration="1990000" />
     </task>
     <task id="LOCAL-00001" summary="Logica busqueda hecha y arreglado lo de oscar">
       <created>1459431877679</created>
@@ -958,7 +729,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103421000" />
+    <option name="totallyTimeSpent" value="105411000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -971,7 +742,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -987,6 +758,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18383405" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="db4o" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -999,7 +771,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1100,12 +871,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
-          <folding>
-            <element signature="e#2091#2092#0" expanded="false" />
-            <element signature="e#2118#2119#0" expanded="false" />
-            <element signature="e#2169#2170#0" expanded="false" />
-            <element signature="e#2198#2199#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1147,12 +913,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2091#2092#0" expanded="false" />
-            <element signature="e#2118#2119#0" expanded="false" />
-            <element signature="e#2169#2170#0" expanded="false" />
-            <element signature="e#2198#2199#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1320,27 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.098684214">
-          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/ReservarGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
-          <folding>
-            <element signature="e#2091#2092#0" expanded="false" />
-            <element signature="e#2118#2119#0" expanded="false" />
-            <element signature="e#2169#2170#0" expanded="false" />
-            <element signature="e#2198#2199#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/LoginGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1393,14 +1133,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/ReservasPropietarioGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8388158">
-          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/businessLogic/ruralManagerLogic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46875">
@@ -1417,58 +1149,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/businessLogic/rhLogica.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18585527">
-          <caret line="240" column="86" selection-start-line="240" selection-start-column="86" selection-end-line="240" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataAccess/DataAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="15" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#915#916#0" expanded="false" />
-            <element signature="e#941#942#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Persona.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="16" selection-start-line="81" selection-start-column="15" selection-end-line="81" selection-end-column="16" />
-          <folding>
-            <element signature="e#573#574#0" expanded="false" />
-            <element signature="e#604#605#0" expanded="false" />
-            <element signature="e#652#653#0" expanded="false" />
-            <element signature="e#692#693#0" expanded="false" />
-            <element signature="e#723#724#0" expanded="false" />
-            <element signature="e#750#751#0" expanded="false" />
-            <element signature="e#790#791#0" expanded="false" />
-            <element signature="e#822#823#0" expanded="false" />
-            <element signature="e#857#858#0" expanded="false" />
-            <element signature="e#888#889#0" expanded="false" />
-            <element signature="e#936#937#0" expanded="false" />
-            <element signature="e#976#977#0" expanded="false" />
-            <element signature="e#1009#1010#0" expanded="false" />
-            <element signature="e#1038#1039#0" expanded="false" />
-            <element signature="e#1082#1083#0" expanded="false" />
-            <element signature="e#1118#1119#0" expanded="false" />
-            <element signature="e#1148#1149#0" expanded="false" />
-            <element signature="e#1177#1178#0" expanded="false" />
-            <element signature="e#1218#1219#0" expanded="false" />
-            <element signature="e#1254#1255#0" expanded="false" />
-            <element signature="e#1284#1285#0" expanded="false" />
-            <element signature="e#1310#1311#0" expanded="false" />
-            <element signature="e#1348#1349#0" expanded="false" />
-            <element signature="e#1378#1379#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,9 +1174,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Reserva.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4862843">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Cliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09351621">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="1.6359103">
           <caret line="123" column="45" selection-start-line="123" selection-start-column="45" selection-end-line="123" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1499,26 +1200,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/Cliente.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/ReservasPropietarioGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/Offer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.18421052">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/Reserva.java">
+    <entry file="file://$PROJECT_DIR$/src/dataAccess/DataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state vertical-scroll-proportion="-1.1480263">
+          <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1527,6 +1220,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6167763">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/BusquedaAvanzadaGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6151316">
+          <caret line="163" column="113" selection-start-line="163" selection-start-column="56" selection-end-line="163" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/businessLogic/rhLogica.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2697369">
+          <caret line="245" column="63" selection-start-line="245" selection-start-column="42" selection-end-line="245" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Offer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.024671054">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ReservarGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6832918">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding />
         </state>
       </provider>
