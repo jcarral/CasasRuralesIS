@@ -44,7 +44,7 @@ public class DataAccess
             reserva.setOffer(actualOffer);
             actualOffer.setReserva(reserva);
             db.store(reserva);
-            db.store(actualOffer);
+
             db.commit();
             db.close();
             System.out.println("Reserva almacenada: " + actualOffer.getReserva().toString());

@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class ReservarGUI extends JPanel implements PanelCard{
 
@@ -27,10 +28,12 @@ public class ReservarGUI extends JPanel implements PanelCard{
     private ruralManagerLogic logica;
     private List<RuralHouse> casas;
     private Offer ofertaReserva;
+    private ResourceBundle strings;
 
     ReservarGUI(ruralManagerLogic logica) {
 
         this.logica = logica;
+        strings = MainFrame.strings;
         this.casas = logica.getAllRuralHouses();
         this.add(setMainPane());
 
@@ -72,6 +75,12 @@ public class ReservarGUI extends JPanel implements PanelCard{
         return this;
     }
 
+    @Override
+    public void reloadFields() {
+        strings = MainFrame.strings;
+        btnConfirmar.setText(strings.getString("reservar.btnConfirmar"));
+    }
+
     public void setList(List<RuralHouse> lista) {
         casas = lista;
     }
@@ -89,7 +98,7 @@ public class ReservarGUI extends JPanel implements PanelCard{
     private JPanel setBtnPanel() {
         if (panelBtns == null) {
             panelBtns = new JPanel();
-            btnConfirmar = new JButton("Confirmar");
+            btnConfirmar = new JButton(strings.getString("reservar.btnConfirmar"));
             btnConfirmar.setEnabled(false);
             confirmHandler(btnConfirmar);
             panelBtns.add(btnConfirmar);
@@ -106,7 +115,7 @@ public class ReservarGUI extends JPanel implements PanelCard{
             } catch (OfertaNoExiste ofertaNoExiste) {
                 System.out.println(ofertaNoExiste.getMessage());
             }
-            JOptionPane.showMessageDialog(null, "Oferta reservada correctamente");
+            JOptionPane.showMessageDialog(null, strings.getString("reservar.reservada"));
             this.setVisible(false);
 
         });
@@ -151,12 +160,19 @@ public class ReservarGUI extends JPanel implements PanelCard{
 
     private String textoResumenOferta(Offer of) {
         RuralHouse rh = of.getRuralHouse();
+
+        String nombre = strings.getString("reservar.Nombre"),
+                localidad = strings.getString("reservar.Localidad"),
+                inicioOferta = strings.getString("reservar.Inicio"),
+                finOferta = strings.getString("reservar.Fin"),
+                precio = strings.getString("reservar.Precio");
+
         String res = "<h2>Resumen oferta</h2>\n" +
-                "  <div><strong>Nombre casa rural:</strong> <p> " + rh.getNombre() + "</p></div>\n" +
-                "  <div><strong>Localidad:</strong> <p>" + rh.getCity() + "</p></div>\n" +
-                "  <div><strong>Inicio oferta:</strong> <p>" + of.getFirstDay() + "</p></div>\n" +
-                "  <div><strong>Fin Oferta: </strong> <p>" + of.getLastDay() + "</p></div>\n" +
-                "  <div><strong>Precio:</strong> <p> " + of.getPrice() + "€ </p></div>\n";
+                "  <div><strong>" + nombre + "</strong> <p> " + rh.getNombre() + "</p></div>\n" +
+                "  <div><strong>" + localidad + "</strong> <p>" + rh.getCity() + "</p></div>\n" +
+                "  <div><strong> "+ inicioOferta +" </strong> <p>" + of.getFirstDay() + "</p></div>\n" +
+                "  <div><strong>"+ finOferta +"</strong> <p>" + of.getLastDay() + "</p></div>\n" +
+                "  <div><strong>" + precio + "</strong> <p> " + of.getPrice() + "€ </p></div>\n";
 
         return res;
     }

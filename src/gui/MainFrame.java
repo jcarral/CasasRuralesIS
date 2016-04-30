@@ -7,7 +7,7 @@ import domain.RuralHouse;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.List;
 
 
@@ -15,18 +15,30 @@ public class MainFrame extends JFrame {
 
     //UI components
     private JMenuBar menuBar;
-    private JPanel contentPanel, cReserva;
+    private JPanel contentPanel;
     private JButton[] botonesMenu = new JButton[7];
+    private JButton btntabla;
+    JLabel lblBienvenido;
+
+    //Cards panels
+    private BusquedaAvanzadaGUI bus;
+    private AjustesGUI edit;
+    private SetAvailabilityGUI addOferta;
 
     //Atributos clase
     private ruralManagerLogic logica;
     private int tipo;
     private ReservarGUI reserva;
+    private NewRHGUI newRh;
+
+    public static ResourceBundle strings;
+    private HashMap<String, Locale> idiomas;
 
     //Constantes
     private final int INICIO = 0, BUSCAR = 1, RESERVAR = 2, ADDCASA = 3, ADDOFFER = 4, AJUSTES = 5, SALIR = 6;
     private final int CLIENTE = 0, PROPIETARIO = 1;
     private final String[] menu = {"Inicio", "Buscar", "Reservar", "+Casa", "+Oferta", "Ajustes", "Salir"};
+
 
 
     MainFrame(ruralManagerLogic logica, int tipo) {
@@ -36,13 +48,17 @@ public class MainFrame extends JFrame {
 
         ImageIcon icon = new ImageIcon("images/icon.png");
         this.setIconImage(icon.getImage());
+        languageSettings();
 
         this.setJMenuBar(setMenuBar());
-        this.add(setContentPane());
 
+        this.add(setContainerPanel());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(520, 550);
+        this.setSize(520, 570);
         this.setResizable(false);
+
+
+
         this.setVisible(true);
     }
 
@@ -58,6 +74,39 @@ public class MainFrame extends JFrame {
 
     }
 
+    public ResourceBundle getStrings() {
+        return strings;
+    }
+
+    private JPanel setContainerPanel(){
+        JPanel mainPane = new JPanel();
+        mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.PAGE_AXIS));
+        mainPane.add(setLanguagesPane());
+        mainPane.add(setContentPane());
+        return mainPane;
+    }
+
+    private JPanel setLanguagesPane(){
+        JPanel lanPane = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        String[] listaIdiomas = {"ingles", "castellano", "chino", "frances", "turco", "swahili", "euskera"};
+
+        JComboBox combo = new JComboBox(listaIdiomas);;
+        lanPane.add(combo);
+        lanPane.setBackground(new Color(240, 240, 240));
+
+        combo.addActionListener(e->{
+            System.out.println(combo.getSelectedItem());
+            strings = ResourceBundle.getBundle("languages/Idioma", idiomas.get((String) combo.getSelectedItem()));
+            bus.reloadFields();
+            edit.reloadFields();
+            newRh.reloadFields();
+            reserva.reloadFields();
+            addOferta.reloadFields();
+            reloadMain();
+        });
+
+        return lanPane;
+    }
     private JPanel setContentPane() {
         if (contentPanel == null) {
             contentPanel = new JPanel(new CardLayout());
@@ -66,19 +115,19 @@ public class MainFrame extends JFrame {
             JPanel pHome = new JPanel();
             pHome.add(setMainPanel());
 
-            BusquedaAvanzadaGUI bus = new BusquedaAvanzadaGUI(logica);
+            bus = new BusquedaAvanzadaGUI(logica);
             JPanel cBusqueda = bus.getPanel();
 
-            AjustesGUI edit = new AjustesGUI(logica);
+            edit = new AjustesGUI(logica);
             JPanel cEdit = edit.getPanel();
 
-            NewRHGUI newRh = new NewRHGUI(logica);
+            newRh = new NewRHGUI(logica);
             JPanel cNewRh = newRh.getPanel();
 
             reserva = new ReservarGUI(logica);
-            cReserva = reserva.getPanel();
+            JPanel cReserva = reserva.getPanel();
 
-            SetAvailabilityGUI addOferta = new SetAvailabilityGUI(logica);
+            addOferta = new SetAvailabilityGUI(logica);
             JPanel cOferta = addOferta.getPanel();
 
             contentPanel.add(pHome, menu[INICIO]);
@@ -143,7 +192,7 @@ public class MainFrame extends JFrame {
         JButton btn = (JButton) e.getSource();
 
         if (btn.equals(botonesMenu[RESERVAR])) {
-            reserva.setList(logica.getAllRuralHouses());
+            reserva.setList(logica.getUsersRuralHouses());
         }
 
         CardLayout c1 = (CardLayout) contentPanel.getLayout();
@@ -155,7 +204,7 @@ public class MainFrame extends JFrame {
     private JPanel setMainPanel() {
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setPreferredSize(new Dimension(520, 460));
-        JLabel lblBienvenido = new JLabel("Bienvenido a ScrumMasters RuralHouses");
+        lblBienvenido = new JLabel(strings.getString("main.bienvenido"));
         lblBienvenido.setHorizontalAlignment(JLabel.CENTER);
         lblBienvenido.setFont(new Font("Tahoma", Font.PLAIN, 24));
 
@@ -175,7 +224,7 @@ public class MainFrame extends JFrame {
         if (tipo == CLIENTE) {
 
         } else {
-            JButton btntabla = new JButton("Ver las reservas a mis casas");
+            btntabla = new JButton(strings.getString("main.btnReservas"));
             btntabla.addActionListener(e->{
                 new ReservasPropietarioGUI(logica);
             });
@@ -186,5 +235,25 @@ public class MainFrame extends JFrame {
         }
 
         return centerPanel;
+    }
+
+    private void languageSettings(){
+
+        idiomas = new HashMap<>();
+
+        idiomas.put("ingles", new Locale("en", "US"));
+        idiomas.put("castellano", new Locale("es", "ES"));
+        idiomas.put("chino", new Locale("zh", "CN"));
+        idiomas.put("frances", new Locale("fr", "FR"));
+        idiomas.put("turco", new Locale("tr", "TR"));
+        idiomas.put("swahili", new Locale("sw", "KE"));
+        idiomas.put("euskera", new Locale("eu", "EU"));
+
+        strings = ResourceBundle.getBundle("languages/Idioma", Locale.getDefault());
+    }
+
+    private void reloadMain(){
+        btntabla.setText(strings.getString("main.btnReservas"));
+        lblBienvenido.setText(strings.getString("main.bienvenido"));
     }
 }

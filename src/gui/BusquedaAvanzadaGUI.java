@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.Vector;
 
 public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
@@ -25,10 +26,13 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
     private JList listRH;
     private DefaultListModel listModel;
     private JScrollPane scrollPaneList;
-    private JButton btnReserves, btnFicha;
+    private JButton btnReserves, btnFicha, btnBuscar;
+    private JLabel lblCity, lblLista, lblNombre, lblMin, lblMax, lblHabitaciones, lblBanios, lblDir;
 
     //Logica de negocio de la aplicación
     private ruralManagerLogic logica;
+
+    private ResourceBundle strings;
 
     protected Component frame;
 
@@ -40,6 +44,8 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
     public BusquedaAvanzadaGUI(ruralManagerLogic logica) {
 
         this.logica = logica;
+        MainFrame miframe = (MainFrame) SwingUtilities.getRoot(this);
+        strings = MainFrame.strings;
         add(setMainPanel());
 
         this.addComponentListener(new ComponentListener() {
@@ -69,13 +75,31 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
         return this;
     }
 
+    @Override
+    public void reloadFields() {
+        strings = MainFrame.strings;
+
+        lblCity.setText(strings.getString("busqueda.lblCiudad"));
+        lblLista.setText(strings.getString("busqueda.lblLista"));
+        lblNombre.setText(strings.getString("busqueda.lblNombre"));
+        lblBanios.setText(strings.getString("busqueda.lblBanios"));
+        lblHabitaciones.setText(strings.getString("busqueda.lblHabitaciones"));
+        lblMax.setText(strings.getString("busqueda.lblMax"));
+        lblMin.setText(strings.getString("busqueda.lblMin"));
+        lblDir.setText(strings.getString("busqueda.lblDir"));
+        btnFicha.setText(strings.getString("busqueda.btnFicha"));
+        btnReserves.setText(strings.getString("busqueda.btnReservas"));
+        btnBuscar.setText(strings.getString("busqueda.btnBuscar"));
+
+    }
+
     private JPanel setMainPanel() {
         if (mainPane == null) {
             mainPane = new JPanel();
             mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.PAGE_AXIS));
 
             JPanel tituloPane = new JPanel(new FlowLayout());
-            JLabel infoTitulo = new JLabel("Introduce los parámetros por los que quieres buscar casa: ");
+            JLabel infoTitulo = new JLabel(strings.getString("busqueda.titulo"));
             tituloPane.add(infoTitulo);
 
             mainPane.add(tituloPane);
@@ -97,14 +121,14 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
         if (reservePane == null) {
             reservePane = new JPanel(new FlowLayout());
 
-            btnFicha = new JButton("Ver la ficha");
+            btnFicha = new JButton(strings.getString("busqueda.btnFicha"));
             btnFicha.setEnabled(false);
             btnFicha.addActionListener(e -> {
                 RuralHouse rh = (RuralHouse) listModel.getElementAt(listRH.getSelectedIndex());
                 new FichaGUI(rh);
             });
 
-            btnReserves = new JButton("Ir a reservar la casa seleccionada");
+            btnReserves = new JButton(strings.getString("busqueda.btnReservas"));
             btnReserves.setSize(400, 20);
             btnReserves.setEnabled(false);
             btnReserves.addActionListener(e -> {
@@ -131,7 +155,7 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
         //Boton//
         JPanel btnBuscarPanel = new JPanel(new FlowLayout());
         Icon edit = new ImageIcon("images/search.png");
-        JButton btnBuscar = new JButton("Buscar", edit);
+        btnBuscar = new JButton(strings.getString("busqueda.btnBuscar"), edit);
         btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btnBuscar.setPreferredSize(new Dimension(500, 30));
         btnBuscar.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -145,7 +169,7 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
             if (min > max) {
 
                 JOptionPane.showMessageDialog(frame,
-                        "Hay algun campo incorrecto o vacio",
+                        strings.getString("busqueda.alert"),
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
             } else {
@@ -181,9 +205,9 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
             scrollPaneList = new JScrollPane(listRH);
             listPane.setBackground(estilosGUI.bckGray);
             listPane.setBorder(BorderFactory.createMatteBorder(3, 0, 0, 0, Color.BLACK));
-            JLabel lbl = new JLabel("Lista de casas: ");
-            lbl.setAlignmentX(Component.LEFT_ALIGNMENT);
-            listPane.add(lbl);
+            lblLista = new JLabel(strings.getString("busqueda.lblLista"));
+            lblLista.setAlignmentX(Component.LEFT_ALIGNMENT);
+            listPane.add(lblLista);
             listPane.add(scrollPaneList);
             searchList(null, null, null, 0, 0, 0, 0); //Todas las casas al principio
             listRH.addListSelectionListener(e -> {
@@ -202,28 +226,28 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
             dataPane.setPreferredSize(new Dimension(500, 200));
             dataPane.setBorder(new EmptyBorder(20, 20, 20, 20));
             //Fila1: Nombre casa
-            JLabel lblNombre = new JLabel("Casa:");
+            lblNombre = new JLabel(strings.getString("busqueda.lblNombre"));
             lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 15));
             insertarCasa = new JTextField(10);
             dataPane.add(lblNombre);
             dataPane.add(insertarCasa);
 
             //Fila2: Ciudad
-            JLabel lblCity = new JLabel("Ciudad:");
+            lblCity = new JLabel(strings.getString("busqueda.lblCiudad"));
             lblCity.setFont(new Font("Tahoma", Font.PLAIN, 15));
             insertarCity = new JTextField(10);
             dataPane.add(lblCity);
             dataPane.add(insertarCity);
 
             //Fila3: Direccion
-            JLabel lblDir = new JLabel("Dirección: ");
+            lblDir = new JLabel(strings.getString("busqueda.lblDir"));
             lblDir.setFont(new Font("Tahoma", Font.PLAIN, 15));
             insertarDir = new JTextField(10);
             dataPane.add(lblDir);
             dataPane.add(insertarDir);
 
             //Fila4: Precio minimo
-            JLabel lblMin = new JLabel("Precio mínimo");
+            lblMin = new JLabel(strings.getString("busqueda.lblMin"));
             lblMin.setFont(new Font("Tahoma", Font.PLAIN, 15));
             insertarMinPrecio = new JTextField(5);
             insertarMinPrecio.addFocusListener(new SoloNumeros());
@@ -231,7 +255,7 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
             dataPane.add(insertarMinPrecio);
 
             //Fila5: Precio máximo
-            JLabel lblMax = new JLabel("Precio máximo");
+            lblMax = new JLabel(strings.getString("busqueda.lblMax"));
             lblMax.setFont(new Font("Tahoma", Font.PLAIN, 15));
             insertarMaxPrecio = new JTextField(5);
             insertarMaxPrecio.addFocusListener(new SoloNumeros());
@@ -239,7 +263,7 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
             dataPane.add(insertarMaxPrecio);
 
             //Fila6: Numero habitaciones
-            JLabel lblHabitaciones = new JLabel("Numero habitaciones:");
+            lblHabitaciones = new JLabel(strings.getString("busqueda.lblHabitaciones"));
             lblHabitaciones.setFont(new Font("Tahoma", Font.PLAIN, 15));
             insertarHabitaciones = new JTextField(5);
             insertarHabitaciones.addFocusListener(new SoloNumeros());
@@ -247,7 +271,7 @@ public class BusquedaAvanzadaGUI extends JPanel implements PanelCard{
             dataPane.add(insertarHabitaciones);
 
             //Fila7: Numero baños
-            JLabel lblBanios = new JLabel("Número de baños: ");
+            lblBanios = new JLabel(strings.getString("busqueda.lblBanios"));
             lblBanios.setFont(new Font("Tahoma", Font.PLAIN, 15));
             insertarBanios = new JTextField(5);
             insertarBanios.addFocusListener(new SoloNumeros());

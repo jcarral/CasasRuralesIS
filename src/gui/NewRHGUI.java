@@ -14,6 +14,7 @@ import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 /**
  * Created by joseba on 25/2/16.
@@ -31,8 +32,10 @@ public class NewRHGUI extends JPanel implements PanelCard{
     private JTextField tfNombre, tfCiudad, tfDir, tfNumTel, tfHabs, tfBan;
     private JTextArea taDesc;
     private JButton btnAceptar;
+    private JLabel lblNombre, lblCiudad, lblTel, lblDir, lblHabitaciones, lblBanios, lblDescripcion;
 
     private String imagePath;
+    private ResourceBundle strings;
 
     /**
      * Constructor
@@ -42,6 +45,7 @@ public class NewRHGUI extends JPanel implements PanelCard{
     NewRHGUI(ruralManagerLogic logica) {
 
         this.logica = logica;
+        strings = MainFrame.strings;
         add(setMainPane());
         setVisible(true);
         renderingHandler();
@@ -49,6 +53,21 @@ public class NewRHGUI extends JPanel implements PanelCard{
 
     public JPanel getPanel() {
         return this;
+    }
+
+    @Override
+    public void reloadFields() {
+        strings = MainFrame.strings;
+
+        lblNombre.setText(strings.getString("nueva.lblNombre"));
+        lblCiudad.setText(strings.getString("nueva.lblCiudad"));
+        lblTel.setText(strings.getString("nueva.lblTel"));
+        lblDir.setText(strings.getString("nueva.lblDir"));
+        lblHabitaciones.setText(strings.getString("nueva.lblHabitaciones"));
+        lblBanios.setText(strings.getString("nueva.lblBanios"));
+        lblDescripcion.setText(strings.getString("nueva.lblDescripcion"));
+        btnAceptar.setText(strings.getString("nueva.btnAceptar"));
+
     }
 
     //JPanel principal
@@ -70,34 +89,42 @@ public class NewRHGUI extends JPanel implements PanelCard{
             infoPane = new JPanel();
             infoPane.setPreferredSize(new Dimension(400, 400));
             infoPane.setLayout(new BoxLayout(infoPane, BoxLayout.PAGE_AXIS));
-            infoPane.add(new JLabel("Nombre de la casa: "));
+
+            lblNombre = new JLabel(strings.getString("nueva.lblNombre"));
+            infoPane.add(lblNombre);
             tfNombre = new JTextField(17);
             infoPane.add(tfNombre);
 
-            infoPane.add(new JLabel("Ciudad: "));
+            lblCiudad = new JLabel(strings.getString("nueva.lblCiudad"));
+            infoPane.add(lblCiudad);
             tfCiudad = new JTextField(17);
             infoPane.add(tfCiudad);
 
-            infoPane.add(new JLabel("Numero de telefono: "));
+            lblTel = new JLabel(strings.getString("nueva.lblTel"));
+            infoPane.add(lblTel);
             tfNumTel = new JTextField(17);
             tfNumTel.addFocusListener(new SoloNumeros());
             infoPane.add(tfNumTel);
 
-            infoPane.add(new JLabel("Dirección: "));
+            lblDir = new JLabel(strings.getString("nueva.lblDir"));
+            infoPane.add(lblDir);
             tfDir = new JTextField(17);
             infoPane.add(tfDir);
 
-            infoPane.add(new JLabel("Número de habitaciones: "));
+            lblHabitaciones = new JLabel(strings.getString("nueva.lblHabitaciones"));
+            infoPane.add(lblHabitaciones);
             tfHabs = new JTextField(17);
             tfHabs.addFocusListener(new SoloNumeros());
             infoPane.add(tfHabs);
 
-            infoPane.add(new JLabel("Número de baños: "));
+            lblBanios = new JLabel(strings.getString("nueva.lblBanios"));
+            infoPane.add(lblBanios);
             tfBan = new JTextField(17);
             tfBan.addFocusListener(new SoloNumeros());
             infoPane.add(tfBan);
 
-            infoPane.add(new JLabel("Descripción sobre la casa rural"));
+            lblDescripcion = new JLabel(strings.getString("nueva.lblDescripcion"));
+            infoPane.add(lblDescripcion);
 
             taDesc = new JTextArea(17, 5);
             JScrollPane scrollText = new JScrollPane(taDesc);
@@ -155,20 +182,20 @@ public class NewRHGUI extends JPanel implements PanelCard{
 
         if (btnPane == null) {
             btnPane = new JPanel();
-            btnAceptar = new JButton("Aceptar");
+            btnAceptar = new JButton(strings.getString("nueva.btnAceptar"));
             btnAceptar.addActionListener(e -> {
 
                         if (numeroCamposLibres() == 0) {
                             try {
                                 logica.storeRH(tfNombre.getText(), tfCiudad.getText(), tfDir.getText(), Integer.parseInt(tfNumTel.getText()),
                                         taDesc.getText(), Integer.parseInt(tfHabs.getText()), Integer.parseInt(tfBan.getText()));
-                                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                                JOptionPane.showMessageDialog(null, strings.getString("nueva.guardada"));
 
                             } catch (UsuarioNoExiste ex) {
-                                JOptionPane.showMessageDialog(null, "No se han podido guardar los datos, intentalos más tarde");
+                                JOptionPane.showMessageDialog(null, strings.getString("nueva.error.generico"));
                             }
                         } else {
-                            JOptionPane.showMessageDialog(null, "No has rellenado todos los campos");
+                            JOptionPane.showMessageDialog(null, strings.getString("nueva.error.camposVacios"));
                         }
                     }
             );

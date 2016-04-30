@@ -42,10 +42,13 @@ public class SetAvailabilityGUI extends JPanel implements PanelCard{
 
     //Logica de negocio
     ruralManagerLogic logica;
+    ResourceBundle strings;
 
     public SetAvailabilityGUI(ruralManagerLogic logica) {
 
         this.logica = logica;
+        strings = MainFrame.strings;
+
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.setPreferredSize(new Dimension(450, 400));
         try {
@@ -88,6 +91,17 @@ public class SetAvailabilityGUI extends JPanel implements PanelCard{
         return this;
     }
 
+    @Override
+    public void reloadFields() {
+        strings = MainFrame.strings;
+        lblListaCasas.setText(strings.getString("ofertar.lblListaCasas"));
+        btnAceptar.setText(strings.getString("ofertar.btnAceptar"));
+        btnCancelar.setText(strings.getString("ofertar.btnCancelar"));
+        lblPrimerDia.setText(strings.getString("ofertar.lblPrimerDia"));
+        lblUltimoDia.setText(strings.getString("ofertar.lblUltimoDia"));
+        lblPrecio.setText(strings.getString("ofertar.lblPrecio"));
+    }
+
     private void jbInit(Vector<RuralHouse> v) throws Exception {
 
         this.setPreferredSize(new Dimension(500, 453));
@@ -95,7 +109,7 @@ public class SetAvailabilityGUI extends JPanel implements PanelCard{
         jComboBox1 = new JComboBox();
         comboModel = new DefaultComboBoxModel(v);
         jComboBox1.setModel(comboModel);
-        lblListaCasas.setText("List of houses:");
+        lblListaCasas.setText(strings.getString("ofertar.lblListaCasas"));
 
         jLabel5.setForeground(Color.red);
         this.add(setCalendarPanel());
@@ -113,7 +127,7 @@ public class SetAvailabilityGUI extends JPanel implements PanelCard{
     private JPanel setBtnPanel() {
         JPanel panelBtn = new JPanel();
         //Boton aceptar
-        btnAceptar.setText("Aceptar");
+        btnAceptar.setText(strings.getString("ofertar.btnAceptar"));
 
         btnAceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -122,7 +136,7 @@ public class SetAvailabilityGUI extends JPanel implements PanelCard{
         });
 
         //Boton cancelar
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText(strings.getString("ofertar.btnCancelar"));
 
         btnCancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -181,12 +195,12 @@ public class SetAvailabilityGUI extends JPanel implements PanelCard{
         JPanel panelData = new JPanel(new GridLayout(3, 2));
 
         panelData.setPreferredSize(new Dimension(400, 75));
-        lblPrimerDia.setText("Primer dia :");
+        lblPrimerDia.setText(strings.getString("ofertar.lblPrimerDia"));
         jTextField1.setEditable(false);
-        lblUltimoDia.setText("Ultimo dia :");
+        lblUltimoDia.setText(strings.getString("ofertar.lblUltimoDia"));
 
         jTextField2.setEditable(false);
-        lblPrecio.setText("Precio:");
+        lblPrecio.setText(strings.getString("ofertar.lblPrecio"));
 
         tfPrice.setText("0");
 
@@ -238,7 +252,7 @@ public class SetAvailabilityGUI extends JPanel implements PanelCard{
             if (o == null)
                 jLabel5.setText("Bad dates or there exists an overlapping offer");
             else {
-                JOptionPane.showMessageDialog(null, "Oferta creada correctamente");
+                JOptionPane.showMessageDialog(null, strings.getString("ofertar.creada"));
                 this.setVisible(false);
             }
 
@@ -263,7 +277,7 @@ public class SetAvailabilityGUI extends JPanel implements PanelCard{
             new Integer(tfPrice.getText());
             jLabel5.setText("");
         } catch (NumberFormatException ex) {
-            jLabel5.setText("Error: Introduce a number");
+            jLabel5.setText(strings.getString("ofertar.error.numeros"));
         }
     }
 }
