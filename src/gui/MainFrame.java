@@ -2,7 +2,9 @@ package gui;
 
 import businessLogic.ruralManagerLogic;
 import domain.Offer;
+import domain.Reserva;
 import domain.RuralHouse;
+import exceptions.OfertaNoExiste;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +20,8 @@ public class MainFrame extends JFrame {
     private JPanel contentPanel;
     private JButton[] botonesMenu = new JButton[7];
     private JButton btntabla;
-    JLabel lblBienvenido;
+    private DefaultListModel model;
+    private JLabel lblBienvenido;
 
     //Cards panels
     private BusquedaAvanzadaGUI bus;
@@ -54,7 +57,7 @@ public class MainFrame extends JFrame {
 
         this.add(setContainerPanel());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(520, 570);
+        this.setSize(520, 590);
         this.setResizable(false);
 
 
@@ -192,7 +195,7 @@ public class MainFrame extends JFrame {
         JButton btn = (JButton) e.getSource();
 
         if (btn.equals(botonesMenu[RESERVAR])) {
-            reserva.setList(logica.getUsersRuralHouses());
+            reserva.setList(logica.getAllRuralHouses());
         }
 
         CardLayout c1 = (CardLayout) contentPanel.getLayout();
@@ -221,21 +224,28 @@ public class MainFrame extends JFrame {
     private JPanel setCenterContent() {
         JPanel centerPanel = new JPanel();
 
-        if (tipo == CLIENTE) {
-
-        } else {
+        if (tipo == PROPIETARIO) {
             btntabla = new JButton(strings.getString("main.btnReservas"));
             btntabla.addActionListener(e->{
                 new ReservasPropietarioGUI(logica);
             });
-
             centerPanel.add(btntabla);
-
-
         }
-
+        JButton btnMisOfertas = new JButton("Ver mis reservas");
+        btnMisOfertas.addActionListener(e->{
+            new MisReservas(logica);
+        });
+        centerPanel.add(btnMisOfertas);
         return centerPanel;
     }
+
+
+    private void reloadMain(){
+        btntabla.setText(strings.getString("main.btnReservas"));
+        lblBienvenido.setText(strings.getString("main.bienvenido"));
+    }
+
+
 
     private void languageSettings(){
 
@@ -250,10 +260,5 @@ public class MainFrame extends JFrame {
         idiomas.put("euskera", new Locale("eu", "EU"));
 
         strings = ResourceBundle.getBundle("languages/Idioma", Locale.getDefault());
-    }
-
-    private void reloadMain(){
-        btntabla.setText(strings.getString("main.btnReservas"));
-        lblBienvenido.setText(strings.getString("main.bienvenido"));
     }
 }

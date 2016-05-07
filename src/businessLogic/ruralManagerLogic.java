@@ -2,6 +2,7 @@ package businessLogic;
 
 import domain.Offer;
 import domain.Persona;
+import domain.Reserva;
 import domain.RuralHouse;
 import exceptions.*;
 
@@ -26,4 +27,6 @@ public interface ruralManagerLogic {
     List<RuralHouse> searchUsingFilter(String nombre, String ciudad, String direccion, int min, int max, int habitaciones, int banios);
     void confirmarReserva(Offer of) throws UsuarioNoExiste, OfertaNoExiste;
     Vector<Vector<String>> reservedRHInfo();
+    List<Reserva> obtainReservedOffers();
+    void cancelarReserva(Reserva r) throws OfertaNoExiste;
 }

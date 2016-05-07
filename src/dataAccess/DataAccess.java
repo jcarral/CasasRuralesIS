@@ -9,6 +9,7 @@ import exceptions.OfertaNoExiste;
 import exceptions.OfertaRepetida;
 import exceptions.UsuarioNoExiste;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
@@ -226,5 +227,37 @@ public class DataAccess
 
 
         return res;
+    }
+
+    public List<Reserva> obtainOffersReservedBy(Persona p){
+        openDB();
+        Reserva reserva = new Reserva(p);
+        reserva.setFechaReserva(null);
+        reserva.setReservaID(null);
+        List<Reserva> res = db.queryByExample(reserva);
+        List<Reserva> resultado = new ArrayList<>(res);
+        closeDb();
+        return resultado;
+    }
+
+    public void borrarOferta(Reserva r) throws OfertaNoExiste{
+        openDB();
+        //List<Offer> resOf = db.queryByExample(of);
+        //List<Persona> resPer = db.queryByExample(p);
+        Reserva resAux = new Reserva(null);
+        resAux.createBlankReserve(r.getReservaID());
+        List<Reserva> res = db.queryByExample(resAux);
+        if(res.isEmpty() ){
+            closeDb();
+            throw new OfertaNoExiste("La oferta que se quiere borrar no existe");
+        }
+
+
+        Offer oferta = res.get(0).getOferta();
+        db.delete(res.get(0));
+        oferta.setReserva(null);
+        db.store(oferta);
+        db.commit();
+        closeDb();
     }
 }

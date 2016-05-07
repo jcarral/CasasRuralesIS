@@ -286,4 +286,18 @@ public class rhLogica implements ruralManagerLogic {
         DataAccess dataManager = new DataAccess();
         actualUser = dataManager.updateUser(actualUser);
     }
+
+    @Override
+    public List<Reserva> obtainReservedOffers(){
+        DataAccess dataManager = new DataAccess();
+        return dataManager.obtainOffersReservedBy(actualUser);
+    }
+
+
+    @Override
+    public void cancelarReserva(Reserva r) throws OfertaNoExiste {
+        DataAccess dataManager = new DataAccess();
+        dataManager.borrarOferta(r);
+
+    }
 }
