@@ -53,7 +53,6 @@ public class ReservarGUI extends JPanel implements PanelCard{
                 searchOffers(casas);
 
                 listener = ev -> { //El listener da problemas para actualizar los modelos de los cardlayouts
-                    System.out.println("Seleccionada");
                     ofertaReserva = (Offer) comboModel.getElementAt(comboList.getSelectedIndex());
                     editorPane.setText(textoResumenOferta(ofertaReserva));
                     btnConfirmar.setEnabled(true);

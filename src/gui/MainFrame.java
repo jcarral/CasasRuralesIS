@@ -1,6 +1,7 @@
 package gui;
 
 import businessLogic.ruralManagerLogic;
+import com.sun.xml.internal.ws.api.config.management.policy.ManagementAssertion;
 import domain.Offer;
 import domain.Reserva;
 import domain.RuralHouse;
@@ -9,8 +10,13 @@ import exceptions.OfertaNoExiste;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class MainFrame extends JFrame {
@@ -19,7 +25,7 @@ public class MainFrame extends JFrame {
     private JMenuBar menuBar;
     private JPanel contentPanel;
     private JButton[] botonesMenu = new JButton[7];
-    private JButton btntabla;
+    private JButton btntabla, btnMisOfertas;
     private DefaultListModel model;
     private JLabel lblBienvenido;
 
@@ -91,7 +97,7 @@ public class MainFrame extends JFrame {
 
     private JPanel setLanguagesPane(){
         JPanel lanPane = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        String[] listaIdiomas = {"ingles", "castellano", "chino", "frances", "turco", "swahili", "euskera"};
+        String[] listaIdiomas = {"castellano", "ingles","chino", "frances", "turco", "swahili", "euskera"};
 
         JComboBox combo = new JComboBox(listaIdiomas);;
         lanPane.add(combo);
@@ -224,6 +230,7 @@ public class MainFrame extends JFrame {
     private JPanel setCenterContent() {
         JPanel centerPanel = new JPanel();
 
+
         if (tipo == PROPIETARIO) {
             btntabla = new JButton(strings.getString("main.btnReservas"));
             btntabla.addActionListener(e->{
@@ -231,17 +238,43 @@ public class MainFrame extends JFrame {
             });
             centerPanel.add(btntabla);
         }
-        JButton btnMisOfertas = new JButton("Ver mis reservas");
+        btnMisOfertas = new JButton(strings.getString("main.btnVerMisReservas"));
         btnMisOfertas.addActionListener(e->{
             new MisReservas(logica);
         });
+
+        ImageIcon icono = new ImageIcon("images/web.png");
+        JButton btnWeb = new JButton(icono);
+        btnWeb.setBorderPainted(false);
+        btnWeb.setFocusPainted(false);
+        btnWeb.setContentAreaFilled(false);
+        btnWeb.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnWeb.addActionListener(e->{
+            try {
+
+                String url ="http://hadscasas.herokuapp.com";
+
+                Desktop dt = Desktop.getDesktop();
+                URI uri = new URI(url);
+                dt.browse(uri.resolve(uri));
+
+
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ManagementAssertion.Setting.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(ManagementAssertion.Setting.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
         centerPanel.add(btnMisOfertas);
+        centerPanel.add(btnWeb);
         return centerPanel;
     }
 
 
     private void reloadMain(){
         btntabla.setText(strings.getString("main.btnReservas"));
+        btnMisOfertas.setText(strings.getString("main.btnVerMisReservas"));
         lblBienvenido.setText(strings.getString("main.bienvenido"));
     }
 
@@ -251,8 +284,9 @@ public class MainFrame extends JFrame {
 
         idiomas = new HashMap<>();
 
-        idiomas.put("ingles", new Locale("en", "US"));
+
         idiomas.put("castellano", new Locale("es", "ES"));
+        idiomas.put("ingles", new Locale("en", "US"));
         idiomas.put("chino", new Locale("zh", "CN"));
         idiomas.put("frances", new Locale("fr", "FR"));
         idiomas.put("turco", new Locale("tr", "TR"));

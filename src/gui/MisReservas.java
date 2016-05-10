@@ -1,25 +1,35 @@
 package gui;
 
 import businessLogic.ruralManagerLogic;
+import com.sun.xml.internal.ws.api.config.management.policy.ManagementAssertion;
 import domain.Offer;
 import domain.Reserva;
 import exceptions.OfertaNoExiste;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MisReservas extends JFrame{
 
     private ruralManagerLogic logica;
+    private ResourceBundle strings;
 
     private JPanel mainPanel;
     private DefaultListModel model;
 
     public MisReservas(ruralManagerLogic logica){
-        super("Mis reservas");
+        super();
         this.setSize(new Dimension(520, 500));
         this.logica = logica;
+        strings = MainFrame.strings;
+        this.setTitle(strings.getString("misReservas.titulo"));
         this.add(setMainPanel());
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -30,7 +40,7 @@ public class MisReservas extends JFrame{
             mainPanel = new JPanel();
             model = new DefaultListModel();
             JList lista = new JList(model);
-            JButton btnBorrar = new JButton("Borrar");
+            JButton btnBorrar = new JButton(strings.getString("misReservas.btnBorrar"));
             btnBorrar.setEnabled(false);
             loadList();
             lista.addListSelectionListener(e->{
@@ -42,7 +52,7 @@ public class MisReservas extends JFrame{
                 }else{
                     btnBorrar.setEnabled(true);
                 }
-                System.out.println("Fecha actual: " + now + ", fecha limite: " + limitDay + ", fecha inicio" + fechaInicio);
+
             });
 
             btnBorrar.addActionListener(e->{
@@ -51,7 +61,7 @@ public class MisReservas extends JFrame{
                 try {
                     logica.cancelarReserva((Reserva) model.getElementAt(lista.getSelectedIndex()));
                     JOptionPane.showMessageDialog(null,
-                            "La oferta se ha borrado correctamente",
+                            strings.getString("misReservas.alerta"),
                             "OK",
                             JOptionPane.INFORMATION_MESSAGE);
                 } catch (OfertaNoExiste ofertaNoExiste) {
@@ -59,6 +69,7 @@ public class MisReservas extends JFrame{
                 }
                 this.setVisible(false);
             });
+
 
             mainPanel.add(lista);
             mainPanel.add(btnBorrar);
